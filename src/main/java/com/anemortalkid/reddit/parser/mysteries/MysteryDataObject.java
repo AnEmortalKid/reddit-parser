@@ -21,5 +21,9 @@ public class MysteryDataObject {
 	public String toGooleSpreadsheet() {
 		return bold + "\t" + regular;
 	}
+	
+	public String toCSV() {
+		return bold + "\t," + regular;
+	}
 
 }

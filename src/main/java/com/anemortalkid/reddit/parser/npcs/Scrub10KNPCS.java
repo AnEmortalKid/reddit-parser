@@ -16,6 +16,7 @@ import org.jsoup.select.Elements;
 public class Scrub10KNPCS {
 
 	private static final String redditLink = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3er483/lets_make_10000_npcs/";
+	private static final String Out_LOC = "src/main/resources/npcs";
 	private static List<NPCDataObject> dataPoints = new ArrayList<NPCDataObject>();
 
 	private static final int LAST_KNOWN_COUNT = 194;
@@ -98,25 +99,36 @@ public class Scrub10KNPCS {
 	}
 
 	private static void writeToFile() {
-		File outFile = new File(
-				"J:\\Workspaces\\redditparser\\reddit-parser\\src\\main\\resources\\npcs.csv");
+		File outFile_TXT = new File(Out_LOC + ".txt");
+		File outFile_CSV = new File(Out_LOC + ".csv");
 
 		int dataWritten = 0;
-		if (!outFile.exists()) {
+		if (!outFile_TXT.exists()) {
 			try {
-				outFile.createNewFile();
+				outFile_TXT.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		if (!outFile_CSV.exists()) {
+			try {
+				outFile_CSV.createNewFile();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 
 		try {
-			PrintWriter printWritter = new PrintWriter(outFile);
+			PrintWriter textWritter = new PrintWriter(outFile_TXT);
+			PrintWriter csvWritter = new PrintWriter(outFile_CSV);
 			for (NPCDataObject data : dataPoints) {
 				System.out.println("DataName: " + data.getBoldText());
-				printWritter.println(data.toGooleSpreadsheet());
+				textWritter.println(data.toGooleSpreadsheet());
+				csvWritter.println(data.toCSV());
 				dataWritten++;
-				printWritter.flush();
+				textWritter.flush();
+				csvWritter.flush();
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -152,7 +164,7 @@ public class Scrub10KNPCS {
 			return;
 		if (bold.contains("WELCOME") || italic.contains("WELCOME"))
 			return;
-		
+
 		NPCDataObject sd = new NPCDataObject(bold, italic, regular);
 		if (!dataPoints.contains(sd)) {
 			dataPoints.add(sd);

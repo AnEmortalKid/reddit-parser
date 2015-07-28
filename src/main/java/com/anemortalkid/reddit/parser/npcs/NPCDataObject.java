@@ -73,4 +73,8 @@ class NPCDataObject {
 	public String toGooleSpreadsheet() {
 		return name + "\t" + raceGenderOccupation + "\t" + flavorText;
 	}
+
+	public String toCSV() {
+		return name + "\t," + raceGenderOccupation + "\t," + flavorText;
+	}
 }

@@ -13,10 +13,12 @@ import org.jsoup.select.Elements;
 
 public class Scrub10KMysteries {
 
+	// private static final String Out_LOC =
+	// "J:\\Workspaces\\redditparser\\reddit-parser\\src\\main\\resources\\mysteries.csv";
+	private static final String Out_LOC = "src/main/resources/mysteries";
 	private static final String redditLink = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3evxgl/lets_make_10000_mysteries/";
 	private static List<MysteryDataObject> dataPoints = new ArrayList<MysteryDataObject>();
-
-	private static final int LAST_KNOWN_COUNT = 194;
+	private static final int LAST_KNOWN_COUNT = 35;
 
 	public static void main(String[] args) {
 
@@ -86,25 +88,36 @@ public class Scrub10KMysteries {
 	}
 
 	private static void writeToFile() {
-		File outFile = new File(
-				"J:\\Workspaces\\redditparser\\reddit-parser\\src\\main\\resources\\mysteries.csv");
+		File outFile_TXT = new File(Out_LOC + ".txt");
+		File outFile_CSV = new File(Out_LOC + ".csv");
 
 		int dataWritten = 0;
-		if (!outFile.exists()) {
+		if (!outFile_TXT.exists()) {
 			try {
-				outFile.createNewFile();
+				outFile_TXT.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		if (!outFile_CSV.exists()) {
+			try {
+				outFile_CSV.createNewFile();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 
 		try {
-			PrintWriter printWritter = new PrintWriter(outFile);
+			PrintWriter textWritter = new PrintWriter(outFile_TXT);
+			PrintWriter csvWritter = new PrintWriter(outFile_CSV);
 			for (MysteryDataObject data : dataPoints) {
 				System.out.println("DataName: " + data.getBold());
-				printWritter.println(data.toGooleSpreadsheet());
+				textWritter.println(data.toGooleSpreadsheet());
+				csvWritter.println(data.toCSV());
 				dataWritten++;
-				printWritter.flush();
+				textWritter.flush();
+				csvWritter.flush();
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
