@@ -1,8 +1,6 @@
 package com.anemortalkid.reddit.parser.npcs;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -13,18 +11,27 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.anemortalkid.reddit.parser.mysteries.MysteryDataObject;
+import com.anemortalkid.reddit.parser.dataobjects.DataObject;
 
 public class Scrub10KNPCS {
 
 	private static final String redditLink = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3er483/lets_make_10000_npcs/";
 	private static final String Out_LOC = "src/main/resources/npcs";
-	private static List<NPCDataObject> dataPoints = new ArrayList<NPCDataObject>();
+	private List<DataObject> dataPoints = new ArrayList<DataObject>();
 
-	private static final int LAST_KNOWN_COUNT = 320;
+	private static final int LAST_KNOWN_COUNT = 329;
+	
+	public Scrub10KNPCS()
+	{
+		compileData();
+	}
+	
+	public List<DataObject> getDataPoints() {
+		return dataPoints;
+	}
 
-	public static void main(String[] args) {
-
+	private void compileData()
+	{
 		try {
 			Document redditDoc = Jsoup.connect(redditLink).userAgent("Mozilla")
 					.get();
@@ -99,8 +106,8 @@ public class Scrub10KNPCS {
 		System.out.println(dataPoints.size());
 		writeToFile();
 	}
-
-	private static void writeToFile() {
+	
+	private void writeToFile() {
 		File outFile_TXT = new File(Out_LOC + ".txt");
 		File outFile_CSV = new File(Out_LOC + ".csv");
 		File outFile_table = new File(Out_LOC + "-tabledata.txt");
@@ -134,11 +141,11 @@ public class Scrub10KNPCS {
 			PrintWriter textWritter = new PrintWriter(outFile_TXT);
 			PrintWriter csvWritter = new PrintWriter(outFile_CSV);
 			PrintWriter tableWritter = new PrintWriter(outFile_table);
-			for (NPCDataObject data : dataPoints) {
-				System.out.println("DataName: " + data.getBoldText());
+			for (DataObject data : dataPoints) {
+				System.out.println("DataName: " + data.getDataIdentifier());
 				dataWritten++;
 
-				textWritter.println(data.toGooleSpreadsheet());
+				textWritter.println(data.toGoogleSpreadsheet());
 				csvWritter.println(data.toCSV());
 				tableWritter.println(data.toHTMLTableRow());
 
@@ -163,7 +170,7 @@ public class Scrub10KNPCS {
 		}
 	}
 
-	private static void constructIfRequiredPartsAreThere(String bold,
+	private void constructIfRequiredPartsAreThere(String bold,
 			String italic, String regular) {
 		if (bold == null || bold.isEmpty())
 			return;
@@ -185,10 +192,9 @@ public class Scrub10KNPCS {
 			dataPoints.add(sd);
 		}
 	}
-
-	private static void printValues(String bold, String italic, String text) {
-		System.out.println("Name: " + bold + "\t Sex-Race-Ocupation:" + italic);
-		System.out.println("Description: " + text);
+	
+	public static void main(String[] args) {
+		Scrub10KNPCS scrub = new Scrub10KNPCS();
 	}
 
 }

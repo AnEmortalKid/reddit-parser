@@ -2,7 +2,7 @@ package com.anemortalkid.reddit.parser.npcs;
 
 import com.anemortalkid.reddit.parser.dataobjects.DataObject;
 
-class NPCDataObject implements DataObject {
+public class NPCDataObject implements DataObject {
 
 	private String name;
 	private String raceGenderOccupation;
@@ -72,7 +72,7 @@ class NPCDataObject implements DataObject {
 		return true;
 	}
 
-	public String toGooleSpreadsheet() {
+	public String toGoogleSpreadsheet() {
 		return name + "\t" + raceGenderOccupation + "\t" + flavorText;
 	}
 
@@ -84,4 +84,10 @@ class NPCDataObject implements DataObject {
 	public String toHTMLTableRow() {
 		return toTdTr(name, raceGenderOccupation, flavorText);
 	}
+
+	@Override
+	public String getDataIdentifier() {
+		return name;
+	}
+
 }

@@ -18,7 +18,7 @@ public class Scrub10KMysteries {
 	private static final String Out_LOC = "src/main/resources/mysteries";
 	private static final String redditLink = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3evxgl/lets_make_10000_mysteries/";
 	private static List<MysteryDataObject> dataPoints = new ArrayList<MysteryDataObject>();
-	private static final int LAST_KNOWN_COUNT = 173;
+	private static final int LAST_KNOWN_COUNT = 187;
 
 	public static void main(String[] args) {
 
@@ -125,7 +125,7 @@ public class Scrub10KMysteries {
 				System.out.println("DataName: " + data.getBold());
 				dataWritten++;
 
-				textWritter.println(data.toGooleSpreadsheet());
+				textWritter.println(data.toGoogleSpreadsheet());
 				csvWritter.println(data.toCSV());
 				tableWritter.println(data.toHTMLTableRow());
 

@@ -19,4 +19,10 @@ public interface DataObject {
 		}
 		return wrapInTr(bob.toString());
 	}
+	
+	String getDataIdentifier();
+
+	String toGoogleSpreadsheet();
+
+	String toCSV();
 }

@@ -20,12 +20,17 @@ public class MysteryDataObject implements DataObject {
 		return regular;
 	}
 
-	public String toGooleSpreadsheet() {
+	public String toGoogleSpreadsheet() {
 		return bold + "\t" + regular;
 	}
 
 	public String toCSV() {
 		return bold + "\t," + regular;
+	}
+	
+	@Override
+	public String getDataIdentifier() {
+		return bold;
 	}
 
 	@Override
