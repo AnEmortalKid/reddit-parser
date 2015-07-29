@@ -19,7 +19,7 @@ public class Scrub10KNPCS {
 	private static final String Out_LOC = "src/main/resources/npcs";
 	private List<DataObject> dataPoints = new ArrayList<DataObject>();
 
-	private static final int LAST_KNOWN_COUNT = 329;
+	private static final int LAST_KNOWN_COUNT = 341;
 	
 	public Scrub10KNPCS()
 	{

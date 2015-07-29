@@ -563,7 +563,7 @@
 	<td> The girl was tending the bees near their cottage at the edge of the forest; whatever happened to her, she left no trace.</td>
 </tr>
 <tr>
-	<td>Woodcutter's Axe</td>
+	<td>The Woodcutter's Axe</td>
 	<td> Stan the woodcutter went outside to get to work, but his axe wasn't where he left it; he found it nearby, buried in the skull of a man he's never seen.</td>
 </tr>
 <tr>
@@ -573,6 +573,10 @@
 <tr>
 	<td>Oldtown Tavern</td>
 	<td> The barkeep at the Oldtown Tavern swears the glasses keep rearranging themselves, and the barmaid saw something disturbing when tossing out the scraps in the back alley.</td>
+</tr>
+<tr>
+	<td>Dark Homecoming</td>
+	<td> The secretive Steelmoon Academy was founded on the site of an ancient monastery a few decades ago. Pupils who were admitted to the school had never returned to their families. Last month, one did return...</td>
 </tr>
 <tr>
 	<td>The Bridge of Crabs</td>

@@ -21,7 +21,7 @@ public class Scrub10KLocations {
 	private static final String Out_LOC = "src/main/resources/locations";
 	private static List<LocationDataObject> dataPoints = new ArrayList<LocationDataObject>();
 
-	private static final int LAST_KNOWN_COUNT = 11;
+	private static final int LAST_KNOWN_COUNT = 47;
 
 	public static void main(String[] args) {
 
