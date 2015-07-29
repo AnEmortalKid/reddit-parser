@@ -18,7 +18,7 @@ public class Scrub10KMysteries {
 	private static final String Out_LOC = "src/main/resources/mysteries";
 	private static final String redditLink = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3evxgl/lets_make_10000_mysteries/";
 	private static List<MysteryDataObject> dataPoints = new ArrayList<MysteryDataObject>();
-	private static final int LAST_KNOWN_COUNT = 143;
+	private static final int LAST_KNOWN_COUNT = 173;
 
 	public static void main(String[] args) {
 
@@ -90,6 +90,7 @@ public class Scrub10KMysteries {
 	private static void writeToFile() {
 		File outFile_TXT = new File(Out_LOC + ".txt");
 		File outFile_CSV = new File(Out_LOC + ".csv");
+		File outFile_table = new File(Out_LOC + "-tabledata.txt");
 
 		int dataWritten = 0;
 		if (!outFile_TXT.exists()) {
@@ -108,33 +109,34 @@ public class Scrub10KMysteries {
 			}
 		}
 
+		if (!outFile_table.exists()) {
+			try {
+				outFile_table.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
 		try {
 			PrintWriter textWritter = new PrintWriter(outFile_TXT);
 			PrintWriter csvWritter = new PrintWriter(outFile_CSV);
+			PrintWriter tableWritter = new PrintWriter(outFile_table);
 			for (MysteryDataObject data : dataPoints) {
 				System.out.println("DataName: " + data.getBold());
+				dataWritten++;
+
 				textWritter.println(data.toGooleSpreadsheet());
 				csvWritter.println(data.toCSV());
-				dataWritten++;
+				tableWritter.println(data.toHTMLTableRow());
+
 				textWritter.flush();
 				csvWritter.flush();
+				tableWritter.flush();
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("Wrote " + dataWritten + " data");
-	}
-
-	private static void markupParser(String markupText) {
-		List<Integer> tripStarIndeces = new ArrayList<Integer>();
-		if (!markupText.contains("Sharom"))
-			return;
-		int currIndex = markupText.indexOf("***");
-		while (currIndex != -1) {
-			System.out.println("Found *** @ " + currIndex);
-			currIndex = markupText.indexOf("***");
-		}
 	}
 
 	private static void constructIfRequiredPartsAreThere(String bold,
@@ -155,11 +157,6 @@ public class Scrub10KMysteries {
 		if (!dataPoints.contains(sd)) {
 			dataPoints.add(sd);
 		}
-	}
-
-	private static void printValues(String bold, String italic, String text) {
-		System.out.println("Name: " + bold + "\t Sex-Race-Ocupation:" + italic);
-		System.out.println("Description: " + text);
 	}
 
 }

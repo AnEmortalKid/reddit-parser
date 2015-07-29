@@ -1,6 +1,8 @@
 package com.anemortalkid.reddit.parser.npcs;
 
-class NPCDataObject {
+import com.anemortalkid.reddit.parser.dataobjects.DataObject;
+
+class NPCDataObject implements DataObject {
 
 	private String name;
 	private String raceGenderOccupation;
@@ -76,5 +78,10 @@ class NPCDataObject {
 
 	public String toCSV() {
 		return name + "\t," + raceGenderOccupation + "\t," + flavorText;
+	}
+
+	@Override
+	public String toHTMLTableRow() {
+		return toTdTr(name, raceGenderOccupation, flavorText);
 	}
 }

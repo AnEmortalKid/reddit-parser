@@ -1,6 +1,8 @@
 package com.anemortalkid.reddit.parser.mysteries;
 
-public class MysteryDataObject {
+import com.anemortalkid.reddit.parser.dataobjects.DataObject;
+
+public class MysteryDataObject implements DataObject {
 
 	private String bold;
 	private String regular;
@@ -21,9 +23,19 @@ public class MysteryDataObject {
 	public String toGooleSpreadsheet() {
 		return bold + "\t" + regular;
 	}
-	
+
 	public String toCSV() {
 		return bold + "\t," + regular;
+	}
+
+	@Override
+	public String toHTMLTableRow() {
+		return toTdTr(bold, regular);
+	}
+
+	public static void main(String[] args) {
+		MysteryDataObject mdo = new MysteryDataObject("Big Data", "Small Data");
+		System.out.println(mdo.toHTMLTableRow());
 	}
 
 }

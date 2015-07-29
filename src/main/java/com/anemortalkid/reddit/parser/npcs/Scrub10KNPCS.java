@@ -13,13 +13,15 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.anemortalkid.reddit.parser.mysteries.MysteryDataObject;
+
 public class Scrub10KNPCS {
 
 	private static final String redditLink = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3er483/lets_make_10000_npcs/";
 	private static final String Out_LOC = "src/main/resources/npcs";
 	private static List<NPCDataObject> dataPoints = new ArrayList<NPCDataObject>();
 
-	private static final int LAST_KNOWN_COUNT = 292;
+	private static final int LAST_KNOWN_COUNT = 320;
 
 	public static void main(String[] args) {
 
@@ -101,6 +103,7 @@ public class Scrub10KNPCS {
 	private static void writeToFile() {
 		File outFile_TXT = new File(Out_LOC + ".txt");
 		File outFile_CSV = new File(Out_LOC + ".csv");
+		File outFile_table = new File(Out_LOC + "-tabledata.txt");
 
 		int dataWritten = 0;
 		if (!outFile_TXT.exists()) {
@@ -119,19 +122,31 @@ public class Scrub10KNPCS {
 			}
 		}
 
+		if (!outFile_table.exists()) {
+			try {
+				outFile_table.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
 		try {
 			PrintWriter textWritter = new PrintWriter(outFile_TXT);
 			PrintWriter csvWritter = new PrintWriter(outFile_CSV);
+			PrintWriter tableWritter = new PrintWriter(outFile_table);
 			for (NPCDataObject data : dataPoints) {
 				System.out.println("DataName: " + data.getBoldText());
+				dataWritten++;
+
 				textWritter.println(data.toGooleSpreadsheet());
 				csvWritter.println(data.toCSV());
-				dataWritten++;
+				tableWritter.println(data.toHTMLTableRow());
+
 				textWritter.flush();
 				csvWritter.flush();
+				tableWritter.flush();
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("Wrote " + dataWritten + " data");
