@@ -11,19 +11,24 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.anemortalkid.reddit.parser.dataobjects.DataObject;
+
 public class Scrub10KMysteries {
 
-	// private static final String Out_LOC =
-	// "J:\\Workspaces\\redditparser\\reddit-parser\\src\\main\\resources\\mysteries.csv";
 	private static final String Out_LOC = "src/main/resources/mysteries";
-	private static final String redditLink = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3evxgl/lets_make_10000_mysteries/";
-	private static List<MysteryDataObject> dataPoints = new ArrayList<MysteryDataObject>();
 	private static final int LAST_KNOWN_COUNT = 200;
 
-	public static void main(String[] args) {
+	public static final String REDDIT_URL = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3evxgl/lets_make_10000_mysteries/";
 
+	private List<DataObject> dataPoints = new ArrayList<DataObject>();
+
+	public Scrub10KMysteries() {
+		compileData();
+	}
+
+	private void compileData() {
 		try {
-			Document redditDoc = Jsoup.connect(redditLink).userAgent("Mozilla")
+			Document redditDoc = Jsoup.connect(REDDIT_URL).userAgent("Mozilla")
 					.get();
 			if (redditDoc != null) {
 				Elements comments = redditDoc.getElementsByClass("thing");
@@ -79,15 +84,11 @@ public class Scrub10KMysteries {
 			e.printStackTrace();
 		}
 
-		// XXX: Print everything
-		// dataPoints.forEach(x -> System.out.println(x.toCsvFormat()));
-
-		// XXX: Print just count
 		System.out.println(dataPoints.size());
 		writeToFile();
 	}
 
-	private static void writeToFile() {
+	private void writeToFile() {
 		File outFile_TXT = new File(Out_LOC + ".txt");
 		File outFile_CSV = new File(Out_LOC + ".csv");
 		File outFile_table = new File(Out_LOC + "-tabledata.txt");
@@ -121,8 +122,8 @@ public class Scrub10KMysteries {
 			PrintWriter textWritter = new PrintWriter(outFile_TXT);
 			PrintWriter csvWritter = new PrintWriter(outFile_CSV);
 			PrintWriter tableWritter = new PrintWriter(outFile_table);
-			for (MysteryDataObject data : dataPoints) {
-				System.out.println("DataName: " + data.getBold());
+			for (DataObject data : dataPoints) {
+				System.out.println("DataName: " + data.getDataIdentifier());
 				dataWritten++;
 
 				textWritter.println(data.toGoogleSpreadsheet());
@@ -139,8 +140,7 @@ public class Scrub10KMysteries {
 		System.out.println("Wrote " + dataWritten + " data");
 	}
 
-	private static void constructIfRequiredPartsAreThere(String bold,
-			String regular) {
+	private void constructIfRequiredPartsAreThere(String bold, String regular) {
 		if (bold == null || bold.isEmpty())
 			return;
 
@@ -157,6 +157,14 @@ public class Scrub10KMysteries {
 		if (!dataPoints.contains(sd)) {
 			dataPoints.add(sd);
 		}
+	}
+
+	public List<DataObject> getDataPoints() {
+		return dataPoints;
+	}
+
+	public static void main(String[] args) {
+		new Scrub10KMysteries();
 	}
 
 }

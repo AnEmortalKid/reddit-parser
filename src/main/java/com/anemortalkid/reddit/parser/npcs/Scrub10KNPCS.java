@@ -15,7 +15,7 @@ import com.anemortalkid.reddit.parser.dataobjects.DataObject;
 
 public class Scrub10KNPCS {
 
-	private static final String redditLink = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3er483/lets_make_10000_npcs/";
+	public static final String REDDIT_URL = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3er483/lets_make_10000_npcs/";
 	private static final String Out_LOC = "src/main/resources/npcs";
 	private List<DataObject> dataPoints = new ArrayList<DataObject>();
 
@@ -33,7 +33,7 @@ public class Scrub10KNPCS {
 	private void compileData()
 	{
 		try {
-			Document redditDoc = Jsoup.connect(redditLink).userAgent("Mozilla")
+			Document redditDoc = Jsoup.connect(REDDIT_URL).userAgent("Mozilla")
 					.get();
 			if (redditDoc != null) {
 				Elements comments = redditDoc.getElementsByClass("thing");

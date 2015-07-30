@@ -13,20 +13,25 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.anemortalkid.reddit.parser.dataobjects.DataObject;
 import com.anemortalkid.reddit.parser.mysteries.MysteryDataObject;
 
 public class Scrub10KLocations {
 
-	private static final String redditLink = "http://www.reddit.com/r/DnDBehindTheScreen/comments/3f0lzl/lets_make_10_000_locations/";
+	public static final String REDDIT_URL = "http://www.reddit.com/r/DnDBehindTheScreen/comments/3f0lzl/lets_make_10_000_locations/";
 	private static final String Out_LOC = "src/main/resources/locations";
-	private static List<LocationDataObject> dataPoints = new ArrayList<LocationDataObject>();
+	private List<DataObject> dataPoints = new ArrayList<DataObject>();
 
 	private static final int LAST_KNOWN_COUNT = 72;
 
-	public static void main(String[] args) {
+	public Scrub10KLocations() {
+		compileData();
+	}
+
+	private void compileData() {
 
 		try {
-			Document redditDoc = Jsoup.connect(redditLink).userAgent("Mozilla")
+			Document redditDoc = Jsoup.connect(REDDIT_URL).userAgent("Mozilla")
 					.get();
 			if (redditDoc != null) {
 				Elements comments = redditDoc.getElementsByClass("thing");
@@ -92,15 +97,11 @@ public class Scrub10KLocations {
 			e.printStackTrace();
 		}
 
-		// XXX: Print everything
-		// dataPoints.forEach(x -> System.out.println(x.toCsvFormat()));
-
-		// XXX: Print just count
 		System.out.println(dataPoints.size());
 		writeToFile();
 	}
 
-	private static void writeToFile() {
+	private void writeToFile() {
 		File outFile_TXT = new File(Out_LOC + ".txt");
 		File outFile_CSV = new File(Out_LOC + ".csv");
 		File outFile_table = new File(Out_LOC + "-tabledata.txt");
@@ -134,8 +135,8 @@ public class Scrub10KLocations {
 			PrintWriter textWritter = new PrintWriter(outFile_TXT);
 			PrintWriter csvWritter = new PrintWriter(outFile_CSV);
 			PrintWriter tableWritter = new PrintWriter(outFile_table);
-			for (LocationDataObject data : dataPoints) {
-				System.out.println("DataName: " + data.getBoldText());
+			for (DataObject data : dataPoints) {
+				System.out.println("DataName: " + data.getDataIdentifier());
 				dataWritten++;
 
 				textWritter.println(data.toGoogleSpreadsheet());
@@ -152,19 +153,8 @@ public class Scrub10KLocations {
 		System.out.println("Wrote " + dataWritten + " data");
 	}
 
-	private static void markupParser(String markupText) {
-		List<Integer> tripStarIndeces = new ArrayList<Integer>();
-		if (!markupText.contains("Sharom"))
-			return;
-		int currIndex = markupText.indexOf("***");
-		while (currIndex != -1) {
-			System.out.println("Found *** @ " + currIndex);
-			currIndex = markupText.indexOf("***");
-		}
-	}
-
-	private static void constructIfRequiredPartsAreThere(String bold,
-			String italic, String regular) {
+	private void constructIfRequiredPartsAreThere(String bold, String italic,
+			String regular) {
 		if (bold == null || bold.isEmpty())
 			return;
 		if (italic == null || italic.isEmpty())
@@ -186,9 +176,12 @@ public class Scrub10KLocations {
 		}
 	}
 
-	private static void printValues(String bold, String italic, String text) {
-		System.out.println("Name: " + bold + "\t Sex-Race-Ocupation:" + italic);
-		System.out.println("Description: " + text);
+	public static void main(String[] args) {
+		new Scrub10KLocations();
+	}
+
+	public List<DataObject> getDataPoints() {
+		return dataPoints;
 	}
 
 }
