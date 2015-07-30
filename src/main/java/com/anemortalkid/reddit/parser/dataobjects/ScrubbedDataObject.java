@@ -1,6 +1,6 @@
 package com.anemortalkid.reddit.parser.dataobjects;
 
-public interface DataObject {
+public interface ScrubbedDataObject {
 
 	String toHTMLTableRow();
 

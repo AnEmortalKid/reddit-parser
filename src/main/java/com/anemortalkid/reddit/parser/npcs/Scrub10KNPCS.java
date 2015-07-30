@@ -11,13 +11,13 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.anemortalkid.reddit.parser.dataobjects.DataObject;
+import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
 
 public class Scrub10KNPCS {
 
 	public static final String REDDIT_URL = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3er483/lets_make_10000_npcs/";
 	private static final String Out_LOC = "src/main/resources/npcs";
-	private List<DataObject> dataPoints = new ArrayList<DataObject>();
+	private List<ScrubbedDataObject> dataPoints = new ArrayList<ScrubbedDataObject>();
 
 	private static final int LAST_KNOWN_COUNT = 360;
 	
@@ -26,7 +26,7 @@ public class Scrub10KNPCS {
 		compileData();
 	}
 	
-	public List<DataObject> getDataPoints() {
+	public List<ScrubbedDataObject> getDataPoints() {
 		return dataPoints;
 	}
 
@@ -141,7 +141,7 @@ public class Scrub10KNPCS {
 			PrintWriter textWritter = new PrintWriter(outFile_TXT);
 			PrintWriter csvWritter = new PrintWriter(outFile_CSV);
 			PrintWriter tableWritter = new PrintWriter(outFile_table);
-			for (DataObject data : dataPoints) {
+			for (ScrubbedDataObject data : dataPoints) {
 				System.out.println("DataName: " + data.getDataIdentifier());
 				dataWritten++;
 

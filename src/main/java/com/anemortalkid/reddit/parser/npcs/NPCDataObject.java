@@ -1,8 +1,8 @@
 package com.anemortalkid.reddit.parser.npcs;
 
-import com.anemortalkid.reddit.parser.dataobjects.DataObject;
+import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
 
-public class NPCDataObject implements DataObject {
+public class NPCDataObject implements ScrubbedDataObject {
 
 	private String name;
 	private String raceGenderOccupation;

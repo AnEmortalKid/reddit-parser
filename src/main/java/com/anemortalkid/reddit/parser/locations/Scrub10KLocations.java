@@ -1,8 +1,6 @@
 package com.anemortalkid.reddit.parser.locations;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -13,14 +11,13 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.anemortalkid.reddit.parser.dataobjects.DataObject;
-import com.anemortalkid.reddit.parser.mysteries.MysteryDataObject;
+import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
 
 public class Scrub10KLocations {
 
 	public static final String REDDIT_URL = "http://www.reddit.com/r/DnDBehindTheScreen/comments/3f0lzl/lets_make_10_000_locations/";
 	private static final String Out_LOC = "src/main/resources/locations";
-	private List<DataObject> dataPoints = new ArrayList<DataObject>();
+	private List<ScrubbedDataObject> dataPoints = new ArrayList<ScrubbedDataObject>();
 
 	private static final int LAST_KNOWN_COUNT = 72;
 
@@ -135,7 +132,7 @@ public class Scrub10KLocations {
 			PrintWriter textWritter = new PrintWriter(outFile_TXT);
 			PrintWriter csvWritter = new PrintWriter(outFile_CSV);
 			PrintWriter tableWritter = new PrintWriter(outFile_table);
-			for (DataObject data : dataPoints) {
+			for (ScrubbedDataObject data : dataPoints) {
 				System.out.println("DataName: " + data.getDataIdentifier());
 				dataWritten++;
 
@@ -180,7 +177,7 @@ public class Scrub10KLocations {
 		new Scrub10KLocations();
 	}
 
-	public List<DataObject> getDataPoints() {
+	public List<ScrubbedDataObject> getDataPoints() {
 		return dataPoints;
 	}
 

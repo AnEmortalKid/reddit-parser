@@ -5,16 +5,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-import com.anemortalkid.reddit.parser.dataobjects.DataObject;
+import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
 import com.anemortalkid.reddit.parser.npcs.NPCDataObject;
 import com.anemortalkid.reddit.parser.npcs.Scrub10KNPCS;
 
 public class SiteBuilder {
 
 	private String indexLocation;
-	private List<DataObject> tableData;
+	private List<ScrubbedDataObject> tableData;
 	private String redditUrl;
 	private String headerTag;
 	private String pageTitle;
@@ -35,7 +36,8 @@ public class SiteBuilder {
 	 *            the data objects from which to create the table data rows
 	 */
 	public SiteBuilder(String htmlOutputFolder, String pageTitle,
-			String redditURL, String tableHeaderHTML, List<DataObject> tableData) {
+			String redditURL, String tableHeaderHTML,
+			List<ScrubbedDataObject> tableData) {
 		this.indexLocation = htmlOutputFolder;
 		this.pageTitle = pageTitle;
 		this.redditUrl = redditURL;
@@ -111,6 +113,22 @@ public class SiteBuilder {
 	private String divClassRowData() {
 		StringBuilder bob = new StringBuilder();
 		bob.append("<div class=\"row\">\n");
+		bob.append(buildDataHeader());
+
+		String featuretteDivider = "<hr class\"featurette-divider\">\n";
+		bob.append(featuretteDivider);
+		bob.append(getInputSearch());
+		bob.append(featuretteDivider);
+
+		// generate table
+		bob.append(getTable());
+		bob.append("\n</div>\n");
+		return bob.toString();
+	}
+
+	private String buildDataHeader() {
+		StringBuilder bob = new StringBuilder();
+
 		String h1LinkHeader = "<h1><a href=\"..\">10K // </a> " + pageTitle
 				+ "</h1>\n";
 		String paragraphCopyPasta = "<p>This page is a compilation of the locations from <a href=\""
@@ -127,14 +145,7 @@ public class SiteBuilder {
 				+ "/10000</h2>";
 		bob.append(currently);
 
-		String featuretteDivider = "<hr class\"featurette-divider\">\n";
-		bob.append(featuretteDivider);
-		bob.append(getInputSearch());
-		bob.append(featuretteDivider);
-
-		// generate table
-		bob.append(getTable());
-		bob.append("\n</div>\n");
+		bob.append("<h3>Last updated: " + new Date() + "</h3>\n");
 		return bob.toString();
 	}
 
@@ -147,7 +158,7 @@ public class SiteBuilder {
 		bob.append("\n");
 
 		StringBuilder tableDataBuilder = new StringBuilder();
-		for (DataObject datO : tableData)
+		for (ScrubbedDataObject datO : tableData)
 			tableDataBuilder.append(datO.toHTMLTableRow());
 		bob.append(tableDataBuilder.toString());
 		bob.append("\n</table>\n");
@@ -207,7 +218,7 @@ public class SiteBuilder {
 
 	public static void main(String[] args) {
 		Scrub10KNPCS npcs = new Scrub10KNPCS();
-		List<DataObject> dataPoints = npcs.getDataPoints();
+		List<ScrubbedDataObject> dataPoints = npcs.getDataPoints();
 		String header = "<tr><th>Name</th><th>Gender Race Occupation</th><th>Description</th></tr>";
 		String indexLocation = "src/main/resources/npcs/";
 		new SiteBuilder(indexLocation, "NPCs", npcs.REDDIT_URL, header,

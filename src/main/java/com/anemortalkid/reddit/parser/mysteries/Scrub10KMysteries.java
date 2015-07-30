@@ -11,7 +11,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.anemortalkid.reddit.parser.dataobjects.DataObject;
+import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
 
 public class Scrub10KMysteries {
 
@@ -20,7 +20,7 @@ public class Scrub10KMysteries {
 
 	public static final String REDDIT_URL = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3evxgl/lets_make_10000_mysteries/";
 
-	private List<DataObject> dataPoints = new ArrayList<DataObject>();
+	private List<ScrubbedDataObject> dataPoints = new ArrayList<ScrubbedDataObject>();
 
 	public Scrub10KMysteries() {
 		compileData();
@@ -122,7 +122,7 @@ public class Scrub10KMysteries {
 			PrintWriter textWritter = new PrintWriter(outFile_TXT);
 			PrintWriter csvWritter = new PrintWriter(outFile_CSV);
 			PrintWriter tableWritter = new PrintWriter(outFile_table);
-			for (DataObject data : dataPoints) {
+			for (ScrubbedDataObject data : dataPoints) {
 				System.out.println("DataName: " + data.getDataIdentifier());
 				dataWritten++;
 
@@ -138,6 +138,7 @@ public class Scrub10KMysteries {
 			e.printStackTrace();
 		}
 		System.out.println("Wrote " + dataWritten + " data");
+		writeToFile();
 	}
 
 	private void constructIfRequiredPartsAreThere(String bold, String regular) {
@@ -159,7 +160,7 @@ public class Scrub10KMysteries {
 		}
 	}
 
-	public List<DataObject> getDataPoints() {
+	public List<ScrubbedDataObject> getDataPoints() {
 		return dataPoints;
 	}
 
