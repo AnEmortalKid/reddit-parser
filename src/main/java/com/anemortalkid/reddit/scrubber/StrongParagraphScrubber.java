@@ -12,6 +12,18 @@ import org.jsoup.select.Elements;
 import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
 import com.anemortalkid.reddit.scrubber.dataobjs.MultiDataObject;
 
+/**
+ * A PageScrubber that parses data in the format
+ * 
+ * <pre>
+ * &lt;strong&gt;Some data - will be used as the identifier&lt;/strong&gt;
+ * &lt;p&gt;More Data &lt;/p&gt;
+ * &lt;hr&gt;
+ * </pre>
+ * 
+ * @author JMonterrubio
+ *
+ */
 public class StrongParagraphScrubber implements IScrubber {
 
 	private List<ScrubbedDataObject> dataPoints;
@@ -28,17 +40,14 @@ public class StrongParagraphScrubber implements IScrubber {
 			Document redditDoc = Jsoup.connect(url).userAgent("Mozilla").get();
 			if (redditDoc != null) {
 				Elements comments = redditDoc.getElementsByClass("thing");
-				// System.out.println("Comments:" + comments.size());
 
-				List<Element> nonChildOnly = new ArrayList<Element>();
-
+				// Copying to a list in case we wanted to do some filtering
+				List<Element> thingElems = new ArrayList<Element>();
 				for (Element element : comments) {
-					nonChildOnly.add(element);
+					thingElems.add(element);
 				}
 
-				// System.out.println("Top-Level:" + allElements.size());
-
-				for (Element topLevel : nonChildOnly) {
+				for (Element topLevel : thingElems) {
 					Element md = topLevel.getElementsByClass("md").first();
 
 					// Process the first one
@@ -91,7 +100,7 @@ public class StrongParagraphScrubber implements IScrubber {
 			return;
 
 		/*
-		 * Excludes the header
+		 * Excludes the header that some people put
 		 */
 		if (part1.contains("WELCOME"))
 			return;

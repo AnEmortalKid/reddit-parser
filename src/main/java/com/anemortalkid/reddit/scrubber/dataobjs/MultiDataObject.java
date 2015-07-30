@@ -4,6 +4,13 @@ import java.util.Arrays;
 
 import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
 
+/**
+ * A {@link ScrubbedDataObject} which takes an array of strings, the first
+ * string will be the identifier for this data object
+ * 
+ * @author JMonterrubio
+ *
+ */
 public class MultiDataObject implements ScrubbedDataObject {
 
 	private String[] dataArgs;
@@ -42,6 +49,11 @@ public class MultiDataObject implements ScrubbedDataObject {
 		Arrays.asList(dataArgs).forEach(x -> bob.append(x + ",\t"));
 		bob.delete(bob.length() - 2, bob.length());
 		return bob.toString();
+	}
+
+	@Override
+	public String toString() {
+		return Arrays.toString(dataArgs);
 	}
 
 }

@@ -6,6 +6,11 @@ import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
 import com.anemortalkid.reddit.parser.locations.Scrub10KLocations;
 import com.anemortalkid.reddit.parser.npcs.Scrub10KNPCS;
 
+/**
+ * 
+ * @author JMonterrubio
+ *
+ */
 public class LocationsSiteBuilder implements ISiteBuilder {
 
 	public static void main(String[] args) {

@@ -12,6 +12,19 @@ import org.jsoup.select.Elements;
 import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
 import com.anemortalkid.reddit.scrubber.dataobjs.MultiDataObject;
 
+/**
+ * A PageScrubber that parses data in the format
+ * 
+ * <pre>
+ * &lt;strong&gt;Some data - will be used as the identifier&lt;/strong&gt;
+ * &lt;em&gt;Subdata&lt;/em&gt;
+ * &lt;p&gt;More Data &lt;/p&gt;
+ * &lt;hr&gt;
+ * </pre>
+ * 
+ * @author JMonterrubio
+ *
+ */
 public class StrongEmphasisParagraphScrubber implements IScrubber {
 
 	private List<ScrubbedDataObject> dataPoints;

@@ -17,6 +17,9 @@ public class FullSiteBuilder {
 		siteBuilders.add(new NPCSiteBuilder());
 		siteBuilders.add(new MysteriesSiteBuilder());
 		siteBuilders.add(new LocationsSiteBuilder());
+
+		// TODO: Add a new site builder here for the url you wish to create
+
 		siteBuilders.forEach(x -> x.buildSite());
 	}
 }
