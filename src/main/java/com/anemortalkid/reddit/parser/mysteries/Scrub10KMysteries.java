@@ -138,7 +138,6 @@ public class Scrub10KMysteries {
 			e.printStackTrace();
 		}
 		System.out.println("Wrote " + dataWritten + " data");
-		writeToFile();
 	}
 
 	private void constructIfRequiredPartsAreThere(String bold, String regular) {
