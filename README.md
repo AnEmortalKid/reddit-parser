@@ -42,4 +42,10 @@ Sidenote: this was done in a "let's see if i can hack this up way" and isn't a g
 Check it out, fork it, whatever you want. Submit pull requests if you want. 
 
 
+# How to run it
+
+If you're only updating the files and want the newest data, run FullSIteBuilder. 
+
+If you want to create a new site builder for a different url, check out NPCSiteBuilder since it uses the slightly more generic StrongEmphasisParagraphScrubber. 
+
 
