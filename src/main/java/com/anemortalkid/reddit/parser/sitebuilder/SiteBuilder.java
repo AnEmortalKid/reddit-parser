@@ -148,10 +148,12 @@ public class SiteBuilder {
 			return "mysteries.min.jpg";
 		case "Treasures":
 			return "treasures.jpg";
+		case "Dungeons":
+			return "dungeons.jpg";
 		default:
-			break;
+			throw new UnsupportedOperationException("No file matched with: "
+					+ pageTitle);
 		}
-		return null;
 	}
 
 	private String getProgressBarDiv() {

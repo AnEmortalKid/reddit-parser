@@ -53,7 +53,9 @@ public class StrongEmphasisParagraphScrubber implements IScrubber {
 
 				for (Element topLevel : nonChildOnly) {
 					Element md = topLevel.getElementsByClass("md").first();
-
+					if(md == null)
+						continue;
+					
 					// Process the first one
 					Elements mdElems = md.getAllElements();
 					String bold, italic, regular = "";

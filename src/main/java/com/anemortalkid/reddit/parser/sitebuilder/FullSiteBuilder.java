@@ -3,6 +3,7 @@ package com.anemortalkid.reddit.parser.sitebuilder;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.anemortalkid.reddit.parser.dungeons.DungeonSiteBuilder;
 import com.anemortalkid.reddit.parser.treasures.TreasureSiteBuilder;
 
 /**
@@ -20,6 +21,7 @@ public class FullSiteBuilder {
 		siteBuilders.add(new MysteriesSiteBuilder());
 		siteBuilders.add(new LocationsSiteBuilder());
 		siteBuilders.add(new TreasureSiteBuilder());
+		siteBuilders.add(new DungeonSiteBuilder());
 
 		// TODO: Add a new site builder here for the url you wish to create
 
