@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,6 +15,7 @@ import com.anemortalkid.reddit.parser.npcs.Scrub10KNPCS;
 
 public class SiteBuilder {
 
+	private static final String DIV_CLASS_ROW = "<div class=\"row\">";
 	private String indexLocation;
 	private List<ScrubbedDataObject> tableData;
 	private String redditUrl;
@@ -113,16 +115,72 @@ public class SiteBuilder {
 	private String divClassRowData() {
 		StringBuilder bob = new StringBuilder();
 		bob.append("<div class=\"row\">\n");
+		bob.append(getColMDImgCircleShit());
 		bob.append(buildDataHeader());
 
-		String featuretteDivider = "<hr class\"featurette-divider\">\n";
-		bob.append(featuretteDivider);
-		bob.append(getInputSearch());
-		bob.append(featuretteDivider);
+		bob.append(getProgressBarDiv());
 
 		// generate table
+		// we have a silly div class row
+		bob.append(DIV_CLASS_ROW + "\n");
 		bob.append(getTable());
 		bob.append("\n</div>\n");
+		return bob.toString();
+	}
+
+	private String getColMDImgCircleShit() {
+		String someData = "<div class=\"col-md-4 col-md-push-8\">\n"
+				+ "<img class=\"img-circle\" src=\"../assets/images/"
+				+ getAssetFile() + "\" width=\"200\" height=\"200\">\n"
+				+ "</div><!-- ./col-md-4 -->\n"
+				+ "<div class=\"col-md-8 col-md-pull-4\">\n";
+		return someData;
+	}
+
+	private String getAssetFile() {
+		// TODO Update this with search strings
+		switch (pageTitle) {
+		case "NPCs":
+			return "npcs.min.jpg";
+		case "Locations":
+			return "locations.min.jpg";
+		case "Mysteries":
+			return "mysteries.min.jpg";
+		case "Treasures":
+			return "treasures.jpg";
+		default:
+			break;
+		}
+		return null;
+	}
+
+	private String getProgressBarDiv() {
+		StringBuilder bob = new StringBuilder();
+		bob.append(DIV_CLASS_ROW + "\n");
+		bob.append("<div class=\"progress\">");
+
+		String aria_value_now = tableData.size() + "";
+
+		double percent = (tableData.size() / 10000.00) * 100.00;
+		DecimalFormat df = new DecimalFormat("##.##");
+		String percentString = df.format(percent) + "%";
+		String style_value = "width: " + percentString;
+
+		String divClass = "\n<div class=\"progress-bar progress-bar-info progress-bar-striped\" role=\"progressbar\"";
+		String ariaValueNow = "aria-valuenow=\"" + aria_value_now + "\"";
+		String ariaValueMinMax = "aria-valuemin=\"0\" aria-valuemax=\"10000\"";
+		String style = "style=\"" + style_value + "\">";
+		bob.append(divClass + ariaValueNow + ariaValueMinMax + style);
+
+		// build span
+		bob.append("<span class=\"sr-only\">" + percentString
+				+ " Complete</span>");
+		bob.append("</div></div>");
+		bob.append(getInputSearch());
+		String featuretteDivider = "<hr class=\"featurette-divider\">";
+		bob.append(featuretteDivider);
+		bob.append("\n</div>\n");
+
 		return bob.toString();
 	}
 
@@ -144,8 +202,8 @@ public class SiteBuilder {
 		String currently = "<h2>Currently at " + tableData.size()
 				+ "/10000</h2>";
 		bob.append(currently);
-
 		bob.append("<h3>Last updated: " + new Date() + "</h3>\n");
+		bob.append("</div><!-- ./col-md-8 -->\n</div><!-- ./row -->\n");
 		return bob.toString();
 	}
 

@@ -3,6 +3,8 @@ package com.anemortalkid.reddit.parser.sitebuilder;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.anemortalkid.reddit.parser.treasures.TreasureSiteBuilder;
+
 /**
  * Contains a list of all the sites and lets me run them all at once instead of
  * having to run each at a time
@@ -17,6 +19,7 @@ public class FullSiteBuilder {
 		siteBuilders.add(new NPCSiteBuilder());
 		siteBuilders.add(new MysteriesSiteBuilder());
 		siteBuilders.add(new LocationsSiteBuilder());
+		siteBuilders.add(new TreasureSiteBuilder());
 
 		// TODO: Add a new site builder here for the url you wish to create
 

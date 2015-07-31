@@ -18,7 +18,7 @@ public class MysteriesSiteBuilder implements ISiteBuilder {
 		List<ScrubbedDataObject> dataPoints = mysteries.getDataPoints();
 		String header = "<tr><th>Mystery Name</th><th>Mystery Description</th></tr>";
 		String indexLocation = "src/main/resources/mysteries/";
-		new SiteBuilder(indexLocation, "NPCs", Scrub10KMysteries.REDDIT_URL,
+		new SiteBuilder(indexLocation, "Mysteries", Scrub10KMysteries.REDDIT_URL,
 				header, dataPoints).buildHTML();
 	}
 }
