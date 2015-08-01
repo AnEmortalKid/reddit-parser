@@ -5,13 +5,27 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
+import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
+/**
+ * An {@link IScrubber} is capable of scrubbing data from a particular URL,
+ * based on the data's format
+ * 
+ * @author JMonterrubio
+ *
+ */
 public interface IScrubber {
 
-	List<ScrubbedDataObject> scrubDataFromUrl(String url);
+	/**
+	 * Tells the {@link IScrubber} to scrub the data from the stored url and
+	 * return the scrubbed objects
+	 * 
+	 * @return a List of {@link ScrubbedDataObject} with all the data that was
+	 *         scrubbed from the page
+	 */
+	List<ScrubbedDataObject> scrubData();
 
-	default public void writeDataToFiles(String fileLocationAndName,
+	default void writeDataToFiles(String fileLocationAndName,
 			List<ScrubbedDataObject> data) {
 		File outFile_TXT = new File(fileLocationAndName + ".txt");
 		File outFile_CSV = new File(fileLocationAndName + ".csv");
@@ -42,11 +56,9 @@ public interface IScrubber {
 			}
 		}
 
-		try {
-			PrintWriter textWritter = new PrintWriter(outFile_TXT);
-			PrintWriter csvWritter = new PrintWriter(outFile_CSV);
-			PrintWriter tableWritter = new PrintWriter(outFile_table);
-
+		try (PrintWriter textWritter = new PrintWriter(outFile_TXT);
+				PrintWriter csvWritter = new PrintWriter(outFile_CSV);
+				PrintWriter tableWritter = new PrintWriter(outFile_table);) {
 			for (ScrubbedDataObject dataObject : data) {
 				System.out.println("DataName: "
 						+ dataObject.getDataIdentifier());

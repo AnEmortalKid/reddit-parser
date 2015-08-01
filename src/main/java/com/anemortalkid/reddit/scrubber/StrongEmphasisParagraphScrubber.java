@@ -9,8 +9,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
-import com.anemortalkid.reddit.scrubber.dataobjs.MultiDataObject;
+import com.anemortalkid.reddit.scrubber.dataobject.MultiDataObject;
+import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 /**
  * A PageScrubber that parses data in the format
@@ -27,16 +27,21 @@ import com.anemortalkid.reddit.scrubber.dataobjs.MultiDataObject;
  */
 public class StrongEmphasisParagraphScrubber implements IScrubber {
 
-	private List<ScrubbedDataObject> dataPoints;
+	private String url;
 
-	@Override
-	public List<ScrubbedDataObject> scrubDataFromUrl(String url) {
-		dataPoints = new ArrayList<ScrubbedDataObject>();
-		scrubData(url);
-		return dataPoints;
+	public StrongEmphasisParagraphScrubber(String url) {
+		this.url = url;
 	}
 
-	private void scrubData(String url) {
+	@Override
+	public List<ScrubbedDataObject> scrubData() {
+		return scrubData(url);
+	}
+
+	private List<ScrubbedDataObject> scrubData(String url) {
+
+		List<ScrubbedDataObject> data = new ArrayList<ScrubbedDataObject>();
+
 		try {
 			Document redditDoc = Jsoup.connect(url).userAgent("Mozilla").get();
 			if (redditDoc != null) {
@@ -53,9 +58,9 @@ public class StrongEmphasisParagraphScrubber implements IScrubber {
 
 				for (Element topLevel : nonChildOnly) {
 					Element md = topLevel.getElementsByClass("md").first();
-					if(md == null)
+					if (md == null)
 						continue;
-					
+
 					// Process the first one
 					Elements mdElems = md.getAllElements();
 					String bold, italic, regular = "";
@@ -82,7 +87,7 @@ public class StrongEmphasisParagraphScrubber implements IScrubber {
 							}
 						} else if (tagName.equals("hr")) {
 							constructIfRequiredPartsAreThere(bold, italic,
-									regular);
+									regular, data);
 							bold = "";
 							italic = "";
 							regular = "";
@@ -95,7 +100,8 @@ public class StrongEmphasisParagraphScrubber implements IScrubber {
 						}
 					}
 
-					constructIfRequiredPartsAreThere(bold, italic, regular);
+					constructIfRequiredPartsAreThere(bold, italic, regular,
+							data);
 					bold = "";
 					italic = "";
 					regular = "";
@@ -104,11 +110,11 @@ public class StrongEmphasisParagraphScrubber implements IScrubber {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(dataPoints.size());
+		return data;
 	}
 
 	private void constructIfRequiredPartsAreThere(String bold, String italic,
-			String regular) {
+			String regular, List<ScrubbedDataObject> data) {
 		if (bold == null || bold.isEmpty())
 			return;
 		if (italic == null || italic.isEmpty())
@@ -125,8 +131,8 @@ public class StrongEmphasisParagraphScrubber implements IScrubber {
 			return;
 
 		MultiDataObject mdo = new MultiDataObject(bold, italic, regular);
-		if (!dataPoints.contains(mdo)) {
-			dataPoints.add(mdo);
+		if (!data.contains(mdo)) {
+			data.add(mdo);
 		}
 	}
 

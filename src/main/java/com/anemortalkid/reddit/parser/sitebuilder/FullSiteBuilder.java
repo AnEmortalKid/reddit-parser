@@ -3,8 +3,11 @@ package com.anemortalkid.reddit.parser.sitebuilder;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.anemortalkid.reddit.parser.dungeons.DungeonSiteBuilder;
-import com.anemortalkid.reddit.parser.treasures.TreasureSiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.dungeons.DungeonSiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.locations.LocationsSiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.mysteries.MysteriesSiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.npcs.NPCSiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.treasures.TreasureSiteBuilder;
 
 /**
  * Contains a list of all the sites and lets me run them all at once instead of

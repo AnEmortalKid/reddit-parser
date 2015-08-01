@@ -1,8 +1,6 @@
-package com.anemortalkid.reddit.scrubber.dataobjs;
+package com.anemortalkid.reddit.scrubber.dataobject;
 
 import java.util.Arrays;
-
-import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
 
 /**
  * A {@link ScrubbedDataObject} which takes an array of strings, the first

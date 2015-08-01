@@ -1,4 +1,4 @@
-package com.anemortalkid.reddit.parser.dataobjects;
+package com.anemortalkid.reddit.scrubber.dataobject;
 
 public interface ScrubbedDataObject {
 

@@ -1,6 +1,6 @@
 package com.anemortalkid.reddit.parser.mysteries;
 
-import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
+import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class MysteryDataObject implements ScrubbedDataObject {
 

@@ -11,9 +11,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
 import com.anemortalkid.reddit.parser.npcs.NPCDataObject;
 import com.anemortalkid.reddit.scrubber.IScrubber;
+import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class TreasureScrubber implements IScrubber {
 
@@ -123,14 +123,14 @@ public class TreasureScrubber implements IScrubber {
 	}
 
 	@Override
-	public List<ScrubbedDataObject> scrubDataFromUrl(String url) {
+	public List<ScrubbedDataObject> scrubData() {
 		compileData();
 		return dataPoints;
 	}
 
 	public static void main(String[] args) {
 		TreasureScrubber ts = new TreasureScrubber();
-		List<ScrubbedDataObject> data = ts.scrubDataFromUrl(REDDIT_URL);
+		List<ScrubbedDataObject> data = ts.scrubData();
 		ts.writeDataToFiles("src/main/resources/treasures", data);
 	}
 

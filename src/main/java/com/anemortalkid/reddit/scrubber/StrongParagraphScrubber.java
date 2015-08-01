@@ -9,8 +9,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
-import com.anemortalkid.reddit.scrubber.dataobjs.MultiDataObject;
+import com.anemortalkid.reddit.scrubber.dataobject.MultiDataObject;
+import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 /**
  * A PageScrubber that parses data in the format
@@ -26,16 +26,19 @@ import com.anemortalkid.reddit.scrubber.dataobjs.MultiDataObject;
  */
 public class StrongParagraphScrubber implements IScrubber {
 
-	private List<ScrubbedDataObject> dataPoints;
+	private String url;
 
-	@Override
-	public List<ScrubbedDataObject> scrubDataFromUrl(String url) {
-		dataPoints = new ArrayList<ScrubbedDataObject>();
-		scrubData(url);
-		return dataPoints;
+	public StrongParagraphScrubber(String url) {
+		this.url = url;
 	}
 
-	private void scrubData(String url) {
+	@Override
+	public List<ScrubbedDataObject> scrubData() {
+		return scrubData(url);
+	}
+
+	private List<ScrubbedDataObject> scrubData(String url) {
+		List<ScrubbedDataObject> data = new ArrayList<ScrubbedDataObject>();
 		try {
 			Document redditDoc = Jsoup.connect(url).userAgent("Mozilla").get();
 			if (redditDoc != null) {
@@ -62,7 +65,6 @@ public class StrongParagraphScrubber implements IScrubber {
 						if (tagName.equals("p")) {
 							Element p = elem;
 							Elements strongElems = p.getElementsByTag("strong");
-							Elements emElems = p.getElementsByTag("em");
 
 							if (!strongElems.isEmpty()) {
 								Element strong = strongElems.first();
@@ -71,7 +73,8 @@ public class StrongParagraphScrubber implements IScrubber {
 								regular += " " + p.text();
 							}
 						} else if (tagName.equals("hr")) {
-							constructIfRequiredPartsAreThere(bold, regular);
+							constructIfRequiredPartsAreThere(bold, regular,
+									data);
 							bold = "";
 							regular = "";
 						}
@@ -80,7 +83,7 @@ public class StrongParagraphScrubber implements IScrubber {
 						}
 					}
 
-					constructIfRequiredPartsAreThere(bold, regular);
+					constructIfRequiredPartsAreThere(bold, regular, data);
 					bold = "";
 					regular = "";
 				}
@@ -89,34 +92,27 @@ public class StrongParagraphScrubber implements IScrubber {
 			e.printStackTrace();
 		}
 
-		System.out.println(dataPoints.size());
+		return data;
 	}
 
-	private void constructIfRequiredPartsAreThere(String part1, String part2) {
-		if (part1 == null || part1.isEmpty())
+	private void constructIfRequiredPartsAreThere(String bold,
+			String paragraph, List<ScrubbedDataObject> data) {
+		if (bold == null || bold.isEmpty())
 			return;
 
-		if (part2 == null || part2.isEmpty())
+		if (paragraph == null || paragraph.isEmpty())
 			return;
 
 		/*
 		 * Excludes the header that some people put
 		 */
-		if (part1.contains("WELCOME"))
+		if (bold.contains("WELCOME"))
 			return;
 
-		MultiDataObject md = new MultiDataObject(part1, part2);
-		if (!dataPoints.contains(md)) {
-			dataPoints.add(md);
+		MultiDataObject md = new MultiDataObject(bold, paragraph);
+		if (!data.contains(md)) {
+			data.add(md);
 		}
-	}
-
-	public static void main(String[] args) {
-		StrongParagraphScrubber sps = new StrongParagraphScrubber();
-		String outLocation = "src/main/resources/mysteries";
-		String redditURL = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3evxgl/lets_make_10000_mysteries/";
-		List<ScrubbedDataObject> dataFromUrl = sps.scrubDataFromUrl(redditURL);
-		sps.writeDataToFiles(outLocation, dataFromUrl);
 	}
 
 }

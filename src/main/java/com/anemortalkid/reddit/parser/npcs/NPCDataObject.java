@@ -1,6 +1,6 @@
 package com.anemortalkid.reddit.parser.npcs;
 
-import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
+import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class NPCDataObject implements ScrubbedDataObject {
 

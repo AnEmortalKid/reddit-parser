@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
 import com.anemortalkid.reddit.parser.npcs.NPCDataObject;
 import com.anemortalkid.reddit.parser.npcs.Scrub10KNPCS;
+import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
-public class SiteBuilder {
+public class BaseSiteBuilderHelper {
 
 	private static final String DIV_CLASS_ROW = "<div class=\"row\">";
 	private String indexLocation;
@@ -37,7 +37,7 @@ public class SiteBuilder {
 	 * @param tableData
 	 *            the data objects from which to create the table data rows
 	 */
-	public SiteBuilder(String htmlOutputFolder, String pageTitle,
+	public BaseSiteBuilderHelper(String htmlOutputFolder, String pageTitle,
 			String redditURL, String tableHeaderHTML,
 			List<ScrubbedDataObject> tableData) {
 		this.indexLocation = htmlOutputFolder;
@@ -281,8 +281,8 @@ public class SiteBuilder {
 		List<ScrubbedDataObject> dataPoints = npcs.getDataPoints();
 		String header = "<tr><th>Name</th><th>Gender Race Occupation</th><th>Description</th></tr>";
 		String indexLocation = "src/main/resources/npcs/";
-		new SiteBuilder(indexLocation, "NPCs", npcs.REDDIT_URL, header,
-				dataPoints).buildHTML();
+		new BaseSiteBuilderHelper(indexLocation, "NPCs", npcs.REDDIT_URL,
+				header, dataPoints).buildHTML();
 	}
 
 }

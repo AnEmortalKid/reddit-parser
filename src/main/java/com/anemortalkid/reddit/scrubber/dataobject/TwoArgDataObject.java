@@ -1,6 +1,5 @@
-package com.anemortalkid.reddit.scrubber.dataobjs;
+package com.anemortalkid.reddit.scrubber.dataobject;
 
-import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
 
 /**
  * A Default Generic Two String Data Object

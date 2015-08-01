@@ -1,12 +1,12 @@
-package com.anemortalkid.reddit.parser.treasures;
+package com.anemortalkid.reddit.parser.sitebuilder.treasures;
 
 import java.util.List;
 
-import com.anemortalkid.reddit.parser.dataobjects.ScrubbedDataObject;
 import com.anemortalkid.reddit.parser.npcs.Scrub10KNPCS;
 import com.anemortalkid.reddit.parser.sitebuilder.ISiteBuilder;
-import com.anemortalkid.reddit.parser.sitebuilder.SiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.BaseSiteBuilderHelper;
 import com.anemortalkid.reddit.scrubber.StrongEmphasisParagraphScrubber;
+import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class TreasureSiteBuilder implements ISiteBuilder {
 
@@ -16,12 +16,15 @@ public class TreasureSiteBuilder implements ISiteBuilder {
 		String header = "<tr><th>Treasure Name</th><th>Treasure Type</th><th>Description</th></tr>";
 
 		// get scrubber and write to file
-		StrongEmphasisParagraphScrubber seps = new StrongEmphasisParagraphScrubber();
-		List<ScrubbedDataObject> data = seps.scrubDataFromUrl(redditURL);
+		StrongEmphasisParagraphScrubber seps = new StrongEmphasisParagraphScrubber(
+				redditURL);
+		List<ScrubbedDataObject> data = seps.scrubData();
+		System.out.println("Treasures scrubbed: " + data.size());
+
 		String fileLocationAndName = "src/main/resources/treasures";
 		seps.writeDataToFiles(fileLocationAndName, data);
 
-		new SiteBuilder(fileLocationAndName + "/", "Treasures",
+		new BaseSiteBuilderHelper(fileLocationAndName + "/", "Treasures",
 				redditURL, header, data).buildHTML();
 	}
 
