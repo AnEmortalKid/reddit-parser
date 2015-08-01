@@ -87,10 +87,6 @@ public class BaseSiteBuilderHelper {
 		bob.append(containerData);
 
 		bob.append(getJavascript());
-		// bob.append(getBootstrapJavaScript() + "\n");
-		// bob.append(getJQueryScript() + "\n");
-		// bob.append(getSearchScript());
-
 		String bodyEnd = "</body>";
 		bob.append(bodyEnd);
 
@@ -99,10 +95,6 @@ public class BaseSiteBuilderHelper {
 
 	private String getJavascript() {
 		return getDataFromFile("src/main/resources/site_resources/javascriptfunctions.txt");
-	}
-
-	private String getBootstrapJavaScript() {
-		return "<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js\"></script>";
 	}
 
 	private String getContainerData() {
@@ -286,21 +278,13 @@ public class BaseSiteBuilderHelper {
 		return "<input type=\"text\" id=\"search\" placeholder=\"Type to search\" />\n";
 	}
 
-	private static String getJQueryScript() {
-		return "<script src=\"https://code.jquery.com/jquery-2.1.0.js\"></script>";
-	}
-
-	private static String getSearchScript() {
-		return "<script type=\"text/javascript\">\n"
-				+ "\tvar $rows = $('#table tr');\n"
-				+ "\t$('#search').keyup(function() {\n"
-				+ "\tvar val = $.trim($(this).val()).replace(/ +/g, ' ');\n\n"
-				+ "\t$rows.show().filter(function() {\n"
-				+ "\t\tvar text = $(this).text().replace(/\\s+/g, ' ');\n"
-				+ "\t\treturn !~text.indexOf(val);" + "}).hide();" + "});\n"
-				+ "</script>\n";
-	}
-
+	/**
+	 * Reads the specified file and returns the data within it inside a string
+	 * 
+	 * @param fileName
+	 *            the file to read from
+	 * @return a String with the data for the file, preserving new lines
+	 */
 	private static String getDataFromFile(String fileName) {
 		StringBuilder bob = new StringBuilder();
 
