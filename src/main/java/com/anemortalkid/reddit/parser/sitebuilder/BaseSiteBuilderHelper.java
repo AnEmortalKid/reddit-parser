@@ -1,7 +1,9 @@
 package com.anemortalkid.reddit.parser.sitebuilder;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
@@ -87,14 +89,19 @@ public class BaseSiteBuilderHelper {
 		String containerData = getContainerData();
 		bob.append(containerData);
 
-		bob.append(getBootstrapJavaScript() + "\n");
-		bob.append(getJQueryScript() + "\n");
-		bob.append(getSearchScript());
+		bob.append(getJavascript());
+		// bob.append(getBootstrapJavaScript() + "\n");
+		// bob.append(getJQueryScript() + "\n");
+		// bob.append(getSearchScript());
 
 		String bodyEnd = "</body>";
 		bob.append(bodyEnd);
 
 		return bob.toString();
+	}
+
+	private String getJavascript() {
+		return getDataFromFile("src/main/resources/site_resources/javascriptfunctions.txt");
 	}
 
 	private String getBootstrapJavaScript() {
@@ -179,10 +186,31 @@ public class BaseSiteBuilderHelper {
 				+ " Complete</span>");
 		bob.append("</div></div>");
 		bob.append(getInputSearch());
+		bob.append(getCaseSensitiveCheckBox());
 		String featuretteDivider = "<hr class=\"featurette-divider\">";
 		bob.append(featuretteDivider);
 		bob.append("\n</div>\n");
 
+		return bob.toString();
+	}
+
+	private String getCaseSensitiveCheckBox() {
+		StringBuilder bob = new StringBuilder();
+
+		File checkboxFile = new File(
+				"src/main/resources/site_resources/input_checkbox.txt");
+		try (BufferedReader br = new BufferedReader(
+				new FileReader(checkboxFile))) {
+			String line;
+			while ((line = br.readLine()) != null) {
+				bob.append(line + "\n");
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return bob.toString();
 	}
 
@@ -274,6 +302,25 @@ public class BaseSiteBuilderHelper {
 				+ "\t\tvar text = $(this).text().replace(/\\s+/g, ' ');\n"
 				+ "\t\treturn !~text.indexOf(val);" + "}).hide();" + "});\n"
 				+ "</script>\n";
+	}
+
+	private static String getDataFromFile(String fileName) {
+		StringBuilder bob = new StringBuilder();
+
+		File checkboxFile = new File(fileName);
+		try (BufferedReader br = new BufferedReader(
+				new FileReader(checkboxFile))) {
+			String line;
+			while ((line = br.readLine()) != null) {
+				bob.append(line + "\n");
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return bob.toString();
 	}
 
 	public static void main(String[] args) {

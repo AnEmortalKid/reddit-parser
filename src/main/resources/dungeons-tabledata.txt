@@ -56,7 +56,7 @@
 <tr>
 	<td>Blackberry Falls</td>
 	<td>Village / Armpit of the Kingdom</td>
-	<td> Blackberry Falls is a stinking pit of a village located in the swamps beneath the eponymous waterfall. The town has no non-humans, no government, and only a lecherous priest and Butch the local thug to impose order. Everything stinks, everything sucks, and everyone is racist, xenophobic, or the doddering old buffoon who runs "Crispy Critters: Frog on a Stick!" Blackberry Falls, mistakenly presumed to be an idyllic riverfront paradise, is chosen as the site of upcoming peace talks. The players have been tasked with ensuring the town is up to the task. I posted this here on r/loremasters.</td>
+	<td> Blackberry Falls is a stinking pit of a village located in the swamps beneath the eponymous waterfall. The town has no non-humans, no government, and only a lecherous priest and Butch the local thug to impose order. Everything stinks, everything sucks, and everyone is racist, xenophobic, or the doddering old buffoon who runs "Crispy Critters: Frog on a Stick!" Blackberry Falls, mistakenly presumed to be an idyllic riverfront paradise, is chosen as the site of upcoming peace talks. The players have been tasked with ensuring the town is up to the task.</td>
 </tr>
 <tr>
 	<td>Ghost Ship Eventide</td>

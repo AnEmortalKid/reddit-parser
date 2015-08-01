@@ -264,6 +264,11 @@
 	<td> This short rod is assembled from a series of regular polygons, with 4, 6, 8, 10, 12 and 20 sides respectively. You can use one of the dice to achieve the maximum roll of that dice type when one is rolled during the game. In doing so, the corresponding dice vanishes from the block. This is intended to be something that you might even make (from cheap dice and blu-tak, perhaps?) and hand to the player who loots it. It will appear, in-game, to be a simple object, albeit one with a faintly magical aura. Once attuned to the object, the character learns that they can call on its power when in need. I called "meta-magic item" because it's sort of in the boundary between player and character, if that makes any sense.</td>
 </tr>
 <tr>
+	<td>Blade Tattoo</td>
+	<td>Consumable Magic Item</td>
+	<td> Tattoo and ink set allowing up to 12 tattoos to be made. Can be used to tattoo any non-magical weapon onto a live body. As a bonus action can be removed, tearing the tattoo from the skin, which forms into a bony, fleshy form of that weapon. DC 12 Con when removed, on failure take 1d6 damage and nauseated for one round. On success, take half damage. Weapon dissolves after five minutes.</td>
+</tr>
+<tr>
 	<td>Tim's Never-Empty Flask</td>
 	<td>Better than Nothing Magic Item</td>
 	<td> This unassuming steel flask is always filled with wine, no matter how many swigs you take.</td>
@@ -407,11 +412,6 @@
 	<td>Isuna's Cane</td>
 	<td>Magic Quarterstaff</td>
 	<td> This lengthy staff cultivates a fire within its shaft and can be used in two ways. The wielder can twist the two halves to ignite the staff, which can then be used as a bomb of sorts. The user is advised that, once triggered, the staff will explode within seconds. If instead the user wishes to retain the staff, small bursts of energy can be spouted from the tip.</td>
-</tr>
-<tr>
-	<td>Blade Tattoo</td>
-	<td>Consumable Magic Item</td>
-	<td> Tattoo and ink set allowing up to 12 tattoos to be made. Can be used to tattoo any non-magical weapon onto a live body. As a bonus action can be removed, tearing the tattoo from the skin, which forms into a bony, fleshy form of that weapon. DC 12 Con when removed, on failure take 1d6 damage and nauseated for one round. On success, take half damage. Weapon dissolves after five minutes.</td>
 </tr>
 <tr>
 	<td>Barrel of Bubbling Brew</td>
