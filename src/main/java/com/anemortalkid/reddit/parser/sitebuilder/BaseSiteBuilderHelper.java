@@ -7,12 +7,22 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
+import java.text.MessageFormat;
 import java.util.Date;
 import java.util.List;
 
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
+/**
+ * A {@link BaseSiteBuilderHelper} will build the standard index.html files for
+ * each set of scrubbed data
+ * 
+ * @author JMonterrubio
+ *
+ */
 public class BaseSiteBuilderHelper {
+
+	private static final String END_JAVASCRIPT_FUNCTIONS = "src/main/resources/site_resources/javascriptfunctions.txt";
 
 	private static final String DIV_CLASS_ROW = "<div class=\"row\">";
 	private String indexLocation;
@@ -46,6 +56,11 @@ public class BaseSiteBuilderHelper {
 		this.tableData = tableData;
 	}
 
+	/**
+	 * Writes an index file to the specified location in {@link #indexLocation}.
+	 * The index file will follow the same standard format that the other index
+	 * files have had within this project.
+	 */
 	public void buildHTML() {
 
 		String meta = "<meta name=viewport content=\"width=device-width, initial-scale=1\">";
@@ -86,15 +101,12 @@ public class BaseSiteBuilderHelper {
 		String containerData = getContainerData();
 		bob.append(containerData);
 
-		bob.append(getJavascript());
+		bob.append("</div>");
+		bob.append(getDataFromFile(END_JAVASCRIPT_FUNCTIONS));
 		String bodyEnd = "</body>";
 		bob.append(bodyEnd);
 
 		return bob.toString();
-	}
-
-	private String getJavascript() {
-		return getDataFromFile("src/main/resources/site_resources/javascriptfunctions.txt");
 	}
 
 	private String getContainerData() {
@@ -146,6 +158,10 @@ public class BaseSiteBuilderHelper {
 			return "treasures.jpg";
 		case "Dungeons":
 			return "dungeons.jpg";
+		case "Plot Hooks":
+			return null;
+		case "Villains":
+			return null;
 		default:
 			throw new UnsupportedOperationException("No file matched with: "
 					+ pageTitle);
@@ -155,51 +171,11 @@ public class BaseSiteBuilderHelper {
 	private String getProgressBarDiv() {
 		StringBuilder bob = new StringBuilder();
 		bob.append(DIV_CLASS_ROW + "\n");
-		bob.append("<div class=\"progress\">");
-
-		String aria_value_now = tableData.size() + "";
-
+		String unformattedProgressBar = getDataFromFile(SiteResourcesConstants.PROGRESS_BAR);
 		double percent = (tableData.size() / 10000.00) * 100.00;
 		DecimalFormat df = new DecimalFormat("##.##");
-		String percentString = df.format(percent) + "%";
-		String style_value = "width: " + percentString;
-
-		String divClass = "\n<div class=\"progress-bar progress-bar-info progress-bar-striped\" role=\"progressbar\"";
-		String ariaValueNow = "aria-valuenow=\"" + aria_value_now + "\"";
-		String ariaValueMinMax = "aria-valuemin=\"0\" aria-valuemax=\"10000\"";
-		String style = "style=\"" + style_value + "\">";
-		bob.append(divClass + ariaValueNow + ariaValueMinMax + style);
-
-		// build span
-		bob.append("<span class=\"sr-only\">" + percentString
-				+ " Complete</span>");
-		bob.append("</div></div>");
-		bob.append(getInputSearch());
-		bob.append(getCaseSensitiveCheckBox());
-		String featuretteDivider = "<hr class=\"featurette-divider\">";
-		bob.append(featuretteDivider);
-		bob.append("\n</div>\n");
-
-		return bob.toString();
-	}
-
-	private String getCaseSensitiveCheckBox() {
-		StringBuilder bob = new StringBuilder();
-
-		File checkboxFile = new File(
-				"src/main/resources/site_resources/input_checkbox.txt");
-		try (BufferedReader br = new BufferedReader(
-				new FileReader(checkboxFile))) {
-			String line;
-			while ((line = br.readLine()) != null) {
-				bob.append(line + "\n");
-			}
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		bob.append(MessageFormat.format(unformattedProgressBar,
+				tableData.size(), df.format(percent)));
 		return bob.toString();
 	}
 
@@ -243,15 +219,15 @@ public class BaseSiteBuilderHelper {
 	}
 
 	private static String wrapInHTML(String text) {
-		return "<html>\n" + text + "\n</html>";
+		return MessageFormat.format("<html>\n{0}\n</html>", text);
 	}
 
 	private static String wrapInHead(String text) {
-		return "<head>\n" + text + "\n</head>";
+		return MessageFormat.format("<head>\n{0}\n</head>", text);
 	}
 
 	private static String wrapInTitle(String text) {
-		return "<title>" + text + "</title>";
+		return MessageFormat.format("<title>{0}</title>", text);
 	}
 
 	/**
@@ -303,5 +279,4 @@ public class BaseSiteBuilderHelper {
 		}
 		return bob.toString();
 	}
-
 }

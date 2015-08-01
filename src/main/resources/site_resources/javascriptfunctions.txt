@@ -2,51 +2,43 @@
 <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 <script type="text/javascript">
 	var $rows = $('#table tr');
-	$('#search').keyup(function() {
-	var checked = document.getElementById("casesensitive").checked;
-	if(checked===true)
-	{
-	caseSensitive();
-	}
-	else{
-	caseInsensitive();
-	}
-	}
-	);
+	$('#search').keyup(checkFilter());
 </script>
 <script type="text/javascript">
 function caseSensitive()
 {
-var searchText = document.getElementById('search').value;
-var val = $.trim(searchText).replace(/ +/g, ' ');
+	var searchText = document.getElementById('search').value;
+	var val = $.trim(searchText).replace(/ +/g, ' ');
 
 	$rows.show().filter(function() {
 		var text = $(this).text().replace(/\s+/g, ' ');
-		return !~text.indexOf(val);}).hide();
+		return !~text.indexOf(val);
+	}).hide();
 }
 </script>
 <script type="text/javascript">
 function caseInsensitive()
 {
-var searchText = document.getElementById('search').value;
-var val = $.trim(searchText).replace(/ +/g, ' ').toLowerCase();
+	var searchText = document.getElementById('search').value;
+	var val = $.trim(searchText).replace(/ +/g, ' ').toLowerCase();
 		
-$rows.show().filter(function() {
-	var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
-	return !~text.indexOf(val);
+	$rows.show().filter(function() {
+		var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+		return !~text.indexOf(val);
 	}).hide();
 }
 </script>
 <script type="text/javascript">
 function checkFilter()
 {
-var checked = document.getElementById("casesensitive").checked;
+	var checked = document.getElementById("casesensitive").checked;
+	
 	if(checked===true)
 	{
-	caseSensitive();
+		caseSensitive();
 	}
 	else{
-	caseInsensitive();
+		caseInsensitive();
 	}
 }
 </script>

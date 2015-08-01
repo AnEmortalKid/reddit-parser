@@ -7,6 +7,7 @@ import com.anemortalkid.reddit.parser.sitebuilder.dungeons.DungeonSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.locations.LocationsSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.mysteries.MysteriesSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.npcs.NPCSiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.plothooks.PlothooksSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.treasures.TreasureSiteBuilder;
 
 /**
@@ -25,6 +26,7 @@ public class FullSiteBuilder {
 		siteBuilders.add(new LocationsSiteBuilder());
 		siteBuilders.add(new TreasureSiteBuilder());
 		siteBuilders.add(new DungeonSiteBuilder());
+		siteBuilders.add(new PlothooksSiteBuilder());
 
 		// TODO: Add a new site builder here for the url you wish to create
 
