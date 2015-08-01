@@ -2,10 +2,8 @@ package com.anemortalkid.reddit.parser.sitebuilder.locations;
 
 import java.util.List;
 
-import com.anemortalkid.reddit.parser.locations.Scrub10KLocations;
-import com.anemortalkid.reddit.parser.npcs.Scrub10KNPCS;
-import com.anemortalkid.reddit.parser.sitebuilder.ISiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.BaseSiteBuilderHelper;
+import com.anemortalkid.reddit.parser.sitebuilder.ISiteBuilder;
 import com.anemortalkid.reddit.scrubber.StrongEmphasisParagraphScrubber;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 

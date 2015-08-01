@@ -7,12 +7,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.anemortalkid.reddit.parser.npcs.NPCDataObject;
-import com.anemortalkid.reddit.parser.npcs.Scrub10KNPCS;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class BaseSiteBuilderHelper {
@@ -321,15 +318,6 @@ public class BaseSiteBuilderHelper {
 			e.printStackTrace();
 		}
 		return bob.toString();
-	}
-
-	public static void main(String[] args) {
-		Scrub10KNPCS npcs = new Scrub10KNPCS();
-		List<ScrubbedDataObject> dataPoints = npcs.getDataPoints();
-		String header = "<tr><th>Name</th><th>Gender Race Occupation</th><th>Description</th></tr>";
-		String indexLocation = "src/main/resources/npcs/";
-		new BaseSiteBuilderHelper(indexLocation, "NPCs", npcs.REDDIT_URL,
-				header, dataPoints).buildHTML();
 	}
 
 }
