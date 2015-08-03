@@ -2,7 +2,17 @@
 <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 <script type="text/javascript">
 	var $rows = $('#table tr');
-	$('#search').keyup(checkFilter());
+	$('#search').keyup(function(){
+	var checked = document.getElementById("casesensitive").checked;
+	
+	if(checked===true)
+	{
+		caseSensitive();
+	}
+	else{
+		caseInsensitive();
+	}
+	});
 </script>
 <script type="text/javascript">
 function caseSensitive()

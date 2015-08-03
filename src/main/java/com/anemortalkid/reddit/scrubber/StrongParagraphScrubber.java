@@ -77,6 +77,21 @@ public class StrongParagraphScrubber implements IScrubber {
 									data);
 							bold = "";
 							regular = "";
+						} else {
+							// TODO: Put as Scrubber with OL LI handle in it /
+							// refactor for modularity mayhaps
+							if (tagName.equals("ol")) {
+								regular += " " + "<ol>\n";
+								continue;
+							}
+							if (tagName.equals("/ol")) {
+								regular += " " + "</ol>\n";
+							}
+							if (tagName.equals("li")) {
+								regular += " " + "<li>" + elem.text()
+										+ "</li>\n";
+							}
+
 						}
 						if (tagName.equals("strong")) {
 							bold = elem.text();

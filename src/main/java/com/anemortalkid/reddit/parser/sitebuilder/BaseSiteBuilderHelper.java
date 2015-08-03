@@ -125,6 +125,7 @@ public class BaseSiteBuilderHelper {
 		bob.append("<div class=\"row\">\n");
 		bob.append(getColMDImgCircleShit());
 		bob.append(buildDataHeader());
+		bob.append(getDataFromFile(SiteResourcesConstants.INPUTS));
 
 		bob.append(getProgressBarDiv());
 
