@@ -2,8 +2,10 @@
 <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 <script type="text/javascript">
 	var $rows = $('#table tr');
+	var $randomRowTable = document.getElementById("randomTable");
 	$('#search').keyup(function(){
 	var checked = document.getElementById("casesensitive").checked;
+	hideRandomTable();
 	
 	if(checked===true)
 	{
@@ -12,6 +14,9 @@
 	else{
 		caseInsensitive();
 	}
+	
+	//unhide the header
+	$rows.get(0).style.display="";
 	});
 </script>
 <script type="text/javascript">
@@ -42,6 +47,7 @@ function caseInsensitive()
 function checkFilter()
 {
 	var checked = document.getElementById("casesensitive").checked;
+	hideRandomTable();
 	
 	if(checked===true)
 	{
@@ -50,5 +56,34 @@ function checkFilter()
 	else{
 		caseInsensitive();
 	}
+	
+	//unhide the header
+	$rows.get(0).style.display="";
+}
+</script>
+<script type="text/javascript">
+function randomRow()
+{
+var random = Math.floor((Math.random() * $rows.length) + 1);
+var header = $rows.get(0).innerHTML;
+var rowValue = $rows.get(random).innerHTML;
+document.getElementById("randomTable").innerHTML="<table><tr>"+header+"</tr><tr>"+rowValue+"</tr></table>"; 
+showRandomTable();
+}
+</script>
+<script type="text/javascript">
+function hideRandomTable()
+{	
+	//show the rows and hide rando element
+	$rows.each(function() {$(this).show()})
+	$randomRowTable.style.display = 'none';
+}
+
+function showRandomTable()
+{
+	//hide the rows and show our element
+	$rows.each(function() {$(this).hide()})
+	$randomRowTable.style.display = 'block';
+	document.getElementById('search').value=""
 }
 </script>

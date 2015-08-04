@@ -26,7 +26,7 @@ public class LocationsSiteBuilder implements ISiteBuilder {
 		String fileLocationAndName = "src/main/resources/locations";
 		scrubber.writeDataToFiles(fileLocationAndName, data);
 
-		String header = "<tr><th>Name</th><th>Type</th><th>Description</th></tr>";
+		String header = "<tr><th align=\"center\">Name</th><th align=\"center\">Type</th><th align=\"center\">Description</th></tr>";
 		String indexLocation = "src/main/resources/locations/";
 
 		BaseSiteBuilderHelper baseBuilder = new BaseSiteBuilderHelper(

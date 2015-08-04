@@ -21,7 +21,7 @@ public class PlothooksSiteBuilder implements ISiteBuilder {
 		String fileNameAndLocation = "src/main/resources/plothooks";
 		scrubber.writeDataToFiles(fileNameAndLocation, data);
 
-		String tableHeaderHTML = "<tr><th>Plot Hook Name</th><th>Description</th></tr>";
+		String tableHeaderHTML = "<tr><th align=\"center\">Plot Hook Name</th><th align=\"center\">Description</th></tr>";
 		BaseSiteBuilderHelper baseSiteBuilderHelper = new BaseSiteBuilderHelper(
 				fileNameAndLocation + "/", "Plot Hooks", redditURL,
 				tableHeaderHTML, data);

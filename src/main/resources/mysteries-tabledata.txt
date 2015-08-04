@@ -551,10 +551,6 @@
 	<td> There are lots of tales of people dying peacefully in their sleep, with eyewitnesses saying the night before, the deceased got up and opened the door, reacting to a knock only they could hear.</td>
 </tr>
 <tr>
-	<td>Welcome to shlaad</td>
-	<td> Visitors in shlaad can often be seen carrying a pamphlet with touristic information. Noone in shlaad has ever worked on them, handed them out, or even got one directly. They just lie around, always perfectly up to date, including events only just concieved and changes that happened the same day.</td>
-</tr>
-<tr>
 	<td>I Know That Guy!</td>
 	<td> Every inn or tavern in every town, village, or city the adventurers go to has a bartender that looks and sounds exactly alike. He always goes by a different name, but everyone in the party recognizes him from each of the other places. No matter how hard he is questioned or interrogated, he has no idea what the adventurers are talking about if they confront him with it.</td>
 </tr>

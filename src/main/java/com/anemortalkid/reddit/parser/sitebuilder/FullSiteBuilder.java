@@ -9,6 +9,7 @@ import com.anemortalkid.reddit.parser.sitebuilder.mysteries.MysteriesSiteBuilder
 import com.anemortalkid.reddit.parser.sitebuilder.npcs.NPCSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.plothooks.PlothooksSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.treasures.TreasureSiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.villains.VillainsSiteBuilder;
 
 /**
  * Contains a list of all the sites and lets me run them all at once instead of
@@ -27,9 +28,7 @@ public class FullSiteBuilder {
 		siteBuilders.add(new TreasureSiteBuilder());
 		siteBuilders.add(new DungeonSiteBuilder());
 		siteBuilders.add(new PlothooksSiteBuilder());
-
-		// TODO: Add a new site builder here for the url you wish to create
-
+		siteBuilders.add(new VillainsSiteBuilder());
 		siteBuilders.forEach(x -> x.buildSite());
 	}
 }

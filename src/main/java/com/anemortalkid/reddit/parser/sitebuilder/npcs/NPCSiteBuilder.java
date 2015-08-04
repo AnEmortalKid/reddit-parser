@@ -12,7 +12,7 @@ public class NPCSiteBuilder implements ISiteBuilder {
 	@Override
 	public void buildSite() {
 		String redditURL = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3er483/lets_make_10000_npcs/";
-		String header = "<tr><th>Name</th><th>Gender Race Occupation</th><th>Description</th></tr>";
+		String header = "<tr><th>Name</th><th align=\"center\">Gender Race Occupation</th><th align=\"center\">Description</th></tr>";
 
 		// get scrubber and write to file
 		StrongEmphasisParagraphScrubber seps = new StrongEmphasisParagraphScrubber(

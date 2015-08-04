@@ -21,7 +21,7 @@ public class MysteriesSiteBuilder implements ISiteBuilder {
 		String fileLocationAndName = "src/main/resources/mysteries";
 		scrubber.writeDataToFiles(fileLocationAndName, data);
 
-		String header = "<tr><th>Mystery Name</th><th>Mystery Description</th></tr>";
+		String header = "<tr><th align=\"center\">Mystery Name</th><th align=\"center\">Mystery Description</th></tr>";
 		String indexLocation = "src/main/resources/mysteries/";
 		new BaseSiteBuilderHelper(indexLocation, "Mysteries", redditURL,
 				header, data).buildHTML();

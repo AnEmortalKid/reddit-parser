@@ -60,6 +60,24 @@ public class BaseSiteBuilderHelper {
 	 * Writes an index file to the specified location in {@link #indexLocation}.
 	 * The index file will follow the same standard format that the other index
 	 * files have had within this project.
+	 * 
+	 * <pre>
+	 * html
+	 * head
+	 * title
+	 * page-style
+	 * body
+	 * h1. anchor link
+	 * input search
+	 * table id=table
+	 * header row
+	 * data
+	 * close-table
+	 * search script
+	 * close-body
+	 * close-html
+	 * </pre>
+	 * 
 	 */
 	public void buildHTML() {
 
@@ -101,7 +119,7 @@ public class BaseSiteBuilderHelper {
 		String containerData = getContainerData();
 		bob.append(containerData);
 
-		bob.append("</div>");
+		bob.append("</div>\n");
 		bob.append(getDataFromFile(END_JAVASCRIPT_FUNCTIONS));
 		String bodyEnd = "</body>";
 		bob.append(bodyEnd);
@@ -125,13 +143,20 @@ public class BaseSiteBuilderHelper {
 		bob.append("<div class=\"row\">\n");
 		bob.append(getColMDImgCircleShit());
 		bob.append(buildDataHeader());
-		bob.append(getDataFromFile(SiteResourcesConstants.INPUTS));
+		
+		//Format the {0} for the inputs to say Random Title
+		String inputs = getDataFromFile(SiteResourcesConstants.INPUTS);
+		String pageTitleNoPlural = pageTitle.substring(0, pageTitle.length()-1);
+		bob.append(MessageFormat.format(inputs, pageTitleNoPlural));
 
 		bob.append(getProgressBarDiv());
-
+		
 		// generate table
 		// we have a silly div class row
 		bob.append(DIV_CLASS_ROW + "\n");
+		
+		//Append the random div tabble
+		bob.append("<div id=\"randomTable\"></div>\n");
 		bob.append(getTable());
 		bob.append("\n</div>\n");
 		return bob.toString();
@@ -147,7 +172,6 @@ public class BaseSiteBuilderHelper {
 	}
 
 	private String getAssetFile() {
-		// TODO Update this with search strings
 		switch (pageTitle) {
 		case "NPCs":
 			return "npcs.min.jpg";
@@ -160,9 +184,9 @@ public class BaseSiteBuilderHelper {
 		case "Dungeons":
 			return "dungeons.jpg";
 		case "Plot Hooks":
-			return null;
+			return "plothooks.jpg";
 		case "Villains":
-			return null;
+			return "villains.jpg";
 		default:
 			throw new UnsupportedOperationException("No file matched with: "
 					+ pageTitle);
@@ -185,7 +209,7 @@ public class BaseSiteBuilderHelper {
 
 		String h1LinkHeader = "<h1><a href=\"..\">10K // </a> " + pageTitle
 				+ "</h1>\n";
-		String paragraphCopyPasta = "<p>This page is a compilation of the locations from <a href=\""
+		String paragraphCopyPasta = "<p>This page is a compilation of the "+pageTitle.toLowerCase()+" from <a href=\""
 				+ redditUrl
 				+ "\">/rDnDBehindTheScreen's 10K "
 				+ pageTitle
@@ -232,30 +256,6 @@ public class BaseSiteBuilderHelper {
 	}
 
 	/**
-	 * <pre>
-	 * html
-	 * head
-	 * title
-	 * page-style
-	 * body
-	 * h1. anchor link
-	 * input search
-	 * table id=table
-	 * header row
-	 * data
-	 * close-table
-	 * search script
-	 * close-body
-	 * close-html
-	 * </pre>
-	 * 
-	 */
-
-	private static String getInputSearch() {
-		return "<input type=\"text\" id=\"search\" placeholder=\"Type to search\" />\n";
-	}
-
-	/**
 	 * Reads the specified file and returns the data within it inside a string
 	 * 
 	 * @param fileName
@@ -280,4 +280,5 @@ public class BaseSiteBuilderHelper {
 		}
 		return bob.toString();
 	}
+	
 }

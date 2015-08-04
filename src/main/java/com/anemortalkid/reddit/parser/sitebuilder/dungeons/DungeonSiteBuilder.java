@@ -22,7 +22,7 @@ public class DungeonSiteBuilder implements ISiteBuilder {
 		String fileLocationAndName = "src/main/resources/dungeons";
 		scrubber.writeDataToFiles(fileLocationAndName, data);
 
-		String header = "<tr><th>Dungeon Name</th><th>Dungeon Type</th><th>Description</th></tr>";
+		String header = "<tr><th align=\"center\">Dungeon Name</th><th>Dungeon Type</th><th align=\"center\">Description</th></tr>";
 		new BaseSiteBuilderHelper(fileLocationAndName + "/", "Dungeons",
 				redditURL, header, data).buildHTML();
 	}

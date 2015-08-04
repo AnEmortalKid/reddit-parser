@@ -232,12 +232,12 @@
 	<td> You receive a letter claiming a member of the party is owed inheritance.</td>
 </tr>
 <tr>
-	<td>The Man in The Hair Piece</td>
-	<td> It turns out it was actually Bruce Willis the whole time.</td>
-</tr>
-<tr>
 	<td>The Ogre and the Goblins</td>
 	<td> Recently a nearby town has lost all contact with the outside world. When the PCs go to investigate they discover that an ogre is holding the town hostage and letting no one leave under any circumstance unless unreasonable demand is met. If the PCs set out into the surrounding woods they can find the ogre's cave. Twist: the ogre doesn't want to do this and has been tricked into terrorizing the town by some goblins who want the town for nefarious purpose. The ogre will help fight the goblins if the PCs try to win it's freedom. 2nd Twist: the ogre is actually highly intelligent and is controlling the goblins. He betrays the PCs at a critical moment during the fight.</td>
+</tr>
+<tr>
+	<td>The Man in The Hair Piece</td>
+	<td> It turns out it was actually Bruce Willis the whole time.</td>
 </tr>
 <tr>
 	<td>The missing spy</td>
@@ -274,6 +274,10 @@
 <tr>
 	<td>The Old King is Dead</td>
 	<td> The king has died without an heir. Several distant relatives are claiming the crown. The party is cornered by supporters of one of the claimants, will they support their claim? Immediately following this encounter, the party is cornered by supporters of a rival claimant, what did they promise the first one? Blood, intrigue, and/or chaos ensue.</td>
+</tr>
+<tr>
+	<td>The Tempest</td>
+	<td> The party is shipwrecked on a strange island during a storm. Little do they know that on the island is living one of their former enemies, a sorcerer of terrible power, hell-bent on vengeance.</td>
 </tr>
 <tr>
 	<td>What's in a name?</td>
@@ -374,4 +378,16 @@
 <tr>
 	<td>The Uninvited Guests</td>
 	<td> While in a city, the party is confronted by an old nobleman, whose research indicates that fey conciousnesses are about to invade an upcoming party for nobles. The man himself is not invited due to being a little... eccentric, but he can get the party invited, armed with a magical amulet to prevent the wearers conciousness from being invaded. But there's only one amulet to go around.</td>
+</tr>
+<tr>
+	<td>Missing Mistress</td>
+	<td> Jaelom Harns, promiscuous daughter of a local wealthy merchant, is missing. All twelve of her public suitors have fled town at the same time.</td>
+</tr>
+<tr>
+	<td>Dead Carnies</td>
+	<td> A travelling circus recently left town yesterday after spending two weeks entertaining the townsfolk. This morning, it was discovered in a smoldering ruin barely ten miles outside of town, all the entertainers dead and seemingly burned alive.</td>
+</tr>
+<tr>
+	<td>By Gragnar's Hammer</td>
+	<td> Famous Dwarven smith, Gragnar Battlestein, recently did a show-and-tell at his smithy of some of techniques. Mysteriously, only two days later, his hammer went missing. It was probably one of the two hundred attendees, so at least there's a starting point for the investigation!</td>
 </tr>

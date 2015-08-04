@@ -1,2 +1,3 @@
 <input type="text" id="search" placeholder="Type to search" />
 <label><input type="checkbox" id="casesensitive" onClick="checkFilter()" checked>Case Sensitive Search</label>
+<button type="button" onClick="randomRow()">Random {0}</button>
