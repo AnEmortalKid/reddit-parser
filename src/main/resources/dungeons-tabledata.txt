@@ -258,3 +258,8 @@
 	<td>Gargantuan space creature</td>
 	<td> A creature that clasps onto buildings and planets, slowly driving the inhabitants insane. It can be controlled by the master who is able to command it psionically while residing in it's stomach. It keeps parasites inside it's body to get rid of the intruders it can see or taste within it's body. One way to keep intruders out is a sphincter full of teeth and eyes. One eye has a sensitive nerve that, when closed, will open the sphincter.</td>
 </tr>
+<tr>
+	<td>The Bifurcated Forks of Mentat</td>
+	<td>Extradimensional Maze</td>
+	<td> Mentat was a Psionicist and Diviner of great skill. He constructed this structure as a means to explore the possibilities of his past choices and those yet to come. His enemies took advantage of his meditative state while there and slew him unleashing the bound energies he was manipulating. Now the temple is an inhospitable place of strange angles, doors that lead to places they cannot, and rooms that should be impossible. It is said that anyone foolish enough to enter will face every mistake they've ever made come to life.</td>
+</tr>

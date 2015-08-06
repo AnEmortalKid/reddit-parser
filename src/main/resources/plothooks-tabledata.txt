@@ -240,12 +240,12 @@
 	<td> It turns out it was actually Bruce Willis the whole time.</td>
 </tr>
 <tr>
-	<td>The missing spy</td>
-	<td> A party member is bumped into on the street by someone unremarkable who simply excuses themselves and keeps walking. They later discover a small letter in one of their pockets. The letter details how a spy that was supposed to be reporting every so often has gone silent, and that they will be rewarded handsomely for their swift and discreet investigation.</td>
-</tr>
-<tr>
 	<td>The RC Knight</td>
 	<td> Upon crossing a bridge, the party encounters a knight dressed in black, challenging them to battle, saying "None shall pass." After the battle begins, every round the party has a chance to notice that the knight is in fact an automaton being controlled by some children hiding in the bushes nearby. Upon being noticed the children have the knight pull the old "Pay no attention to the man behind the curtain" bit. "Your opponent is over here!", etc.</td>
+</tr>
+<tr>
+	<td>The missing spy</td>
+	<td> A party member is bumped into on the street by someone unremarkable who simply excuses themselves and keeps walking. They later discover a small letter in one of their pockets. The letter details how a spy that was supposed to be reporting every so often has gone silent, and that they will be rewarded handsomely for their swift and discreet investigation.</td>
 </tr>
 <tr>
 	<td>the smiling figure</td>
@@ -390,4 +390,16 @@
 <tr>
 	<td>By Gragnar's Hammer</td>
 	<td> Famous Dwarven smith, Gragnar Battlestein, recently did a show-and-tell at his smithy of some of techniques. Mysteriously, only two days later, his hammer went missing. It was probably one of the two hundred attendees, so at least there's a starting point for the investigation!</td>
+</tr>
+<tr>
+	<td>Green Dragon Request</td>
+	<td> A green dragon slowly rising to power hopes to recruit its own adventuring party. The dragon offers a sizable amount of treasure for an oh so small favor. The dragon always has more things that need doing and the rewards begin piling up, but some of the requests start putting the party into moral quandaries. (Note: this would probably work best for trying to mess with a "good" party)</td>
+</tr>
+<tr>
+	<td>The Hand of [Enter PC Name Here]</td>
+	<td> The players learn that undead have been terrorizing a nearby town lately and the culprit is likely residing in the abandoned tomb close by. The players encounter some undead (zombie dogs, mummies, etc.) while traversing the tomb but all they find out is that a lich likely resided there long ago. During the trek, however, one of the players gets bit by a wight and becomes plagued with an affliction. Have a local cleric stop the affliction from spreading, but now the PC's hand is changed forever. Give it some utility features (a minor and major advantage/disadvantage), and continue the story. Unbeknownst to the PCs, the cleric is the culprit and has been secretly researching and practicing necromancy in the tomb. At some point later in the story, have the cleric be revealed as a minor/major BBEG who became obsessed with his research and is after the PCs hand. If you want to increase the stakes, have the removal of the hand cause instant death/drop to zero HP and roll death save, and/or have the cleric confront the PCs because he can take control of the PC.</td>
+</tr>
+<tr>
+	<td>Happy Death-day</td>
+	<td> The party falls through a sinkhole into an underground cavern. There they find a gnome golem crafter and his golem have been declared as high priest and god, respectively, by a small tribe of Kuo-toa. The golem crafter has been trying to keep up the illusion while looking for a way out of the cavern system, but he needs help... A retired vampire-slayer and nobleman is holding a birthday party for his 10 year old son. Along with the bevy of guests, a small contingent of vampires have slipped into the party get revenge on the elderly paladin. Optional Twist: The paladin is able to lock himself inside a safe room with a couple of guests, but is separated from his son in the commotion. One of the vampires uses Magic Jar to inhabit the body of the son and tags along with the party until they can open the safe room.</td>
 </tr>

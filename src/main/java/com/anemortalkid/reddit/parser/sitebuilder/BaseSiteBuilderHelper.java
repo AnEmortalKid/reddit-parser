@@ -143,19 +143,20 @@ public class BaseSiteBuilderHelper {
 		bob.append("<div class=\"row\">\n");
 		bob.append(getColMDImgCircleShit());
 		bob.append(buildDataHeader());
-		
-		//Format the {0} for the inputs to say Random Title
+
+		// Format the {0} for the inputs to say Random Title
 		String inputs = getDataFromFile(SiteResourcesConstants.INPUTS);
-		String pageTitleNoPlural = pageTitle.substring(0, pageTitle.length()-1);
+		String pageTitleNoPlural = pageTitle.substring(0,
+				pageTitle.length() - 1);
 		bob.append(MessageFormat.format(inputs, pageTitleNoPlural));
 
 		bob.append(getProgressBarDiv());
-		
+
 		// generate table
 		// we have a silly div class row
 		bob.append(DIV_CLASS_ROW + "\n");
-		
-		//Append the random div tabble
+
+		// Append the random div tabble
 		bob.append("<div id=\"randomTable\"></div>\n");
 		bob.append(getTable());
 		bob.append("\n</div>\n");
@@ -209,10 +210,9 @@ public class BaseSiteBuilderHelper {
 
 		String h1LinkHeader = "<h1><a href=\"..\">10K // </a> " + pageTitle
 				+ "</h1>\n";
-		String paragraphCopyPasta = "<p>This page is a compilation of the "+pageTitle.toLowerCase()+" from <a href=\""
-				+ redditUrl
-				+ "\">/rDnDBehindTheScreen's 10K "
-				+ pageTitle
+		String paragraphCopyPasta = "<p>This page is a compilation of the "
+				+ pageTitle.toLowerCase() + " from <a href=\"" + redditUrl
+				+ "\">/rDnDBehindTheScreen's 10K " + pageTitle
 				+ " thread</a>. Be sure to visit and contribute!</p>\n";
 		bob.append(h1LinkHeader);
 		bob.append(paragraphCopyPasta);
@@ -280,5 +280,5 @@ public class BaseSiteBuilderHelper {
 		}
 		return bob.toString();
 	}
-	
+
 }

@@ -587,6 +587,18 @@
 	<td> After a night like any other night, a well-known alehouse is broken into. The burglars managed to locate the hidden safe and crack it open. Not a single coin was taken despite there being several hundred. The only item stolen was the owner's only copy of a centuries-old recipe for brewing golden ale.</td>
 </tr>
 <tr>
+	<td>Two Lost Boys</td>
+	<td> Campfires have been seen at night in the ancient stone ruin. A local farmer went to investigate and found nothing. The following day two boys went to play among the ruins and they never came back.</td>
+</tr>
+<tr>
+	<td>Locked Royal Rooms</td>
+	<td> The King has been murdered while at his summer palace from the capital city. He is dead of a knife wound in his own bedchamber. There does not appear to be any forced entry and the guards posted saw and heard nothing. The palace's soul gatehouse reports that no one came or left the palace last night.</td>
+</tr>
+<tr>
+	<td>The Big Tip</td>
+	<td> When her favorite patron, a member of the City Guard, stopped coming in to see her at the urban tavern where she works, the barmaid was a little disappointed. When someone left a purse with her name on it containing 5,000 gold pieces, she was shocked but cautiously accepting of it. When someone left a purse with her name on it containing a severed ear, she panicked.</td>
+</tr>
+<tr>
 	<td>The Bridge of Crabs</td>
 	<td> On a thin strip of land separating two bodies of water , only a mile and half wide, sand continues away from the beach stretching across the land and connecting two the opposing beach. No trees or plants grow here, just a 100 yard wide desert bridge across the land.</td>
 </tr>

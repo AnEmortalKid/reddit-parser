@@ -35,6 +35,12 @@ public interface SiteResourcesConstants {
 	 * <pre>
 	 * &lt;input type="text" id="search" placeholder="Type to search" /&gt;
 	 * &lt;label&gt;&lt;input type="checkbox" id="casesensitive" onClick="checkFilter()" checked&gt;Case Sensitive Search&lt;/label&gt;
+	 *  &lt;button type="button" onClick="randomRow()"&gt;Random {0}&lt;/button&gt;
+	 * </pre>
+	 * 
+	 * <pre>
+	 * Fill Values:
+	 * 0 - name of category, singular, ie Villain. For the Random X portion of the button.
 	 * </pre>
 	 */
 	static final String INPUTS = PATH + "inputelements.txt";
