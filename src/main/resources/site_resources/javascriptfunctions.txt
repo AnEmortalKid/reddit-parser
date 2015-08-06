@@ -67,7 +67,7 @@ function randomRow()
 var random = Math.floor((Math.random() * $rows.length) + 1);
 var header = $rows.get(0).innerHTML;
 var rowValue = $rows.get(random).innerHTML;
-document.getElementById("randomTable").innerHTML="<table class=&quot;table table-striped&quot;><tr>"+header+"</tr><tr>"+rowValue+"</tr></table>"; 
+document.getElementById("randomTable").innerHTML="<table class=\"table table-striped\"><tr>"+header+"</tr><tr>"+rowValue+"</tr></table>"; 
 showRandomTable();
 }
 </script>
