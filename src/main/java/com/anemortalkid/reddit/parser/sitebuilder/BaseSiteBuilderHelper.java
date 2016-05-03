@@ -30,6 +30,8 @@ public class BaseSiteBuilderHelper {
 	private String redditUrl;
 	private String headerTag;
 	private String pageTitle;
+	
+	private int innerTableCount = 0;
 
 	/**
 	 * 

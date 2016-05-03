@@ -1,6 +1,9 @@
 package com.anemortalkid.reddit.scrubber.dataobject;
 
 import java.util.Arrays;
+import java.util.regex.Pattern;
+
+import com.sun.org.apache.xerces.internal.impl.xs.identity.Selector.Matcher;
 
 /**
  * A {@link ScrubbedDataObject} which takes an array of strings, the first

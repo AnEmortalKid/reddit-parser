@@ -117,11 +117,14 @@ public class StrongParagraphScrubber implements IScrubber {
 
 		if (paragraph == null || paragraph.isEmpty())
 			return;
+		
+		if(paragraph.contains("Today's event"))
+			return;
 
 		/*
 		 * Excludes the header that some people put
 		 */
-		if (bold.contains("WELCOME") || bold.contains("Welcome") || bold.contains("The goal"))
+		if (bold.contains("WELCOME") || bold.contains("Welcome") || bold.contains("The goal") || bold.contains("Halll"))
 			return;
 
 		MultiDataObject md = new MultiDataObject(bold, paragraph);

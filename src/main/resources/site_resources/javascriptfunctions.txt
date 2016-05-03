@@ -87,3 +87,18 @@ function showRandomTable()
 	document.getElementById('search').value=""
 }
 </script>
+<script type="text/javascript">
+function rollTable(tableId)
+{
+ console.log('tableId:', tableId);
+ var innerTable = document.getElementById(tableId);
+ var data = innerTable.children[1].children[0].children;
+ console.log('elems:', data.length);
+ var randomIndex = Math.floor((Math.random() * data.length)+1);
+ var choice = data[randomIndex];
+ console.log('choice:', choice.textContent);
+ var dataId = tableId + '_data';
+ var tableDataElem = document.getElementById(dataId);
+ tableDataElem.innerHTML = "<b>" + choice.textContent+"</b>";
+}
+</script>
