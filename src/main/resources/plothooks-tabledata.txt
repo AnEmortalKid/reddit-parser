@@ -616,12 +616,12 @@
 <td> A small humanoid fire elemental asks to be freed from a containing vessel. Once free she may give the party a reward (e.g. a fire ruby witch can be consumed to throw a Fireball or sold as jewelery). She them appears in random fires, such as torches in a dungeon, to talk to the party or give them a small, strange task. Once the players prove their value and her trust she asks them to help the fire kingdom in the elemental plane. The elemental convergence, an event that decides which element will prevail over the others in the material plane for the next 10 thousand years, is near and war is imminent. Plot twist: even though she keeps saying that an era of fire would bring life, light and warmth to the material plane the truth is that no element ever wins the convergence and this is what keeps the material plane balanced. If an element gets an edge over the others terrible things happens on the material plane (a fire era would more likely bring firestorms, heat the planet and start a vulcanic apocalypse).</td>
 </tr>
 <tr>
-<td>The 3 Demons</td>
-<td> One of the party members is spoken to by a God while they were sleeping. They foretold that 3 great demons, Behemoth, Ziz, and Leviathan would soon awaken and ravage the lands if the party doesn't stop them.</td>
-</tr>
-<tr>
 <td>Drow Underground Railroad</td>
 <td> The party encounters refugees that were helped out of the Underdark by a Drow. They want to save others that were left behind.</td>
+</tr>
+<tr>
+<td>The 3 Demons</td>
+<td> One of the party members is spoken to by a God while they were sleeping. They foretold that 3 great demons, Behemoth, Ziz, and Leviathan would soon awaken and ravage the lands if the party doesn't stop them.</td>
 </tr>
 <tr>
 <td>Lords and Ladles</td>
@@ -634,6 +634,18 @@
 <tr>
 <td>The Thirteenth Warforged</td>
 <td> The Thrice-Crowned Emperor has grown old, and his advisors are beginning to worry that the long-delayed discussion of who (or what) should succeed his centuries-long rule will come too late. Noticeably mum on the subject is Thirteen, the last(?) of a series of mechanical servants created for the Emperor in his youth, and closest advisor to His Eminence. Long-silenced rumors have resurfaced that the Emperor's livelihood is directly tied to the wellbeing of the automatons, and the reactivation of long-defunct factories beneath the palace have spurred speculation that not all is as it seems.</td>
+</tr>
+<tr>
+<td>The Necromancer</td>
+<td> A Mysterious Necromancer comes to your party asking for aid in exhuming dead bodies from the local cemetary. It is unclear what he needs the bodies for but he is offering to pay you with what your heart most desires.</td>
+</tr>
+<tr>
+<td>Undead Pest Removal</td>
+<td> While imbibing at a pub in town, your group finds a note on the wall from a local farmer asking for help with undead roaming his fields in the night and destroying his crops. Upon talking with the man, he believes something in the crypt on his property is stirring the dead. He is offering your group a hearty meal and drinks, and whatever you find in the crypt is yours to keep.</td>
+</tr>
+<tr>
+<td>The Empty Town</td>
+<td> Upon entering the town that was supposed to be camp for the night, your party discovers that the town is completely empty. Seeing a light in a church nearby, your party investigates. They find the entire town residing in the catacombs under the church. The party learns that the town has been terrorized nightly by a mysterious beast that eats children, soon the towns population of children will reach zero and the town will wither away unless your party can slay this mysterious beast, whatever it may be.</td>
 </tr>
 <tr>
 <td>Hats (and Heads) Off</td>
@@ -664,18 +676,6 @@
 <td> One morning when the party awakes from a long rest, a party member realizes that they are not the gender that they were before. Inside his backpack he finds a note that says "Drink from me fountain, and ye may become a man/woman again." The note also has a crudely drawn map that points to a small fountain with a badly drawn goblin standing next to it.</td>
 </tr>
 <tr>
-<td>The Necromancer</td>
-<td> A Mysterious Necromancer comes to your party asking for aid in exhuming dead bodies from the local cemetary. It is unclear what he needs the bodies for but he is offering to pay you with what your heart most desires.</td>
-</tr>
-<tr>
-<td>Undead Pest Removal</td>
-<td> While imbibing at a pub in town, your group finds a note on the wall from a local farmer asking for help with undead roaming his fields in the night and destroying his crops. Upon talking with the man, he believes something in the crypt on his property is stirring the dead. He is offering your group a hearty meal and drinks, and whatever you find in the crypt is yours to keep.</td>
-</tr>
-<tr>
-<td>The Empty Town</td>
-<td> Upon entering the town that was supposed to be camp for the night, your party discovers that the town is completely empty. Seeing a light in a church nearby, your party investigates. They find the entire town residing in the catacombs under the church. The party learns that the town has been terrorized nightly by a mysterious beast that eats children, soon the towns population of children will reach zero and the town will wither away unless your party can slay this mysterious beast, whatever it may be.</td>
-</tr>
-<tr>
 <td>The Dragon King Awakens</td>
 <td> Long ago, before Human Civilization emerged, the dragons ruled the lands. The evil king of the dragons ruled with no care for any of the other races. His ultimate goal was to exterminate anything not a dragon, anything impure. The Dragon was killed by a lone adventurer, inspired by the death of his love. Thousands of years later, a cult has emerged, seeking to resurrect their king, and they are on the verge of success. Will they be stopped, or will the Dragon King rise again?</td>
 </tr>
@@ -688,8 +688,16 @@
 <td> A priest or priestess had been tasked with guarding a special item until their deity's chosen one arrived to claim it. Well, the chosen one has finally arrived but the holy guardian has already given the item away, very recently! What could have caused the mix-up? Maybe the false prophet used trickery to gain the guardian's trust, maybe the guardian was confused/biased, or maybe there are multiple "chosen ones". This adventure could end with the party reclaiming the holy item or meeting and recruiting the additional chosen one.</td>
 </tr>
 <tr>
+<td>Ways and Memes</td>
+<td> Someone is drawing the local citizens in unflattering ways, such as the local butcher chopping up local children with the caption "You dannae expect me to pay for real meat, do ya?" and posting the pictures in various places around the city. The city guard can't seem to catch the rapscallion, and now the city is offering a nice sized reward to whoever can catch the culprit. Can the party determine who the jolly joker is, or will they instead find themselves the caricaturist's next subject?</td>
+</tr>
+<tr>
 <td>Feed the Beets</td>
 <td> While travelling, they hear a call for help from a nearby field of crops. There, a young farmer is being attacked by a Blight. After saving the farmer, she offers the party a visit to a local fairy spring in exchange for helping to find why her crops have gone mad and started biting. This sets up to a fight against a large Blight or evil Treant.</td>
+</tr>
+<tr>
+<td>EDIT:</td>
+<td> Water coming from the well has become increasingly red, and has picked up a distinctly metallic taste. This, combined with the increasing rates of disappearing villagers has the locals worried Rumors of eternal life have bounced around for as long as anyone can remember. But only recently has a once-great and now exiled theologian posted a reward for it. He even claims to know of its general whereabouts. The local miners think they've found something dangerous. The further deep they go, the worse the symptoms get. It starts with a rash, and general aches and pains, and moves to internal bleeding of the lungs. Recently, a cave - in was reported, and when the bodies were finally recovered, they were covered in red, swollen boils. Everyone is afraid to return, and some think the source is magical. A local wizard is interested in the truth. A bishop from a long forgotten city has appeared in the history records at a bards college. Legend tells of it'd magnificent beauty, and hints at its magical prowess. It seems that after the bishop received the ring from the "One True God", he was able to communicate directly with the diety. An order of paladins wishes to recover the artifact, and will pay a handsome sum to anyone willing to explore the ancient ruins. It seems that on a large, remote, and tropical island, one Lizard folk is in the mood to unite the tribes. He has taken to slave labor, and is currently constructing a pyramid for him to reside inside. The main - landers fear the uniting of the tribe, and want him buried in his tomb as soon as possible.</td>
 </tr>
 <tr>
 <td>Silence of the Shams</td>
@@ -698,6 +706,22 @@
 <tr>
 <td>Three Men and a Baba</td>
 <td> A hag has terrorized the fens North of Glynnflldych for as long as anyone can remember, stealing lambs from the farmers and making strange demands from travelers passing along the fen road. The village tolerates her, mostly because the hag keeps the local bullywugs at bay, but a trio of brothers demanding her eviction have rallied a growing number of locals to their side, and they're looking for some muscle.</td>
+</tr>
+<tr>
+<td>The chosen... two?</td>
+<td> There are rumours of "The chosen one" or "The returned one" or whatever it is that the party's "Special Butterfly" is. Only it's someone else. Some other person is running about gaining fame on the PC's gimmick. The PC may get flak for something they've not done, or suffer scrutiny they don't want if they're mean to be a hidden heir to the kingdom. Is this "other chosen" a fake? The true heir/chosen one? A doppelgänger? Is the PC the doppelgänger?</td>
+</tr>
+<tr>
+<td>The Ancient Heir</td>
+<td> The party find a Lich at the bottom of a dungeon, and defeat and contain it, although they are unable to permanently destroy it. Amongst the Lich's treasure are things marked with a specific coat of arms. If they investigate, they will discover that the lich was actually the heir to the kingdom, thought lost and dead some centuries ago - and technically Lichdom doesn't count as "death" as far as the laws of succession are concerned...</td>
+</tr>
+<tr>
+<td>What Is Dead May Never Die</td>
+<td> There is a massive shift in the spiritual world. Clerics of a specific god - including one of the PCs - find their spells have changed overnight - almost as if their god's domain had suddenly shifted. There are other strange signs. Statues or images of their god start to corrode, rot or crumble away. The signs and portents of their spells change. Instead of ravens as messenger spirits, bats. Instead of green flames, blue. Eventually, the PCs learn that somehow this god has been killed and replaced. An epic-level adventurer climbed the difficult path to the heavens and usurped this deity. Can the PCs journey to the Underworld and retrieve the slain god? Or will they throw their lot in with the newcomer? Even if they do manage to resurrect their god, will they be changed by their time with Death?</td>
+</tr>
+<tr>
+<td>The Rat Pack</td>
+<td> The party is wandering the roads, when they encounter a minstrel troupe, who ask where the party is headed. No matter which way they say they're going, the troupe says they're headed in that direction as well, and could they travel with the party as they're feeling a little nervous since the mercs they were paying to guard them, betrayed them instead and ran off with the troupe's money. Even if the party refuses them, the troupe will follow them closely, when confronted, they will admit that they're scared the mercs might come back and finish them off, or some other menace might get them. So, by staying close to the party, they hope things will be scared off. That night, while the party sleeps, the party member(s) on guard will find themselves suddenly attacked with a concerted barrage of mesmerize, charm, sleep, or other mind affecting spells. It turns out that the wandering troupe is actually a traveling group of Were-rats, who do this regularly to adventuring parties, caravans, merc companies, etc. Can the party survive the were-rats treachery? Alternatively, if your players are too suspicious of the troupe, you could change it so they really are a minstrel troupe that has been treated badly by a merc company, and that merc company is coming back that night while the groups are camped to finish the job. Let them get all fearful of the troupe, and then surprise them with the mercs instead.</td>
 </tr>
 <tr>
 <td>A Demonish Dillema</td>
@@ -724,36 +748,12 @@
 <td> An extraordinary huge ogre destroyed a small village and some nearby farms. But he only wanted to play...</td>
 </tr>
 <tr>
-<td>Ways and Memes</td>
-<td> Someone is drawing the local citizens in unflattering ways, such as the local butcher chopping up local children with the caption "You dannae expect me to pay for real meat, do ya?" and posting the pictures in various places around the city. The city guard can't seem to catch the rapscallion, and now the city is offering a nice sized reward to whoever can catch the culprit. Can the party determine who the jolly joker is, or will they instead find themselves the caricaturist's next subject?</td>
-</tr>
-<tr>
-<td>EDIT:</td>
-<td> Water coming from the well has become increasingly red, and has picked up a distinctly metallic taste. This, combined with the increasing rates of disappearing villagers has the locals worried Rumors of eternal life have bounced around for as long as anyone can remember. But only recently has a once-great and now exiled theologian posted a reward for it. He even claims to know of its general whereabouts. The local miners think they've found something dangerous. The further deep they go, the worse the symptoms get. It starts with a rash, and general aches and pains, and moves to internal bleeding of the lungs. Recently, a cave - in was reported, and when the bodies were finally recovered, they were covered in red, swollen boils. Everyone is afraid to return, and some think the source is magical. A local wizard is interested in the truth. A bishop from a long forgotten city has appeared in the history records at a bards college. Legend tells of it'd magnificent beauty, and hints at its magical prowess. It seems that after the bishop received the ring from the "One True God", he was able to communicate directly with the diety. An order of paladins wishes to recover the artifact, and will pay a handsome sum to anyone willing to explore the ancient ruins. It seems that on a large, remote, and tropical island, one Lizard folk is in the mood to unite the tribes. He has taken to slave labor, and is currently constructing a pyramid for him to reside inside. The main - landers fear the uniting of the tribe, and want him buried in his tomb as soon as possible.</td>
-</tr>
-<tr>
 <td>Long Live the King</td>
 <td> The party encounters a revenant whom they recognize as the recently deceased king, who supposedly died of natural causes. The king's successor is only a few days away from his coronation ceremony. Something seems to prevent the revenant from revealing the real circumstances of his death.</td>
 </tr>
 <tr>
-<td>The chosen... two?</td>
-<td> There are rumours of "The chosen one" or "The returned one" or whatever it is that the party's "Special Butterfly" is. Only it's someone else. Some other person is running about gaining fame on the PC's gimmick. The PC may get flak for something they've not done, or suffer scrutiny they don't want if they're mean to be a hidden heir to the kingdom. Is this "other chosen" a fake? The true heir/chosen one? A doppelgänger? Is the PC the doppelgänger?</td>
-</tr>
-<tr>
-<td>The Ancient Heir</td>
-<td> The party find a Lich at the bottom of a dungeon, and defeat and contain it, although they are unable to permanently destroy it. Amongst the Lich's treasure are things marked with a specific coat of arms. If they investigate, they will discover that the lich was actually the heir to the kingdom, thought lost and dead some centuries ago - and technically Lichdom doesn't count as "death" as far as the laws of succession are concerned...</td>
-</tr>
-<tr>
-<td>What Is Dead May Never Die</td>
-<td> There is a massive shift in the spiritual world. Clerics of a specific god - including one of the PCs - find their spells have changed overnight - almost as if their god's domain had suddenly shifted. There are other strange signs. Statues or images of their god start to corrode, rot or crumble away. The signs and portents of their spells change. Instead of ravens as messenger spirits, bats. Instead of green flames, blue. Eventually, the PCs learn that somehow this god has been killed and replaced. An epic-level adventurer climbed the difficult path to the heavens and usurped this deity. Can the PCs journey to the Underworld and retrieve the slain god? Or will they throw their lot in with the newcomer? Even if they do manage to resurrect their god, will they be changed by their time with Death?</td>
-</tr>
-<tr>
 <td>Arcane Wreckage</td>
 <td> News of a shipwreck reaches the ears of the party. This ship however was built to house a huge magical weapon and is now available to whoever gets there first.</td>
-</tr>
-<tr>
-<td>The Rat Pack</td>
-<td> The party is wandering the roads, when they encounter a minstrel troupe, who ask where the party is headed. No matter which way they say they're going, the troupe says they're headed in that direction as well, and could they travel with the party as they're feeling a little nervous since the mercs they were paying to guard them, betrayed them instead and ran off with the troupe's money. Even if the party refuses them, the troupe will follow them closely, when confronted, they will admit that they're scared the mercs might come back and finish them off, or some other menace might get them. So, by staying close to the party, they hope things will be scared off. That night, while the party sleeps, the party member(s) on guard will find themselves suddenly attacked with a concerted barrage of mesmerize, charm, sleep, or other mind affecting spells. It turns out that the wandering troupe is actually a traveling group of Were-rats, who do this regularly to adventuring parties, caravans, merc companies, etc. Can the party survive the were-rats treachery? Alternatively, if your players are too suspicious of the troupe, you could change it so they really are a minstrel troupe that has been treated badly by a merc company, and that merc company is coming back that night while the groups are camped to finish the job. Let them get all fearful of the troupe, and then surprise them with the mercs instead.</td>
 </tr>
 <tr>
 <td>The Night Unremembered</td>
@@ -810,6 +810,10 @@
 <tr>
 <td>Ravenloft and Greyhawk are Dead</td>
 <td> Simultaneously, every creature in every facet of existence hears the same plea - "The Planes are Dying! Woe! The Planes are Dying!" - followed by an empathetic barrage of every emotion conceivable. It's over almost before it started, and only a select few are able to stop gibbering for long enough to parse the meaning of the message.</td>
+</tr>
+<tr>
+<td>A song to follow</td>
+<td> After a long day on the road, the party settles in a small, lively inn. As soon as the party's bard starts playing (or, if the party lacks one, the local fiddler), a beautiful, yet eerie woman starts singing strange lyrics to the melody that describe a way through the local country side to an abandoned house and end with the words: "Party Face's Name found the lone hound's hall / and recognized it well / and by the very last breath's call / they ended the demon's spell". The mysterious singer cannot remember anything, but will repeat the words when the tune is played again.</td>
 </tr>
 <tr>
 <td>Mirror Image</td>
@@ -930,4 +934,148 @@
 <tr>
 <td>The Treasure Hoard</td>
 <td> Word has spread that the guardian of a vast treasure hoard has been slain. Do you have what it takes to claim it for yourself?</td>
+</tr>
+<tr>
+<td>The Mummy</td>
+<td> As you crest the sand dune, you see a small pyramid below. The doors are completely sealed by some magic, but the symbols on either side of the door are vaguely familiar. You remember seeing them on the tomb of a mummy on display at your local museum, perhaps that old pile of rags and bones knows how to get in?</td>
+</tr>
+<tr>
+<td>The life tree</td>
+<td> An elf with tousled hair and leaves hanging from his strange armor jumps at you from out of nowhere. He thrusts a small, frail looking, potted plant into your hands and says "You must be the one I was supposed to meet, here take it! Remember to only plant it at the right place under the right conditions, and hurry or the world won't live to see another summer!" He then turns into an eagle and soars away, leaving you with the little potted tree.</td>
+</tr>
+<tr>
+<td>The Werewolf</td>
+<td> You come upon a town that looks like it has been attacked by savage beasts. The townsfolk tell you of a Werewolf that has managed to kill all the Alpha wolves in the forest and now has all the wolves following him. With 20-40 wolves under his command this Werewolf commands them like an army.</td>
+</tr>
+<tr>
+<td>An attempt on the King</td>
+<td> The king was attacked from afar with an arrow. Thankfully one of his men jumped in front of the arrow and saved the king. Upon inspecting the arrow the kings men tell you that the arrow is dwarf made, but the feathers come from a rooster. You heard earlier that a shipment of arrow shafts and heads got stolen from the Dwarfs and there is a town nearby called Roost where everyone is a chicken farmer. There they can find a man called the cockslayer who slaughters old roosters. He must have supplied the attacker or attackers with the feathers for their arrows.</td>
+</tr>
+<tr>
+<td>The Vampire</td>
+<td> He does tell you that all the victims have been seen attending the noble parties of the Blackbriar history society.</td>
+</tr>
+<tr>
+<td>The drug crazed dragon</td>
+<td> Two dragons have been known to slumber in the ruins of an ancient city for a long time. Aztorkin or Venom, the Green Dragon has been breathing his toxic fumes into the old sewers of the city for many years, to make sure no one can attack him from below. Kartharnix or Acid, the Black Dragon has slumbered for long on the other side of the ruined city. He has many slaves under his command which he sends into the sewers to mine the green hardened resin of Venoms toxic breath. Acid has figured out that when he slowly melts the resin with his acid it creates a vapor that fills him with ecstasy. However recently Acid learned that his neighbour Venom had been slain some years ago, and when his slaves informed him there was no more resin to mine, the dragon went insane. Supposedly he now tears the city apart frothing at the mouth, melting stone and steel in search of his fix. Soon he will direct his anger elsewhere, if he is not stopped.</td>
+</tr>
+<tr>
+<td>The Swamp Thing</td>
+<td> A recent flood seems to have had an effect on the swamp surrounding the local lighthouse. The lighthouse keeper has filed complaints that the Bullywugs living in the swamp have gone from their usual bumbling selves to an organized terrorist group! Something must have washed up in the swamp during the flood that has the bullywugs organized. The lighthouse keeper warns that if they are not stopped they might become a serious threat.</td>
+</tr>
+<tr>
+<td>Dr. Fenkerstin's Monster</td>
+<td> You find an ancient coin that looks nothing like you have seen before. It's dated more than 600 years ago, and instead of bearing only the crest of the royal family on the back, it has an emblem with the royal families crest and 3 other crests from families you do not know. A lot of things have gone missing near the old Gnome wizards house. Not a lot of people go near it since the old gnome was found mauled to death in his laboratory. Not that people went near it when he was alive either. However a woman nearby has had all her threads and needles stolen repeatedly. Another woman reported her wedding dress missing. A few people have gone missing too and there have been reports of weird noises around the old house.</td>
+</tr>
+<tr>
+<td>The Spectral Inn</td>
+<td> You are starving and parched from long travel without nourishment. Walking into the first tavern building you see, you notice immediately how empty it is, and the innkeeper greets you enthusiastically, talking your ear off about a story you never asked for. As he gives you food and some time passes, you notice the wood slowly warps, cobwebs appear in the corners, and light dust has made its way onto the surfaces. As you finish your meal and make your way out, you find that the innkeeper is nowhere to be found, the doorway is boarded up, and the inn appears older than your grandfather's grandfather.</td>
+</tr>
+<tr>
+<td>Something in the Woods</td>
+<td> A logging camp has been abandoned by its work crew, who refuse to go back to collect their equipment, or even personal belongings left behind. None of the loggers can tell you why, beyond an overwhelming feeling of terror.</td>
+</tr>
+<tr>
+<td>Strange Beggars</td>
+<td> An entire tribe of goblins has set up camp immediately outside town. They're not attacking, they need your help.</td>
+</tr>
+<tr>
+<td>Lost Dog</td>
+<td> A small child asks your assistance in locating her missing pet. His name is Spot. His description sounds suspiciously like a gnoll.</td>
+</tr>
+<tr>
+<td>Missing Persons</td>
+<td> Twice in as many weeks, shepherds tending the flocks have gone missing in the night. None of the sheep are gone, and there are no signs of violence. The only footprints, those of the missing herders and the sheep themselves.</td>
+</tr>
+<tr>
+<td>Firestarter</td>
+<td> Someone in town has taken up arson as a hobby. So far, it's only been empty buildings, and nobody's been hurt. The mayor feels it's only a matter of time before that changes, and his guards are making no headway in their investigation.</td>
+</tr>
+<tr>
+<td>The 11th Plague: Wyrmlings</td>
+<td> A pair of amorous chromatic dragons have moved into the area, and they've been breeding absolutely everywhere. The PC's castle/town/blueberry farm is being overrun with a swarm of dragon wyrmlings, which must be stamped out quickly lest anyone grow up. A local Cleric of Bahamut proclaims the end of days if the infestation is not stopped, and approaches the party and tasks them with ending the plague. "Thou hath been chosen by Bahamut to commit wyrmling genocide".</td>
+</tr>
+<tr>
+<td>"I AM ANNOYED WITH YOU! TAKE SPEAR AND PROVE LOYALTY TO ME! I WILL NOT MISS AGAIN!"</td>
+<td> One day, a masterwork spear made entirely of iron is seemingly thrown from the sky, causing a small earthquake as it strikes the ground at the feet of the party half-orc.</td>
+</tr>
+<tr>
+<td>The Pretender Ressurected</td>
+<td> The Queen is a tyrannical douche, having assassinated her way to the throne and murdered the rightful heir to the throne, her much more benevolent brother. A good-hearted necromancer has ressurected her brother, turning him into an intelligent undead creature not unlike a death knight, who desires to retake his rightful kingdom and end the rule of the tyrant Queen. Despite his zombie-like appearance, his benevolent attitude has earned him the favor of the (less conservative) peasantry.</td>
+</tr>
+<tr>
+<td>Leaving Shore</td>
+<td> One of the merchant ships in the dock is long overdue on it's berth fees. Nobody has seen the skipper in weeks but he declared a lot of valuables when he arrived at the city. Now that you mention it, nobody has gone onto his ship to see if he's there...</td>
+</tr>
+<tr>
+<td>Lake Placid-iosaurus</td>
+<td> In the town besides the lake, local cattle have been mysteriously disappearing. The stories of a monster in the deeps were only campfire tales to frighten children... or were they?</td>
+</tr>
+<tr>
+<td>Do not return to warehouse once lit</td>
+<td> Last week a successful business shut it's doors, leaving hundreds of locals out of work. The owner hasn't been seen since, but those who live nearby have reported a higher than usual number of explosions coming from the "abandoned" warehouse.</td>
+</tr>
+<tr>
+<td>Missing Ships</td>
+<td> The party is hired to figure out why ships are going missing at sea. Little do they know, the pirates have a deal with the keeper of the tavern they just entered; the innkeeper drugs strangers' drinks and the pirates collect them at night. The party wakes up shanghaied on the very ship responsible for the disappearances.</td>
+</tr>
+<tr>
+<td>It Belongs in a Museum</td>
+<td> The party is tracked by an archaeologist, who claims one of the PC's family heirloom is actually a priceless artifact from a long lost culture, and that the PC's parent/grandparent/etc must've been one of the thieves who robbed a famous excavation site decades ago.</td>
+</tr>
+<tr>
+<td>Mama's Baby, Papa's Maybe</td>
+<td> For generations, a dragon has been harassing a province. Twenty years ago, oracles prophesied a child would be born from the convergence of two noble houses who would then grow up to vanquish the evil. The party encounters the child of prophecy, now an adult warrior, in a tavern, drunk and despairing. He only now discovered his mother was having an affair when he was conceived. If his father isn't the one from the chosen bloodline, he's sure he will die trying to fulfill the prophecy, yet everyone is counting on him.</td>
+</tr>
+<tr>
+<td>Quest of Self-Discovery, My Ass</td>
+<td> A hero has vanquished a great demon that plagued a kingdom. When no reward was offered, the hero began plotting the demon's resurrection out of spite.</td>
+</tr>
+<tr>
+<td>The Cursed Coin</td>
+<td> In the middle of the path ahead of the party lays the body of an old man, with a large gold coin clutched in his cold hand. At first glance he seems dead, but once any one of the adventurer's touches the gold coin, he rises into the air with glowing green eyes, as the coin fuses with the palm of their hand. A booming voice emanates from the old man and informs them that they are now cursed to carry the Coin of Mammon (Demon of Greed) until they too die. With this the old man crumples to the ground in a heap. On further inspection of the old man, a map is found, the destination of which merely says "Mammon"....</td>
+</tr>
+<tr>
+<td>Ribbit Season</td>
+<td> A local rare frog breeder has been deliberately poaching wild frogs so that he has a monopoly on the lucrative hallucinogen the frogs sacreet.</td>
+</tr>
+<tr>
+<td>Snake on a Plain</td>
+<td> On a barren plain, a deadly Bone Naga has been terrorizing travelling caravans. They are sick of this snake and so they resort to contracting the party to hunt it down.</td>
+</tr>
+<tr>
+<td>The Nightman Cometh</td>
+<td> Rumours of The Nightman circle the town, saying he is starting a cult on the outskirts of town. The Nightman is a nocturnal monk that said to be a master of martial arts. He has cat like eyes that he uses to peer into people's dreams, corrupting them, causing a wave of nightmares through the populous. Whether these rumours are factual or not, a cowardly noble has put out a bounty on The Nightman.</td>
+</tr>
+<tr>
+<td>Forest Grump</td>
+<td> In a small forest town, a general store has been burgled by bandits. The vindictive owner now feels powerless, so he decided to train until he is ready to take the down the bandit camp himself. All day he runs through the town, silently, leaving his store closed. The town needs his store to open, but the owner just keeps running.</td>
+</tr>
+<tr>
+<td>Club for Fighting</td>
+<td> In a largish city, the party is invited to a secret, underground Fight Club "Club for Fighting" that has recently started up. The only problem is that one member won't stop bragging to his friends, which is explicitly against the rules. The party is asked to resolve this.</td>
+</tr>
+<tr>
+<td>Taxing Winds</td>
+<td> In a small farming town, the nights have become unseasonably cold and stormy, affecting the crops. The townsfolk point to three white dragonborn sorcerers, who have all only been seen while in the presence of the area's vicious tax collector.</td>
+</tr>
+<tr>
+<td>Dragon Blood</td>
+<td> One of your companions has been slain by a boar. You know of a druid powerful druid who might know how to reincarnate the unlucky bard. However, this comes at a price. Sacrificing the dragon wyrmling you just befriended.</td>
+</tr>
+<tr>
+<td>Giant's Lottery</td>
+<td> Each year, the village of Bleakhill holds a lottery to select a volunteer. This year, you're the lucky one! With a select few of your choosing, you must go up the hill and try to defeat the Hill Giant that has been living there for over a century.</td>
+</tr>
+<tr>
+<td>Drowned God</td>
+<td> In a freak boating accident, you drowned. The local sea god, Uarus, offers to undo the drowning. Of course, there is a catch. You must bring his love letter to Kiaris, the goddess of a nearby river.</td>
+</tr>
+<tr>
+<td>The Savior</td>
+<td> After defeating the gelatinous cube, you pry open the heavy doors to the temple. In the dim light of your torch, you see the hallway is lined with statues. They seem strangely familiar, and upon closer inspection you see the statues resemble you in an uncanny way. Slowly, coffins open and zombies with a pale blue skin come forth, bowing down and calling you savior. You notice your skin begins to turn blue as well.</td>
+</tr>
+<tr>
+<td>The Thirsty River</td>
+<td> A mother and child rest at the side of the road suckling on sweat soaked bandanas. When they see the adventurer's they ask for water and tell them about a curse that's been laid on the town just up the road. The river flows with fresh water but when the water enters a person's mouth it turns to sand. A local coven has cursed the town for breaking a deal with them.</td>
 </tr>
