@@ -33,7 +33,7 @@ public class PlothooksSiteBuilder implements ISiteBuilder {
 
 		String tableHeaderHTML = "<tr><th align=\"center\">Plot Hook Name</th><th align=\"center\">Description</th></tr>";
 		BaseSiteBuilderHelper baseSiteBuilderHelper = new BaseSiteBuilderHelper(fileNameAndLocation + "/", "Plot Hooks",
-				NEW_URL, tableHeaderHTML, data);
+				NEW_URL, tableHeaderHTML, allData);
 		baseSiteBuilderHelper.buildHTML();
 	}
 
