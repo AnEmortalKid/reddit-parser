@@ -27,14 +27,26 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 public class StrongParagraphScrubber implements IScrubber {
 
 	private String url;
+	private String[] urls;
 
 	public StrongParagraphScrubber(String url) {
 		this.url = url;
 	}
 
+	public StrongParagraphScrubber(String... urls) {
+		this.urls = urls;
+	}
+
 	@Override
 	public List<ScrubbedDataObject> scrubData() {
-		return scrubData(url);
+		if (urls == null) {
+			return scrubData(url);
+		}
+		List<ScrubbedDataObject> allData = new ArrayList<>();
+		for (String singleUrl : urls) {
+			allData.addAll(scrubData(singleUrl));
+		}
+		return allData;
 	}
 
 	private List<ScrubbedDataObject> scrubData(String url) {
@@ -73,8 +85,7 @@ public class StrongParagraphScrubber implements IScrubber {
 								regular += " " + p.text();
 							}
 						} else if (tagName.equals("hr")) {
-							constructIfRequiredPartsAreThere(bold, regular,
-									data);
+							constructIfRequiredPartsAreThere(bold, regular, data);
 							bold = "";
 							regular = "";
 						} else {
@@ -88,8 +99,7 @@ public class StrongParagraphScrubber implements IScrubber {
 								regular += " " + "</ol>\n";
 							}
 							if (tagName.equals("li")) {
-								regular += " " + "<li>" + elem.text()
-										+ "</li>\n";
+								regular += " " + "<li>" + elem.text() + "</li>\n";
 							}
 
 						}
@@ -110,15 +120,14 @@ public class StrongParagraphScrubber implements IScrubber {
 		return data;
 	}
 
-	private void constructIfRequiredPartsAreThere(String bold,
-			String paragraph, List<ScrubbedDataObject> data) {
+	private void constructIfRequiredPartsAreThere(String bold, String paragraph, List<ScrubbedDataObject> data) {
 		if (bold == null || bold.isEmpty())
 			return;
 
 		if (paragraph == null || paragraph.isEmpty())
 			return;
-		
-		if(paragraph.contains("Today's event"))
+
+		if (paragraph.contains("Today's event"))
 			return;
 
 		/*

@@ -14,12 +14,14 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
  */
 public class LocationsSiteBuilder implements ISiteBuilder {
 
+	private static String[] urls = {//
+			"http://www.reddit.com/r/DnDBehindTheScreen/comments/3f0lzl/lets_make_10_000_locations/",
+	};
+	
 	@Override
 	public void buildSite() {
-		String redditURL = "http://www.reddit.com/r/DnDBehindTheScreen/comments/3f0lzl/lets_make_10_000_locations/";
-
 		StrongEmphasisParagraphScrubber scrubber = new StrongEmphasisParagraphScrubber(
-				redditURL);
+				urls);
 		List<ScrubbedDataObject> data = scrubber.scrubData();
 		System.out.println("Locations scrubbed: " + data.size());
 
@@ -30,7 +32,7 @@ public class LocationsSiteBuilder implements ISiteBuilder {
 		String indexLocation = "src/main/resources/locations/";
 
 		BaseSiteBuilderHelper baseBuilder = new BaseSiteBuilderHelper(
-				indexLocation, "Locations", redditURL, header, data);
+				indexLocation, "Locations", urls[urls.length-1], header, data);
 		baseBuilder.buildHTML();
 	}
 

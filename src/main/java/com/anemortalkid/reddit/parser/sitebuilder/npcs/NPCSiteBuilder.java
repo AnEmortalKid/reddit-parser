@@ -9,14 +9,15 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class NPCSiteBuilder implements ISiteBuilder {
 
+	private static String[] urls = {
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3er483/lets_make_10000_npcs/", };
+
 	@Override
 	public void buildSite() {
-		String redditURL = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3er483/lets_make_10000_npcs/";
 		String header = "<tr><th>Name</th><th align=\"center\">Gender Race Occupation</th><th align=\"center\">Description</th></tr>";
 
 		// get scrubber and write to file
-		StrongEmphasisParagraphScrubber seps = new StrongEmphasisParagraphScrubber(
-				redditURL);
+		StrongEmphasisParagraphScrubber seps = new StrongEmphasisParagraphScrubber(urls);
 		List<ScrubbedDataObject> data = seps.scrubData();
 		System.out.println("NPCs scrubbed: " + data.size());
 
@@ -25,8 +26,7 @@ public class NPCSiteBuilder implements ISiteBuilder {
 
 		String folder = fileLocationAndName + "/";
 
-		new BaseSiteBuilderHelper(folder, "NPCs", redditURL, header, data)
-				.buildHTML();
+		new BaseSiteBuilderHelper(folder, "NPCs", urls[urls.length - 1], header, data).buildHTML();
 	}
 
 	public static void main(String[] args) {

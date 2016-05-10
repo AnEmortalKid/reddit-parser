@@ -28,14 +28,26 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 public class StrongEmphasisParagraphScrubber implements IScrubber {
 
 	private String url;
+	private String[] urls;
 
 	public StrongEmphasisParagraphScrubber(String url) {
 		this.url = url;
 	}
 
+	public StrongEmphasisParagraphScrubber(String... urls) {
+		this.urls = urls;
+	}
+
 	@Override
 	public List<ScrubbedDataObject> scrubData() {
-		return scrubData(url);
+		if (urls == null) {
+			return scrubData(url);
+		}
+		List<ScrubbedDataObject> allData = new ArrayList<>();
+		for (String singleUrl : urls) {
+			allData.addAll(scrubData(singleUrl));
+		}
+		return allData;
 	}
 
 	private List<ScrubbedDataObject> scrubData(String url) {
@@ -86,8 +98,7 @@ public class StrongEmphasisParagraphScrubber implements IScrubber {
 								regular += " " + p.text();
 							}
 						} else if (tagName.equals("hr")) {
-							constructIfRequiredPartsAreThere(bold, italic,
-									regular, data);
+							constructIfRequiredPartsAreThere(bold, italic, regular, data);
 							bold = "";
 							italic = "";
 							regular = "";
@@ -100,8 +111,7 @@ public class StrongEmphasisParagraphScrubber implements IScrubber {
 						}
 					}
 
-					constructIfRequiredPartsAreThere(bold, italic, regular,
-							data);
+					constructIfRequiredPartsAreThere(bold, italic, regular, data);
 					bold = "";
 					italic = "";
 					regular = "";
@@ -113,8 +123,8 @@ public class StrongEmphasisParagraphScrubber implements IScrubber {
 		return data;
 	}
 
-	private void constructIfRequiredPartsAreThere(String bold, String italic,
-			String regular, List<ScrubbedDataObject> data) {
+	private void constructIfRequiredPartsAreThere(String bold, String italic, String regular,
+			List<ScrubbedDataObject> data) {
 		if (bold == null || bold.isEmpty())
 			return;
 		if (italic == null || italic.isEmpty())
