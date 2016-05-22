@@ -16,6 +16,7 @@ public class LocationsSiteBuilder implements ISiteBuilder {
 
 	private static String[] urls = {//
 			"http://www.reddit.com/r/DnDBehindTheScreen/comments/3f0lzl/lets_make_10_000_locations/",
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4iuwym/10k_locations_hallowed_ground/"
 	};
 	
 	@Override

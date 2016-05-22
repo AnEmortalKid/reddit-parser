@@ -10,7 +10,8 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 public class NPCSiteBuilder implements ISiteBuilder {
 
 	private static String[] urls = {
-			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3er483/lets_make_10000_npcs/", };
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3er483/lets_make_10000_npcs/",
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4ip300/10k_npcs_crusaders_and_exorcists/" };
 
 	@Override
 	public void buildSite() {

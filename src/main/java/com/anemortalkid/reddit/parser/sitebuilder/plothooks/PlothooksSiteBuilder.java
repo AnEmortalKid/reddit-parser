@@ -11,7 +11,8 @@ public class PlothooksSiteBuilder implements ISiteBuilder {
 
 	private static String[] urls = {//
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3fe4x1/lets_make_10000_plot_hooks/",
-			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4hhfzr/10k_plot_hooks_resurrections_and_chosen_ones/"
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4hhfzr/10k_plot_hooks_resurrections_and_chosen_ones/",
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4jwlfc/10k_plot_hooks_betrayals_and_doublecrosses/"
 	};
 		
 	@Override
