@@ -11,7 +11,6 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class RoomSiteBuilder implements ISiteBuilder {
 
-	private static String fileNameAndLocation = "src/main/resources/rooms";
 	private static String tableHeaderHTML = "<tr><th align=\"center\">Room Name</th><th align=\"center\">Room Description</th></tr>";
 
 	private static String[] urls = {
@@ -19,27 +18,50 @@ public class RoomSiteBuilder implements ISiteBuilder {
 
 	private static String[] ignoreHeaders = {
 			"It takes a moment for your eyes to adjust to the flickering torchlight, the chamber walls are not at all what you had been expecting", };
+	private StrongParagraphEntryScrubber scrubber;
+	private List<ScrubbedDataObject> data;
 
-	@Override
-	public void buildSite() {
+	public RoomSiteBuilder() {
 		Set<String> ignores = new HashSet<String>();
 		for (String phrase : ignoreHeaders) {
 			ignores.add(phrase);
 		}
-		StrongParagraphEntryScrubber scrubber = new StrongParagraphEntryScrubber(ignores, urls);
-		List<ScrubbedDataObject> data = scrubber.scrubData();
-		System.out.println("Scrubbed Rooms:" + data.size());
-
-		scrubber.writeDataToFiles(fileNameAndLocation, data);
-
-		BaseSiteBuilderHelper builder = new BaseSiteBuilderHelper(fileNameAndLocation+"/", "Rooms", urls[urls.length - 1],
-				tableHeaderHTML, data);
-		builder.buildHTML();
+		scrubber = new StrongParagraphEntryScrubber(ignores, urls);
 	}
-	
+
+	@Override
+	public String getTitle() {
+		return "Rooms";
+	}
+
+	@Override
+	public String getRedditURL() {
+		return urls[urls.length - 1];
+	}
+
+	@Override
+	public String getTableHeader() {
+		return tableHeaderHTML;
+	}
+
+	@Override
+	public List<ScrubbedDataObject> getScrubbedData() {
+		return data;
+	}
+
 	public static void main(String[] args) {
 		RoomSiteBuilder builder = new RoomSiteBuilder();
 		builder.buildSite();
+	}
+
+	@Override
+	public void scrubData() {
+		data = scrubber.scrubData();
+	}
+
+	@Override
+	public int scrubbedCount() {
+		return data == null ? -1 : data.size();
 	}
 
 }

@@ -11,24 +11,45 @@ public class VillainsSiteBuilder implements ISiteBuilder {
 
 	private static String[] urls = { //
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3fmnhb/10000_villains/",
-			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4hn60f/10k_villains_demons_and_devils/",
-	};
-	
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4hn60f/10k_villains_demons_and_devils/", };
+
+	private static String header = "<tr><th align=\"center\">Villain Name</th><th align=\"center\">Description</th></tr>";
+
+	private StrongParagraphScrubber scrubber;
+	private List<ScrubbedDataObject> data;
+
+	public VillainsSiteBuilder() {
+		scrubber = new StrongParagraphScrubber(urls);
+	}
+
 	@Override
-	public void buildSite() {
-		StrongParagraphScrubber scrubber = new StrongParagraphScrubber(urls);
-		List<ScrubbedDataObject> data = scrubber.scrubData();
-		System.out.println("Villains scrubbed: " + data.size());
+	public String getTitle() {
+		return "Villains";
+	}
 
-		String fileLocationAndName = "src/main/resources/villains";
-		scrubber.writeDataToFiles(fileLocationAndName, data);
+	@Override
+	public String getRedditURL() {
+		return urls[urls.length - 1];
+	}
 
-		String folder = fileLocationAndName + "/";
+	@Override
+	public String getTableHeader() {
+		return header;
+	}
 
-		String header = "<tr><th align=\"center\">Villain Name</th><th align=\"center\">Description</th></tr>";
-		new BaseSiteBuilderHelper(folder, "Villains", urls[urls.length-1], header, data).buildHTML();
+	@Override
+	public List<ScrubbedDataObject> getScrubbedData() {
+		return data;
+	}
 
-		scrubber.writeDataToFiles(fileLocationAndName, data);
+	@Override
+	public void scrubData() {
+		data = scrubber.scrubData();
+	}
+
+	@Override
+	public int scrubbedCount() {
+		return data == null ? -1 : data.size();
 	}
 
 	public static void main(String[] args) {

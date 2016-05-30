@@ -9,28 +9,48 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class DungeonSiteBuilder implements ISiteBuilder {
 
-	
 	private static String[] urls = {
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3fb5w5/lets_make_10000_dungeons/",
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4huas3/10k_dungeons_unholy_places/",
-			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4k9k33/10k_dungeons_fortresses_keeps_and_castles/"
-	};
-	
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4k9k33/10k_dungeons_fortresses_keeps_and_castles/" };
+
+	private static String header = "<tr><th align=\"center\">Dungeon Name</th><th>Dungeon Type</th><th align=\"center\">Description</th></tr>";
+
+	private StrongEmphasisParagraphScrubber scrubber;
+	private List<ScrubbedDataObject> data;
+
+	public DungeonSiteBuilder() {
+		scrubber = new StrongEmphasisParagraphScrubber(urls);
+	}
+
 	@Override
-	public void buildSite() {
+	public String getTitle() {
+		return "Dungeons";
+	}
 
-		// get scrubber and write to file
-		StrongEmphasisParagraphScrubber scrubber = new StrongEmphasisParagraphScrubber(
-				urls);
-		List<ScrubbedDataObject> allData = scrubber.scrubData();
-		System.out.println("Dungeons scrubbed: " + allData.size());
+	@Override
+	public String getRedditURL() {
+		return urls[urls.length - 1];
+	}
 
-		String fileLocationAndName = "src/main/resources/dungeons";
-		scrubber.writeDataToFiles(fileLocationAndName, allData);
+	@Override
+	public String getTableHeader() {
+		return header;
+	}
 
-		String header = "<tr><th align=\"center\">Dungeon Name</th><th>Dungeon Type</th><th align=\"center\">Description</th></tr>";
-		new BaseSiteBuilderHelper(fileLocationAndName + "/", "Dungeons",
-				urls[urls.length-1], header, allData).buildHTML();
+	@Override
+	public List<ScrubbedDataObject> getScrubbedData() {
+		return data;
+	}
+
+	@Override
+	public int scrubbedCount() {
+		return data == null ? -1 : data.size();
+	}
+
+	@Override
+	public void scrubData() {
+		data = scrubber.scrubData();
 	}
 
 	public static void main(String[] args) {
