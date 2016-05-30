@@ -9,24 +9,47 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class NPCSiteBuilder implements ISiteBuilder {
 
+	private static String[] urls = {
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3er483/lets_make_10000_npcs/",
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4ip300/10k_npcs_crusaders_and_exorcists/" };
+
+	private static String header = "<tr><th>Name</th><th align=\"center\">Gender Race Occupation</th><th align=\"center\">Description</th></tr>";
+
+	private List<ScrubbedDataObject> data;
+	private StrongEmphasisParagraphScrubber scrubber;
+
+	public NPCSiteBuilder() {
+		scrubber = new StrongEmphasisParagraphScrubber(urls);
+	}
+
 	@Override
-	public void buildSite() {
-		String redditURL = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3er483/lets_make_10000_npcs/";
-		String header = "<tr><th>Name</th><th align=\"center\">Gender Race Occupation</th><th align=\"center\">Description</th></tr>";
+	public String getTitle() {
+		return "NPCs";
+	}
 
-		// get scrubber and write to file
-		StrongEmphasisParagraphScrubber seps = new StrongEmphasisParagraphScrubber(
-				redditURL);
-		List<ScrubbedDataObject> data = seps.scrubData();
-		System.out.println("NPCs scrubbed: " + data.size());
+	@Override
+	public String getRedditURL() {
+		return urls[urls.length - 1];
+	}
 
-		String fileLocationAndName = "src/main/resources/npcs";
-		seps.writeDataToFiles(fileLocationAndName, data);
+	@Override
+	public String getTableHeader() {
+		return header;
+	}
 
-		String folder = fileLocationAndName + "/";
+	@Override
+	public List<ScrubbedDataObject> getScrubbedData() {
+		return data;
+	}
 
-		new BaseSiteBuilderHelper(folder, "NPCs", redditURL, header, data)
-				.buildHTML();
+	@Override
+	public void scrubData() {
+		data = scrubber.scrubData();
+	}
+
+	@Override
+	public int scrubbedCount() {
+		return data == null ? -1 : data.size();
 	}
 
 	public static void main(String[] args) {

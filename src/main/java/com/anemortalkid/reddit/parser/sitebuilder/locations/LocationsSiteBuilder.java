@@ -14,24 +14,47 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
  */
 public class LocationsSiteBuilder implements ISiteBuilder {
 
+	private static String[] urls = { //
+			"http://www.reddit.com/r/DnDBehindTheScreen/comments/3f0lzl/lets_make_10_000_locations/",
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4iuwym/10k_locations_hallowed_ground/" };
+
+	private static String header = "<tr><th align=\"center\">Name</th><th align=\"center\">Type</th><th align=\"center\">Description</th></tr>";
+
+	private StrongEmphasisParagraphScrubber scrubber;
+	private List<ScrubbedDataObject> data;
+
+	public LocationsSiteBuilder() {
+		scrubber = new StrongEmphasisParagraphScrubber(urls);
+	}
+
 	@Override
-	public void buildSite() {
-		String redditURL = "http://www.reddit.com/r/DnDBehindTheScreen/comments/3f0lzl/lets_make_10_000_locations/";
+	public String getTitle() {
+		return "Locations";
+	}
 
-		StrongEmphasisParagraphScrubber scrubber = new StrongEmphasisParagraphScrubber(
-				redditURL);
-		List<ScrubbedDataObject> data = scrubber.scrubData();
-		System.out.println("Locations scrubbed: " + data.size());
+	@Override
+	public String getRedditURL() {
+		return urls[urls.length - 1];
+	}
 
-		String fileLocationAndName = "src/main/resources/locations";
-		scrubber.writeDataToFiles(fileLocationAndName, data);
+	@Override
+	public String getTableHeader() {
+		return header;
+	}
 
-		String header = "<tr><th align=\"center\">Name</th><th align=\"center\">Type</th><th align=\"center\">Description</th></tr>";
-		String indexLocation = "src/main/resources/locations/";
+	@Override
+	public List<ScrubbedDataObject> getScrubbedData() {
+		return data;
+	}
 
-		BaseSiteBuilderHelper baseBuilder = new BaseSiteBuilderHelper(
-				indexLocation, "Locations", redditURL, header, data);
-		baseBuilder.buildHTML();
+	@Override
+	public int scrubbedCount() {
+		return data == null ? -1 : data.size();
+	}
+
+	@Override
+	public void scrubData() {
+		data = scrubber.scrubData();
 	}
 
 	public static void main(String[] args) {

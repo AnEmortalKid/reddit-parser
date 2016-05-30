@@ -13,48 +13,18 @@ import org.jsoup.select.Elements;
 import com.anemortalkid.reddit.scrubber.dataobject.MultiDataObject;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
-/**
- * A PageScrubber that parses data in the format
- * 
- * <pre>
- * &lt;strong&gt;Some data - will be used as the identifier&lt;/strong&gt;
- * &lt;p&gt;More Data &lt;/p&gt;
- * &lt;hr&gt;
- * </pre>
- * 
- * @author JMonterrubio
- *
- */
-public class StrongParagraphScrubber implements IScrubber {
+public class StrongParagraphEntryScrubber implements IScrubber {
 
-	private String url;
-	private String[] urls;
 	private Set<String> ignorePhrases;
+	private String[] urls;
 
-	public StrongParagraphScrubber(String url) {
-		this.url = url;
-	}
-
-	public StrongParagraphScrubber(String... urls) {
+	public StrongParagraphEntryScrubber(String... urls) {
 		this.urls = urls;
 	}
-	
-	public StrongParagraphScrubber(Set<String> ignorePhrases,String ... urls)
-	{
+
+	public StrongParagraphEntryScrubber(Set<String> ignorePhrases, String... urls) {
 		this.ignorePhrases = ignorePhrases;
 		this.urls = urls;
-	}
-
-	@Override
-	public List<ScrubbedDataObject> scrubData() {
-		if (urls == null) {
-			return scrubData(url);
-		}
-		List<ScrubbedDataObject> allData = new ArrayList<>();
-		for (String singleUrl : urls) {
-			allData.addAll(scrubData(singleUrl));
-		}
-		return allData;
 	}
 
 	private List<ScrubbedDataObject> scrubData(String url) {
@@ -62,16 +32,20 @@ public class StrongParagraphScrubber implements IScrubber {
 		try {
 			Document redditDoc = Jsoup.connect(url).userAgent("Mozilla").get();
 			if (redditDoc != null) {
-				Elements comments = redditDoc.getElementsByClass("thing");
+				Elements entries = redditDoc.getElementsByClass("entry");
 
-				// Copying to a list in case we wanted to do some filtering
-				List<Element> thingElems = new ArrayList<Element>();
-				for (Element element : comments) {
-					thingElems.add(element);
+				List<Element> validEntries = new ArrayList<>();
+				for (Element entry : entries) {
+
+					if (!shouldSkip(entry)) {
+						validEntries.add(entry);
+					}
+
 				}
 
-				for (Element topLevel : thingElems) {
-					Element md = topLevel.getElementsByClass("md").first();
+				for (Element entry : validEntries) {
+					Element userText = entry.getElementsByClass("usertext-body").first();
+					Element md = userText.getElementsByClass("md").first();
 
 					// Process the first one
 					Elements mdElems = md.getAllElements();
@@ -93,7 +67,7 @@ public class StrongParagraphScrubber implements IScrubber {
 								regular += " " + p.text();
 							}
 						} else if (tagName.equals("hr")) {
-							constructIfRequiredPartsAreThere(bold, regular, data);
+							constructIfValid(bold, regular, data);
 							bold = "";
 							regular = "";
 						} else {
@@ -116,7 +90,7 @@ public class StrongParagraphScrubber implements IScrubber {
 						}
 					}
 
-					constructIfRequiredPartsAreThere(bold, regular, data);
+					constructIfValid(bold, regular, data);
 					bold = "";
 					regular = "";
 				}
@@ -128,26 +102,37 @@ public class StrongParagraphScrubber implements IScrubber {
 		return data;
 	}
 
-	private void constructIfRequiredPartsAreThere(String bold, String paragraph, List<ScrubbedDataObject> data) {
+	private boolean shouldSkip(Element entry) {
+		String allText = entry.text();
+		for (String ignorePhrase : ignorePhrases) {
+			if (allText.contains(ignorePhrase)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	private void constructIfValid(String bold, String paragraph, List<ScrubbedDataObject> data) {
 		if (bold == null || bold.isEmpty())
 			return;
 
 		if (paragraph == null || paragraph.isEmpty())
 			return;
 
-		if (paragraph.contains("Today's event"))
-			return;
-
-		/*
-		 * Excludes the header that some people put
-		 */
-		if (bold.contains("WELCOME") || bold.contains("Welcome") || bold.contains("The goal") || bold.contains("Halll"))
-			return;
-
 		MultiDataObject md = new MultiDataObject(bold, paragraph);
 		if (!data.contains(md)) {
 			data.add(md);
 		}
+	}
+
+	@Override
+	public List<ScrubbedDataObject> scrubData() {
+		List<ScrubbedDataObject> allData = new ArrayList<>();
+		for (String singleUrl : urls) {
+			allData.addAll(scrubData(singleUrl));
+		}
+		return allData;
 	}
 
 }

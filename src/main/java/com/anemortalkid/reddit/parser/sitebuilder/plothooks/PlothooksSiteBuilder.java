@@ -1,6 +1,5 @@
 package com.anemortalkid.reddit.parser.sitebuilder.plothooks;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.anemortalkid.reddit.parser.sitebuilder.BaseSiteBuilderHelper;
@@ -10,35 +9,52 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class PlothooksSiteBuilder implements ISiteBuilder {
 
-	private static final String OLD_URL = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3fe4x1/lets_make_10000_plot_hooks/";
+	private static String[] urls = { //
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3fe4x1/lets_make_10000_plot_hooks/",
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4hhfzr/10k_plot_hooks_resurrections_and_chosen_ones/",
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4jwlfc/10k_plot_hooks_betrayals_and_doublecrosses/" };
 
-	private static final String NEW_URL = "https://www.reddit.com/r/DnDBehindTheScreen/comments/4hhfzr/10k_plot_hooks_resurrections_and_chosen_ones/";
+	private static String tableHeaderHTML = "<tr><th align=\"center\">Plot Hook Name</th><th align=\"center\">Description</th></tr>";
+
+	private StrongParagraphScrubber scrubber;
+
+	private List<ScrubbedDataObject> data;
+
+	public PlothooksSiteBuilder() {
+		scrubber = new StrongParagraphScrubber(urls);
+	}
+	
+	@Override
+	public String getTitle() {
+		return "Plot Hooks";
+	}
 
 	@Override
-	public void buildSite() {
+	public String getRedditURL() {
+		return urls[urls.length - 1];
+	}
 
-		StrongParagraphScrubber oldDataScrubber = new StrongParagraphScrubber(OLD_URL);
-		List<ScrubbedDataObject> data = oldDataScrubber.scrubData();
-		System.out.println("Old scrubbed plothooks: " + data.size());
+	@Override
+	public String getTableHeader() {
+		return tableHeaderHTML;
+	}
 
-		StrongParagraphScrubber newScrubber = new StrongParagraphScrubber(NEW_URL);
-		List<ScrubbedDataObject> newData = newScrubber.scrubData();
-		System.out.println("New plot hooks: " + newData.size());
+	@Override
+	public List<ScrubbedDataObject> getScrubbedData() {
+		return data;
+	}
 
-		String fileNameAndLocation = "src/main/resources/plothooks";
-		List<ScrubbedDataObject> allData = new ArrayList<>(data);
-		allData.addAll(newData);
+	@Override
+	public int scrubbedCount() {
+		return data == null ? -1 : data.size();
+	}
 
-		oldDataScrubber.writeDataToFiles(fileNameAndLocation, allData);
-
-		String tableHeaderHTML = "<tr><th align=\"center\">Plot Hook Name</th><th align=\"center\">Description</th></tr>";
-		BaseSiteBuilderHelper baseSiteBuilderHelper = new BaseSiteBuilderHelper(fileNameAndLocation + "/", "Plot Hooks",
-				NEW_URL, tableHeaderHTML, data);
-		baseSiteBuilderHelper.buildHTML();
+	@Override
+	public void scrubData() {
+		data = scrubber.scrubData();
 	}
 
 	public static void main(String[] args) {
 		new PlothooksSiteBuilder().buildSite();
 	}
-
 }

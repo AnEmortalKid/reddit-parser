@@ -9,22 +9,47 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class MysteriesSiteBuilder implements ISiteBuilder {
 
+	private static String[] urls = { //
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3evxgl/lets_make_10000_mysteries/",
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4ijjbz/10k_mysteries_the_supernatural_and_the_strange/" };
+
+	private static String header = "<tr><th align=\"center\">Mystery Name</th><th align=\"center\">Mystery Description</th></tr>";
+
+	private StrongParagraphScrubber scrubber;
+	private List<ScrubbedDataObject> data;
+
+	public MysteriesSiteBuilder() {
+		scrubber = new StrongParagraphScrubber(urls);
+	}
+
 	@Override
-	public void buildSite() {
-		String redditURL = "https://www.reddit.com/r/DnDBehindTheScreen/comments/3evxgl/lets_make_10000_mysteries/";
+	public String getTitle() {
+		return "Mysteries";
+	}
 
-		StrongParagraphScrubber scrubber = new StrongParagraphScrubber(
-				redditURL);
-		List<ScrubbedDataObject> data = scrubber.scrubData();
-		System.out.println("Mysteries scrubbed: " + data.size());
+	@Override
+	public String getRedditURL() {
+		return urls[urls.length - 1];
+	}
 
-		String fileLocationAndName = "src/main/resources/mysteries";
-		scrubber.writeDataToFiles(fileLocationAndName, data);
+	@Override
+	public String getTableHeader() {
+		return header;
+	}
 
-		String header = "<tr><th align=\"center\">Mystery Name</th><th align=\"center\">Mystery Description</th></tr>";
-		String indexLocation = "src/main/resources/mysteries/";
-		new BaseSiteBuilderHelper(indexLocation, "Mysteries", redditURL,
-				header, data).buildHTML();
+	@Override
+	public List<ScrubbedDataObject> getScrubbedData() {
+		return data;
+	}
+
+	@Override
+	public void scrubData() {
+		data = scrubber.scrubData();
+	}
+
+	@Override
+	public int scrubbedCount() {
+		return data == null ? -1 : data.size();
 	}
 
 	public static void main(String[] args) {
