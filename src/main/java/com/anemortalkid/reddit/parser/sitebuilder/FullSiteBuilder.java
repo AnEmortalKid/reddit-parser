@@ -8,6 +8,7 @@ import com.anemortalkid.reddit.parser.sitebuilder.locations.LocationsSiteBuilder
 import com.anemortalkid.reddit.parser.sitebuilder.mysteries.MysteriesSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.npcs.NPCSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.plothooks.PlothooksSiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.rooms.RoomSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.treasures.TreasureSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.villains.VillainsSiteBuilder;
 
@@ -29,6 +30,7 @@ public class FullSiteBuilder {
 		siteBuilders.add(new DungeonSiteBuilder());
 		siteBuilders.add(new PlothooksSiteBuilder());
 		siteBuilders.add(new VillainsSiteBuilder());
+		siteBuilders.add(new RoomSiteBuilder());
 		siteBuilders.forEach(x -> x.buildSite());
 	}
 }

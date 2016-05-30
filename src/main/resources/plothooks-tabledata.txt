@@ -1275,3 +1275,11 @@
 <td>Will He or Won't He</td>
 <td> The party receives a contract from the Thieves' Guild to recover a particularly rare jewel, on behalf of an unnamed noble who is sponsoring the contract. The next day, the party's rogue (or the least trustworthy member) is contacted privately by the guildmaster's lieutenant. If the rogue will secretly return the jewel directly to the guildmaster, with the other party members none the wiser, he can collect the entire payment for himself. Will he take the chance? What if the lieutenant offers a path to promotion within the guild? How will he pull it off?</td>
 </tr>
+<tr>
+<td>The Racist</td>
+<td> In light of a recent catastrophe, a well-known public figure declares extermination of a minority (tieflings work best here). PCs need not be the minority, but works best if they have emotional connections to the marginalized</td>
+</tr>
+<tr>
+<td>Fried Piper of Hamlin</td>
+<td> A bard shows up in a town pushing an Organ (or whatever large musical instrument suits your fancy). He attempts to solve the issue of hunger in the town by playing an extremely fire beat, which somehow magically produces food within the instrument itself that can be retrieved and consumed. However, this act of generosity raises the ire of F&B business owners, especially when paying customers start flocking to said bard for free, better-tasting food.</td>
+</tr>

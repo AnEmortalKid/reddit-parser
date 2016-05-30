@@ -541,7 +541,7 @@
 <tr>
 <td>Brightharbor</td>
 <td>Elvish Town</td>
-<td> Located on Sunset Isle, Brightharbor is the largest remaining elvish settlement in the world. The lower part of the old city is still a busy town, full of traders and crafters of many stripes, where small carracks and cogs do a deal of trade with the Western cities. The upper part of the old city is a nearly abandoned, peaceful ruin. It's beautiful stone houses overgrown with vines and flowers with a few residents tending small gardens and vineyards. Ancient Westerlings believed the gods themselves dwelt in Brightharbor.</td>
+<td> Located on Sunset Isle, Brightharbor is the largest remaining elvish settlement in the world. The lower part of the old city is still a busy town, full of traders and crafters of many stripes, where small carracks and cogs do a deal of trade with the Western cities. The upper part of the old city is a nearly abandoned, peaceful ruin. Its beautiful stone houses overgrown with vines and flowers with a few residents tending small gardens and vineyards. Ancient Westerlings believed the gods themselves dwelt in Brightharbor.</td>
 </tr>
 <tr>
 <td>The Grey Goat</td>
