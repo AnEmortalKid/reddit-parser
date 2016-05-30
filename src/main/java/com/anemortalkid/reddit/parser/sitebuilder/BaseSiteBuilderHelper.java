@@ -30,7 +30,7 @@ public class BaseSiteBuilderHelper {
 	private String redditUrl;
 	private String headerTag;
 	private String pageTitle;
-	
+
 	private int innerTableCount = 0;
 
 	/**
@@ -48,8 +48,7 @@ public class BaseSiteBuilderHelper {
 	 * @param tableData
 	 *            the data objects from which to create the table data rows
 	 */
-	public BaseSiteBuilderHelper(String htmlOutputFolder, String pageTitle,
-			String redditURL, String tableHeaderHTML,
+	public BaseSiteBuilderHelper(String htmlOutputFolder, String pageTitle, String redditURL, String tableHeaderHTML,
 			List<ScrubbedDataObject> tableData) {
 		this.indexLocation = htmlOutputFolder;
 		this.pageTitle = pageTitle;
@@ -148,8 +147,7 @@ public class BaseSiteBuilderHelper {
 
 		// Format the {0} for the inputs to say Random Title
 		String inputs = getDataFromFile(SiteResourcesConstants.INPUTS);
-		String pageTitleNoPlural = pageTitle.substring(0,
-				pageTitle.length() - 1);
+		String pageTitleNoPlural = pageTitle.substring(0, pageTitle.length() - 1);
 		bob.append(MessageFormat.format(inputs, pageTitleNoPlural));
 
 		bob.append(getProgressBarDiv());
@@ -167,9 +165,8 @@ public class BaseSiteBuilderHelper {
 
 	private String getColMDImgCircleShit() {
 		String someData = "<div class=\"col-md-4 col-md-push-8\">\n"
-				+ "<img class=\"img-circle\" src=\"../assets/images/"
-				+ getAssetFile() + "\" width=\"200\" height=\"200\">\n"
-				+ "</div><!-- ./col-md-4 -->\n"
+				+ "<img class=\"img-circle\" src=\"../assets/images/" + getAssetFile()
+				+ "\" width=\"200\" height=\"200\">\n" + "</div><!-- ./col-md-4 -->\n"
 				+ "<div class=\"col-md-8 col-md-pull-4\">\n";
 		return someData;
 	}
@@ -190,9 +187,10 @@ public class BaseSiteBuilderHelper {
 			return "plothooks.jpg";
 		case "Villains":
 			return "villains.jpg";
+		case "Rooms":
+			return "rooms.png";
 		default:
-			throw new UnsupportedOperationException("No file matched with: "
-					+ pageTitle);
+			throw new UnsupportedOperationException("No file matched with: " + pageTitle);
 		}
 	}
 
@@ -202,27 +200,23 @@ public class BaseSiteBuilderHelper {
 		String unformattedProgressBar = getDataFromFile(SiteResourcesConstants.PROGRESS_BAR);
 		double percent = (tableData.size() / 10000.00) * 100.00;
 		DecimalFormat df = new DecimalFormat("##.##");
-		bob.append(MessageFormat.format(unformattedProgressBar,
-				tableData.size(), df.format(percent)));
+		bob.append(MessageFormat.format(unformattedProgressBar, tableData.size(), df.format(percent)));
 		return bob.toString();
 	}
 
 	private String buildDataHeader() {
 		StringBuilder bob = new StringBuilder();
 
-		String h1LinkHeader = "<h1><a href=\"..\">10K // </a> " + pageTitle
-				+ "</h1>\n";
-		String paragraphCopyPasta = "<p>This page is a compilation of the "
-				+ pageTitle.toLowerCase() + " from <a href=\"" + redditUrl
-				+ "\">/rDnDBehindTheScreen's 10K " + pageTitle
+		String h1LinkHeader = "<h1><a href=\"..\">10K // </a> " + pageTitle + "</h1>\n";
+		String paragraphCopyPasta = "<p>This page is a compilation of the " + pageTitle.toLowerCase()
+				+ " from <a href=\"" + redditUrl + "\">/rDnDBehindTheScreen's 10K " + pageTitle
 				+ " thread</a>. Be sure to visit and contribute!</p>\n";
 		bob.append(h1LinkHeader);
 		bob.append(paragraphCopyPasta);
 
 		// Generate currently String
 
-		String currently = "<h2>Currently at " + tableData.size()
-				+ "/10000</h2>";
+		String currently = "<h2>Currently at " + tableData.size() + "/10000</h2>";
 		bob.append(currently);
 		bob.append("<h3>Last updated: " + new Date() + "</h3>\n");
 		bob.append("</div><!-- ./col-md-8 -->\n</div><!-- ./row -->\n");
@@ -268,8 +262,7 @@ public class BaseSiteBuilderHelper {
 		StringBuilder bob = new StringBuilder();
 
 		File checkboxFile = new File(fileName);
-		try (BufferedReader br = new BufferedReader(
-				new FileReader(checkboxFile))) {
+		try (BufferedReader br = new BufferedReader(new FileReader(checkboxFile))) {
 			String line;
 			while ((line = br.readLine()) != null) {
 				bob.append(line + "\n");
