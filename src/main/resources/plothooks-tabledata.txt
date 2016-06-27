@@ -616,12 +616,12 @@
 <td> A small humanoid fire elemental asks to be freed from a containing vessel. Once free she may give the party a reward (e.g. a fire ruby witch can be consumed to throw a Fireball or sold as jewelery). She them appears in random fires, such as torches in a dungeon, to talk to the party or give them a small, strange task. Once the players prove their value and her trust she asks them to help the fire kingdom in the elemental plane. The elemental convergence, an event that decides which element will prevail over the others in the material plane for the next 10 thousand years, is near and war is imminent. Plot twist: even though she keeps saying that an era of fire would bring life, light and warmth to the material plane the truth is that no element ever wins the convergence and this is what keeps the material plane balanced. If an element gets an edge over the others terrible things happens on the material plane (a fire era would more likely bring firestorms, heat the planet and start a vulcanic apocalypse).</td>
 </tr>
 <tr>
-<td>The 3 Demons</td>
-<td> One of the party members is spoken to by a God while they were sleeping. They foretold that 3 great demons, Behemoth, Ziz, and Leviathan would soon awaken and ravage the lands if the party doesn't stop them.</td>
-</tr>
-<tr>
 <td>Drow Underground Railroad</td>
 <td> The party encounters refugees that were helped out of the Underdark by a Drow. They want to save others that were left behind.</td>
+</tr>
+<tr>
+<td>The 3 Demons</td>
+<td> One of the party members is spoken to by a God while they were sleeping. They foretold that 3 great demons, Behemoth, Ziz, and Leviathan would soon awaken and ravage the lands if the party doesn't stop them.</td>
 </tr>
 <tr>
 <td>Hats (and Heads) Off</td>
@@ -716,6 +716,22 @@
 <td> A priest or priestess had been tasked with guarding a special item until their deity's chosen one arrived to claim it. Well, the chosen one has finally arrived but the holy guardian has already given the item away, very recently! What could have caused the mix-up? Maybe the false prophet used trickery to gain the guardian's trust, maybe the guardian was confused/biased, or maybe there are multiple "chosen ones". This adventure could end with the party reclaiming the holy item or meeting and recruiting the additional chosen one.</td>
 </tr>
 <tr>
+<td>Unfortunate hookup</td>
+<td> While slightly drunk, one of PC hooks up with some beautiful woman. Next day, he gets an invitation to duel at 7 am in front of the town.</td>
+</tr>
+<tr>
+<td>Dancing troll</td>
+<td> Out of nowhere a wild and dangerous troll appears. But he is only dancing because magic shoes force him to do so.</td>
+</tr>
+<tr>
+<td>Giant flood</td>
+<td> Out of nowhere, giant river springs in the middle of the city, destroying all of it. Local wise man claims only great magic or portal could create such river.</td>
+</tr>
+<tr>
+<td>Ogre danger</td>
+<td> An extraordinary huge ogre destroyed a small village and some nearby farms. But he only wanted to play...</td>
+</tr>
+<tr>
 <td>Feed the Beets</td>
 <td> While travelling, they hear a call for help from a nearby field of crops. There, a young farmer is being attacked by a Blight. After saving the farmer, she offers the party a visit to a local fairy spring in exchange for helping to find why her crops have gone mad and started biting. This sets up to a fight against a large Blight or evil Treant.</td>
 </tr>
@@ -754,22 +770,6 @@
 <tr>
 <td>An Eye For Trouble</td>
 <td> While entering town, the group is accosted by a one-eyed man who asks the adventurers to get his eye back from a wizard who stole it as a spell component for some new spell she was researching. The only problem is that she's traveling with a company of Mercs, who don't take kindly to someone troubling their company mage.</td>
-</tr>
-<tr>
-<td>Unfortunate hookup</td>
-<td> While slightly drunk, one of PC hooks up with some beautiful woman. Next day, he gets an invitation to duel at 7 am in front of the town.</td>
-</tr>
-<tr>
-<td>Dancing troll</td>
-<td> Out of nowhere a wild and dangerous troll appears. But he is only dancing because magic shoes force him to do so.</td>
-</tr>
-<tr>
-<td>Giant flood</td>
-<td> Out of nowhere, giant river springs in the middle of the city, destroying all of it. Local wise man claims only great magic or portal could create such river.</td>
-</tr>
-<tr>
-<td>Ogre danger</td>
-<td> An extraordinary huge ogre destroyed a small village and some nearby farms. But he only wanted to play...</td>
 </tr>
 <tr>
 <td>Ribbit Season</td>
@@ -1208,6 +1208,14 @@
 <td> The Horses Replacement is one of the rowdiest dockside inns in Brightbluff, so it's par for the course when a group of rough looking half-orcs invite the party to a drinking contest. The drinks go down easy but win or lose, they'll be drunk and tired by the end of it. Unfortunately for them, the bitter old ex-cavalier who runs this establishment has a deal worked out with the half-orcs and their accomplices, and a discreet set of tunnels under each room wind their way right to the water and their boats. Passing out at the inn, they'll find themselves miles out to sea and suddenly the newest unwilling crewmembers (or slaves) aboard ship.</td>
 </tr>
 <tr>
+<td>The Ranger Who Couldn't Catch a Break</td>
+<td> While traveling in the forest, the floor suddenly collapses beneath a member of the party, and they narrowly avoid being speared by the ranger hiding within the pit trap. As the ranger stares at them, his eyes widen in fear and he murmurs, "Oh gods, not again..."</td>
+</tr>
+<tr>
+<td>A Slightly Unhelpful Wizard</td>
+<td> As payment for their most recent job, the party is given a bag containing a set of incredibly light plate armor, an ornate stopwatch, and a dagger emanating with a seemingly heatless flame. At the bottom of the bag is a small piece of parchment with an address written on it.</td>
+</tr>
+<tr>
 <td>Onwards, noble steed!</td>
 <td> One of the party's horses - the Paladin's War Steed, maybe? Suddenly turns wild and bucks off its rider, just as they are about to charge into combat. It will not allow its former rider to approach, let alone ride, although other people may be able to lead it.</td>
 </tr>
@@ -1218,14 +1226,6 @@
 <tr>
 <td>Death rides a Pony!</td>
 <td> The avatar of Death appears to the party, and tells them he will be taking them all during their next dungeon. Buuuutttt, he will give them a pass if they help him recover his steed, which has been stolen by one of the other Horsemen. The problem is that he doesn't know which of the other Horsemen has his stallion, and so Death expects them to approach each of the other Horsemen about it. Of course the other Horsemen won't just give up info about the theft, the party will have to figure out ways to make the Horsemen cooperate.</td>
-</tr>
-<tr>
-<td>The Ranger Who Couldn't Catch a Break</td>
-<td> While traveling in the forest, the floor suddenly collapses beneath a member of the party, and they narrowly avoid being speared by the ranger hiding within the pit trap. As the ranger stares at them, his eyes widen in fear and he murmurs, "Oh gods, not again..."</td>
-</tr>
-<tr>
-<td>A Slightly Unhelpful Wizard</td>
-<td> As payment for their most recent job, the party is given a bag containing a set of incredibly light plate armor, an ornate stopwatch, and a dagger emanating with a seemingly heatless flame. At the bottom of the bag is a small piece of parchment with an address written on it.</td>
 </tr>
 <tr>
 <td>Constructing Trouble</td>

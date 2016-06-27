@@ -11,7 +11,9 @@ public class NPCSiteBuilder implements ISiteBuilder {
 
 	private static String[] urls = {
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3er483/lets_make_10000_npcs/",
-			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4ip300/10k_npcs_crusaders_and_exorcists/" };
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4ip300/10k_npcs_crusaders_and_exorcists/",
+			
+	"https://www.reddit.com/r/DnDBehindTheScreen/comments/4odi6q/10k_npcs_witches_and_seers/"};
 
 	private static String header = "<tr><th>Name</th><th align=\"center\">Gender Race Occupation</th><th align=\"center\">Description</th></tr>";
 

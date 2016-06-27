@@ -82,11 +82,19 @@ public class BaseSiteBuilderHelper {
 	 */
 	public void buildHTML() {
 
+		StringBuilder headBuilder = new StringBuilder();
+		String imports = getDataFromFile(SiteResourcesConstants.JQUERY_IMPORTS);
+		headBuilder.append(imports);
+		headBuilder.append("\n");
+
 		String meta = "<meta name=viewport content=\"width=device-width, initial-scale=1\">";
+		headBuilder.append(meta);
+		headBuilder.append("\n");
 		String title = wrapInTitle("10K " + pageTitle);
-		String bootstrapLinks = "\n<link href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css\" rel=\"stylesheet\">\n"
-				+ "<link href=\"//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/slate/bootstrap.min.css\" rel=\"stylesheet\">";
-		String headElement = wrapInHead(meta + "\n" + title + bootstrapLinks);
+		headBuilder.append(title);
+		headBuilder.append("\n");
+		headBuilder.append(getDataFromFile(SiteResourcesConstants.BOOT_STRAP_IMPORTS));
+		String headElement = wrapInHead(headBuilder.toString());
 
 		String bodyElement = buildBody();
 
@@ -114,7 +122,7 @@ public class BaseSiteBuilderHelper {
 
 	private String buildBody() {
 		StringBuilder bob = new StringBuilder();
-		String bodyStart = "<body>\n";
+		String bodyStart = "<body onload=\"setSorter()\">\n";
 		bob.append(bodyStart);
 
 		String containerData = getContainerData();
@@ -225,16 +233,20 @@ public class BaseSiteBuilderHelper {
 
 	private String getTable() {
 		StringBuilder bob = new StringBuilder();
-		bob.append("<table class=\"table table-striped\" id=\"table\">\n");
+		bob.append("<table class=\"table table-striped tablesorter\" id=\"table\">\n");
 
 		// append header
+		bob.append("<thead>\n");
 		bob.append(headerTag);
 		bob.append("\n");
+		bob.append("</thead>\n");
 
+		bob.append("<tbody>");
 		StringBuilder tableDataBuilder = new StringBuilder();
 		for (ScrubbedDataObject datO : tableData)
 			tableDataBuilder.append(datO.toHTMLTableRow());
 		bob.append(tableDataBuilder.toString());
+		bob.append("</tbody>");
 		bob.append("\n</table>\n");
 		return bob.toString();
 	}

@@ -51,5 +51,15 @@ public interface SiteResourcesConstants {
 	 */
 	static final String END_JAVASCRIPT_FUNCTIONS = PATH
 			+ "javascriptfunctions.txt";
+	
+	/**
+	 * Contains the link stylesheet declarations for bootstrap
+	 */
+	static final String BOOT_STRAP_IMPORTS = PATH + "bootstrapimports.txt";
+	
+	/**
+	 * Contains the script declarations for jquery and jquery.tablesorter
+	 */
+	static final String JQUERY_IMPORTS = PATH + "jqueryimports.txt";
 
 }

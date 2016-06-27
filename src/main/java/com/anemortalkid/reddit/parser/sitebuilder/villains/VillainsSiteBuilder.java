@@ -11,7 +11,8 @@ public class VillainsSiteBuilder implements ISiteBuilder {
 
 	private static String[] urls = { //
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3fmnhb/10000_villains/",
-			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4hn60f/10k_villains_demons_and_devils/", };
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4hn60f/10k_villains_demons_and_devils/", 
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4knuyj/10k_villains_monstrosities/"};
 
 	private static String header = "<tr><th align=\"center\">Villain Name</th><th align=\"center\">Description</th></tr>";
 

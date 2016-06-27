@@ -23,7 +23,7 @@ import com.anemortalkid.reddit.parser.sitebuilder.villains.VillainsSiteBuilder;
  */
 public class FullSiteBuilder {
 
-	private static String INFO_TEMPLATE = "<p><b>{0}</b><a href=\"./{1}/\">{2}</a></p>";
+	private static String INFO_TEMPLATE = "<p><b>{0}</b> <a href=\"./{1}/\">{2}</a></p>";
 	
 	public static void main(String[] args) {
 		List<ISiteBuilder> siteBuilders = new ArrayList<ISiteBuilder>();

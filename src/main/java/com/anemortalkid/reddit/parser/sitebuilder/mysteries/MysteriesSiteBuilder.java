@@ -11,7 +11,8 @@ public class MysteriesSiteBuilder implements ISiteBuilder {
 
 	private static String[] urls = { //
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3evxgl/lets_make_10000_mysteries/",
-			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4ijjbz/10k_mysteries_the_supernatural_and_the_strange/" };
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4ijjbz/10k_mysteries_the_supernatural_and_the_strange/",
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4nws6u/10k_mysteries_the_ancient_and_the_arcane/"};
 
 	private static String header = "<tr><th align=\"center\">Mystery Name</th><th align=\"center\">Mystery Description</th></tr>";
 

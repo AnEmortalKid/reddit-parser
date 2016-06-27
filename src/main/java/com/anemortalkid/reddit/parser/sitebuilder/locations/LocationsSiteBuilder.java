@@ -16,7 +16,8 @@ public class LocationsSiteBuilder implements ISiteBuilder {
 
 	private static String[] urls = { //
 			"http://www.reddit.com/r/DnDBehindTheScreen/comments/3f0lzl/lets_make_10_000_locations/",
-			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4iuwym/10k_locations_hallowed_ground/" };
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4iuwym/10k_locations_hallowed_ground/",
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4ousc6/10k_locations_thieves_dens_and_pirates_coves/"};
 
 	private static String header = "<tr><th align=\"center\">Name</th><th align=\"center\">Type</th><th align=\"center\">Description</th></tr>";
 

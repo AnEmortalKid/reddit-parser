@@ -11,7 +11,9 @@ public class TreasureSiteBuilder implements ISiteBuilder {
 
 	private static String[] urls = { //
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3f633m/lets_make_10000_treasures/",
-			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4hzx3a/10k_treasure_trinkets_talismans_and_prayer_beads/", };
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4hzx3a/10k_treasure_trinkets_talismans_and_prayer_beads/",
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4n4yvf/10k_treasure_books_and_scrolls/",
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4paizo/10k_treasures_maritime_plunder/",};
 
 	private static String header = "<tr><th align=\"center\">Treasure Name</th><th align=\"center\">Treasure Type</th><th align=\"center\">Description</th></tr>";
 
