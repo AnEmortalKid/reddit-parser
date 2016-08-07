@@ -86,6 +86,7 @@ public class DynamicSiteBuilder {
 
 		String dndIndexTemplate = ResourceAssistant.INSTANCE.getDataFromFile(SiteResourcesConstants.DND_INDEX_TEMPLATE);
 		String dndIndexContent = MessageFormat.format(dndIndexTemplate, lastUpdated.toString());
+		System.out.println("DND Index Content:" + dndIndexContent);
 
 		String indexLocation = ISiteBuilder.BASE_RESOURCES + "dnd-index.html";
 		ResourceAssistant.INSTANCE.writeToFile(indexLocation, dndIndexContent);

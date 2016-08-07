@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
-
 public class ResourceAssistant {
 
 	public static final ResourceAssistant INSTANCE = new ResourceAssistant();
