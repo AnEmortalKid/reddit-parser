@@ -2,7 +2,6 @@ package com.anemortalkid.reddit.parser.sitebuilder.plothooks;
 
 import java.util.Arrays;
 
-import com.anemortalkid.reddit.parser.sitebuilder.mysteries.MysteryData;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class PlothookData {

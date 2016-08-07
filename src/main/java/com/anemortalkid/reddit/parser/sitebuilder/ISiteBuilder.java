@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import com.anemortalkid.reddit.parser.sitebuilder.npcs.NPCData;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 import com.google.gson.Gson;
 
@@ -21,7 +20,9 @@ import com.google.gson.Gson;
  */
 public interface ISiteBuilder<T> {
 
-	static String BASE_RESOURCES = "src/main/resources/";
+	static String OUTPUT_DIR_PROPERTY_NAME = "output.dir";
+	static String OUTPUT_DIR = System.getProperty(OUTPUT_DIR_PROPERTY_NAME);
+	static String BASE_RESOURCES = OUTPUT_DIR == null ? "src/main/resources/" : OUTPUT_DIR;
 
 	/**
 	 * Scrubs data and stores it in the site builder
@@ -69,16 +70,20 @@ public interface ISiteBuilder<T> {
 		List<ScrubbedDataObject> data = getScrubbedData();
 
 		String title = getTitle().replace(" ", "").toLowerCase();
-		String fileLocationAndName = BASE_RESOURCES + title;
-		writeDataToFiles(fileLocationAndName, data);
+		String rootDirectory = BASE_RESOURCES + title + "/";
+		File directory = new File(rootDirectory);
+		if (!directory.exists()) {
+			System.out.println("Making dir: " + directory);
+			directory.mkdirs();
+		}
+
+		writeDataToFiles(rootDirectory, data);
 
 		List<T> jsonData = getJsonData();
 		if (jsonData != null) {
-			String directory = fileLocationAndName + "/";
-			writeJsonDataToFiles(directory + "data", jsonData);
+			writeJsonDataToFiles(rootDirectory + "data", jsonData);
 		}
-		new BaseSiteBuilderHelper(fileLocationAndName + "/", getTitle(), getRedditURL(), getTableHeader(), data)
-				.buildHTML();
+		new BaseSiteBuilderHelper(rootDirectory, getTitle(), getRedditURL(), getTableHeader(), data).buildHTML();
 	}
 
 	default void writeJsonDataToFiles(String fileLocationAndName, List<T> jsonData) {
@@ -102,10 +107,10 @@ public interface ISiteBuilder<T> {
 		}
 	}
 
-	default void writeDataToFiles(String fileLocationAndName, List<ScrubbedDataObject> data) {
-		File outFile_TXT = new File(fileLocationAndName + ".txt");
-		File outFile_CSV = new File(fileLocationAndName + ".csv");
-		File outFile_table = new File(fileLocationAndName + "-tabledata.txt");
+	default void writeDataToFiles(String directory, List<ScrubbedDataObject> data) {
+		File outFile_TXT = new File(directory + "data.txt");
+		File outFile_CSV = new File(directory + "data.csv");
+		File outFile_table = new File(directory + "tabledata.txt");
 
 		int dataWritten = 0;
 		if (!outFile_TXT.exists()) {

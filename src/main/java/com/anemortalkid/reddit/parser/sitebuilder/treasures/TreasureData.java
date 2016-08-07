@@ -2,7 +2,6 @@ package com.anemortalkid.reddit.parser.sitebuilder.treasures;
 
 import java.util.Arrays;
 
-import com.anemortalkid.reddit.parser.sitebuilder.npcs.NPCData;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class TreasureData {

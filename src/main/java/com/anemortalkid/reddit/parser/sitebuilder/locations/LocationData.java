@@ -2,7 +2,6 @@ package com.anemortalkid.reddit.parser.sitebuilder.locations;
 
 import java.util.Arrays;
 
-import com.anemortalkid.reddit.parser.sitebuilder.dungeons.DungeonData;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class LocationData {

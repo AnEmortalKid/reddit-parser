@@ -1,16 +1,16 @@
 package com.anemortalkid.reddit.parser.sitebuilder;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
 import java.text.DecimalFormat;
 import java.text.MessageFormat;
 import java.util.Date;
 import java.util.List;
 
+import com.anemortalkid.ResourceAssistant;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 /**
@@ -22,16 +22,12 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
  */
 public class BaseSiteBuilderHelper {
 
-	private static final String END_JAVASCRIPT_FUNCTIONS = "src/main/resources/site_resources/javascriptfunctions.txt";
-
 	private static final String DIV_CLASS_ROW = "<div class=\"row\">";
 	private String indexLocation;
 	private List<ScrubbedDataObject> tableData;
 	private String redditUrl;
 	private String headerTag;
 	private String pageTitle;
-
-	private int innerTableCount = 0;
 
 	/**
 	 * 
@@ -100,6 +96,11 @@ public class BaseSiteBuilderHelper {
 
 		String html = wrapInHTML(headElement + "\n" + bodyElement);
 
+		File rootDirectory = new File(indexLocation);
+		if (rootDirectory.exists()) {
+			rootDirectory.mkdirs();
+		}
+
 		File indexFile = new File(indexLocation + "index.html");
 		if (!indexFile.exists()) {
 			try {
@@ -129,7 +130,7 @@ public class BaseSiteBuilderHelper {
 		bob.append(containerData);
 
 		bob.append("</div>\n");
-		bob.append(getDataFromFile(END_JAVASCRIPT_FUNCTIONS));
+		bob.append(getDataFromFile(SiteResourcesConstants.END_JAVASCRIPT_FUNCTIONS));
 		String bodyEnd = "</body>";
 		bob.append(bodyEnd);
 
@@ -273,17 +274,11 @@ public class BaseSiteBuilderHelper {
 	private static String getDataFromFile(String fileName) {
 		StringBuilder bob = new StringBuilder();
 
-		File checkboxFile = new File(fileName);
-		try (BufferedReader br = new BufferedReader(new FileReader(checkboxFile))) {
-			String line;
-			while ((line = br.readLine()) != null) {
-				bob.append(line + "\n");
-			}
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		try {
+			List<String> lines = ResourceAssistant.INSTANCE.getLines(fileName);
+			lines.forEach(line -> bob.append(line + "\n"));
+		} catch (IOException | URISyntaxException e1) {
+			e1.printStackTrace();
 		}
 		return bob.toString();
 	}

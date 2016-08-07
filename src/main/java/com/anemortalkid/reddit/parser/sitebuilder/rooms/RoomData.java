@@ -2,7 +2,6 @@ package com.anemortalkid.reddit.parser.sitebuilder.rooms;
 
 import java.util.Arrays;
 
-import com.anemortalkid.reddit.parser.sitebuilder.plothooks.PlothookData;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class RoomData {

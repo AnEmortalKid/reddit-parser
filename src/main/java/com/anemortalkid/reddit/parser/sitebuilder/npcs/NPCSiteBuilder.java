@@ -3,7 +3,6 @@ package com.anemortalkid.reddit.parser.sitebuilder.npcs;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import com.anemortalkid.reddit.parser.sitebuilder.ISiteBuilder;
 import com.anemortalkid.reddit.scrubber.StrongEmphasisParagraphScrubber;
