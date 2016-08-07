@@ -1,15 +1,18 @@
 package com.anemortalkid.reddit.parser.sitebuilder.rooms;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Function;
 
 import com.anemortalkid.reddit.parser.sitebuilder.BaseSiteBuilderHelper;
 import com.anemortalkid.reddit.parser.sitebuilder.ISiteBuilder;
 import com.anemortalkid.reddit.scrubber.StrongParagraphEntryScrubber;
+import com.anemortalkid.reddit.scrubber.StrongParagraphScrubber;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
-public class RoomSiteBuilder implements ISiteBuilder {
+public class RoomSiteBuilder implements ISiteBuilder<RoomData> {
 
 	private static String tableHeaderHTML = "<tr><th align=\"center\">Room Name</th><th align=\"center\">Room Description</th></tr>";
 
@@ -27,6 +30,16 @@ public class RoomSiteBuilder implements ISiteBuilder {
 			ignores.add(phrase);
 		}
 		scrubber = new StrongParagraphEntryScrubber(ignores, urls);
+	}
+
+	public RoomSiteBuilder(List<String> newURLs) {
+
+		Set<String> ignores = new HashSet<String>();
+		for (String phrase : ignoreHeaders) {
+			ignores.add(phrase);
+		}
+		Collections.reverse(newURLs);
+		scrubber = new StrongParagraphEntryScrubber(ignores, newURLs.toArray(new String[newURLs.size()]));
 	}
 
 	@Override
@@ -57,6 +70,11 @@ public class RoomSiteBuilder implements ISiteBuilder {
 	@Override
 	public void scrubData() {
 		data = scrubber.scrubData();
+	}
+
+	@Override
+	public Function<ScrubbedDataObject, RoomData> getJsonFactory() {
+		return RoomData::createFromScrubbedObject;
 	}
 
 	@Override

@@ -18,25 +18,23 @@ public interface ScrubbedDataObject {
 	default String wrapInTd(String str) {
 		boolean closedTable = false;
 		String closingTag = "";
-		if(containsInnerTable())
-		{
+		if (containsInnerTable()) {
 			closedTable = str.endsWith("</ol>") || str.endsWith("</ul>");
 			boolean ordered = str.contains("<ol>");
-			if(!closedTable)
-			{
+			if (!closedTable) {
 				closingTag = ordered ? "</ol>" : "</ul>";
 			}
 			// hopefully it's the only one so we'll add the paragraph at the end
-			closingTag += "<p id=\"table_"+INNER_TABLE_COUNT+"_data\"></p>";
+			closingTag += "<p id=\"table_" + INNER_TABLE_COUNT + "_data\"></p>";
 		}
-		
+
 		return "<td>" + str + closingTag + "</td>";
 	}
 
 	default String wrapInTdWithRoll(String data) {
 		String inputElem = "<input type=\"button\" value=\"roll\" onclick=\"rollTable('table_" + INNER_TABLE_COUNT
 				+ "')\">";
-		return "<td>" +  data + inputElem + "</td>";
+		return "<td>" + data + inputElem + "</td>";
 	}
 
 	default String wrapInTr(String str) {
@@ -73,4 +71,10 @@ public interface ScrubbedDataObject {
 	String toGoogleSpreadsheet();
 
 	String toCSV();
+
+	/**
+	 * @return an array of Strings containing the pieces of data for this
+	 *         {@link ScrubbedDataObject}
+	 */
+	String[] getDataArguments();
 }

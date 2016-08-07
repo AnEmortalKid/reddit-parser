@@ -770,18 +770,18 @@
 </tr>
 <tr>
 <td>Albatross Island</td>
-<td>Man-made floating island/beached hideout</td>
-<td> A ramshackle assemblage of beached ships, floating barrels, and rope bridges, and a single ancient coconut tree, Albatross island is the hideout of the fearsome pirate Drake Stone. Sitting upon a sandbar, the entire place can be towed out to sea and moved to a new location. Part prison and part treasure hoard, Captain Stone leaves a skeleton crew of loyal undead servants and a host of booby traps to guard his treasure. Rumor has it that the skeletons even head out on fishing expeditions to feed and train a pack of reef sharks to terrorize anyone attempting to wade or swim from the beach out to the Island.</td>
+<td>Man-made Floating Island/Beached Hideout</td>
+<td> A ramshackle assemblage of beached ships, floating barrels, and rope bridges, and a single ancient coconut tree, Albatross island is the hideout of the fearsome pirate Drake Stone. Sitting upon a sandbar, the entire place (minus the coconut tree) can be towed out to sea and moved to a new location. Part prison and part treasure hoard, Captain Stone leaves a skeleton crew of loyal undead servants and a host of booby traps to guard his treasure. Rumor has it that the skeletons even head out on fishing expeditions to feed and train a pack of reef sharks to terrorize anyone attempting to wade or swim from the beach out to the Island.</td>
 </tr>
 <tr>
 <td>Mount Cinderfall</td>
-<td>Volcanic island lair</td>
+<td>Volcanic Island Lair</td>
 <td> The leeward side of this volcanic island, the lush vegetation betrays the desolation. Plumes of smoke rising from the cone-shaped mountain that dominates the island are an ominous warning for the peril that waits within. Mount Cinderfall is home to the sea dragon Ghrazaxos who terrorizes the inhabitants of the neighboring islands and passing ships alike. A pool of molten gold plundered from passing ships is rumored to lie at the heart of Ghrazaxos's fiery lair.</td>
 </tr>
 <tr>
 <td>Golden Temple of the Storm Dragon</td>
-<td>Shadowy island ruin</td>
-<td> Long ago, the this island was home to a thriving shadowfolk town that grew fruit, rice, and fished the sea. The town's centerpiece was a sprawling temple complex of interconnected stone pagodas dedicated to the Dragon Gods with the largest pagoda a shrine to the mightiest of them all, the Storm Dragon. Beneath the Storm Dragon's pagoda the priests performed profane rites by encasing sacrificial victims, both human and animal in molten gold. Stories tell of a cataclysmic storm that covered the whole island in hundred foot waves and battered down the fruit trees and the thatched roofs with unmatched winds—as if the Storm Dragon itself had grown angry and meant to make an example of the place. The lower levels of the temple complex are flooded, ghosts and fish are all that remain to inhabit the island, as the shadowfolk claim no one has ever returned who attempted to plumb the temple for massive stores of gold.</td>
+<td>Shadowy Island Ruin</td>
+<td> Long ago, the this island was home to a thriving shadowfolk town that grew fruit, rice, and fished the sea. The town's centerpiece was a sprawling temple complex of interconnected stone pagodas dedicated to the Dragon Gods with the largest pagoda a shrine to the mightiest of them all, the Storm Dragon. Beneath the Storm Dragon's pagoda the priests performed profane rites by encasing sacrificial victims, both human and animal in molten gold. Stories tell of a cataclysmic storm that covered the whole island in hundred foot waves and battered down the fruit trees and the thatched roofs with unmatched winds—as if the Storm Dragon itself had grown angry and meant to make an example of the place. The lower levels of the temple complex are flooded, ghosts and fish are all that remain to inhabit the island, as the shadowfolk claim no one has ever returned who attempted to plumb the temple for its massive stores of gold.</td>
 </tr>
 <tr>
 <td>Flotsam</td>

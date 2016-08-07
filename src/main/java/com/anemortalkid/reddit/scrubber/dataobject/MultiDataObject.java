@@ -57,4 +57,9 @@ public class MultiDataObject implements ScrubbedDataObject {
 		return Arrays.toString(dataArgs);
 	}
 
+	@Override
+	public String[] getDataArguments() {
+		return dataArgs;
+	}
+
 }

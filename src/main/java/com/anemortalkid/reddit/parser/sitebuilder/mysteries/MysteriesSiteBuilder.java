@@ -1,19 +1,22 @@
 package com.anemortalkid.reddit.parser.sitebuilder.mysteries;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.function.Function;
 
 import com.anemortalkid.reddit.parser.sitebuilder.BaseSiteBuilderHelper;
 import com.anemortalkid.reddit.parser.sitebuilder.ISiteBuilder;
+import com.anemortalkid.reddit.scrubber.StrongEmphasisParagraphScrubber;
 import com.anemortalkid.reddit.scrubber.StrongParagraphScrubber;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
-public class MysteriesSiteBuilder implements ISiteBuilder {
+public class MysteriesSiteBuilder implements ISiteBuilder<MysteryData> {
 
 	private static String[] urls = { //
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3evxgl/lets_make_10000_mysteries/",
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4ijjbz/10k_mysteries_the_supernatural_and_the_strange/",
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4nws6u/10k_mysteries_the_ancient_and_the_arcane/",
-			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4st6t2/10k_mysteries_old_war_stories/"};
+			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4st6t2/10k_mysteries_old_war_stories/" };
 
 	private static String header = "<tr><th align=\"center\">Mystery Name</th><th align=\"center\">Mystery Description</th></tr>";
 
@@ -22,6 +25,11 @@ public class MysteriesSiteBuilder implements ISiteBuilder {
 
 	public MysteriesSiteBuilder() {
 		scrubber = new StrongParagraphScrubber(urls);
+	}
+
+	public MysteriesSiteBuilder(List<String> newURLs) {
+		Collections.reverse(newURLs);
+		scrubber = new StrongParagraphScrubber(newURLs.toArray(new String[newURLs.size()]));
 	}
 
 	@Override
@@ -52,6 +60,11 @@ public class MysteriesSiteBuilder implements ISiteBuilder {
 	@Override
 	public int scrubbedCount() {
 		return data == null ? -1 : data.size();
+	}
+
+	@Override
+	public Function<ScrubbedDataObject, MysteryData> getJsonFactory() {
+		return MysteryData::createFromScrubbedObject;
 	}
 
 	public static void main(String[] args) {
