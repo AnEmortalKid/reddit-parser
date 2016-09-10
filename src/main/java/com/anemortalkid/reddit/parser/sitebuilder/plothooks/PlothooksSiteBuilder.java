@@ -36,10 +36,6 @@ public class PlothooksSiteBuilder implements ISiteBuilder<PlothookData> {
 		return "Plot Hooks";
 	}
 
-	@Override
-	public String getRedditURL() {
-		return urls[urls.length - 1];
-	}
 
 	@Override
 	public String getTableHeader() {

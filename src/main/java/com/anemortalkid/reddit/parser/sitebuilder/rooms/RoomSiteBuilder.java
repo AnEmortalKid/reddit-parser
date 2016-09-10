@@ -12,6 +12,8 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class RoomSiteBuilder implements ISiteBuilder<RoomData> {
 
+	private static final String QUERY_URL = "https://www.reddit.com/r/DnDBehindTheScreen/search?q=flair%3A%2710K+Event%27+%2B+title%3A%27Room%27&restrict_sr=on&sort=new&t=all";
+
 	private static String tableHeaderHTML = "<tr><th align=\"center\">Room Name</th><th align=\"center\">Room Description</th></tr>";
 
 	private static String[] urls = {
@@ -47,7 +49,7 @@ public class RoomSiteBuilder implements ISiteBuilder<RoomData> {
 
 	@Override
 	public String getRedditURL() {
-		return urls[urls.length - 1];
+		return QUERY_URL;
 	}
 
 	@Override

@@ -10,6 +10,8 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 public class DungeonSiteBuilder implements ISiteBuilder<DungeonData> {
 
+	private static final String QUERY_URL = "https://www.reddit.com/r/DnDBehindTheScreen/search?q=flair%3A%2710K+Event%27+%2B+title%3A%27Locations%27&restrict_sr=on&sort=new&t=all";
+	
 	private static String[] urls = {
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3fb5w5/lets_make_10000_dungeons/",
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/4huas3/10k_dungeons_unholy_places/",
@@ -33,11 +35,6 @@ public class DungeonSiteBuilder implements ISiteBuilder<DungeonData> {
 	@Override
 	public String getTitle() {
 		return "Dungeons";
-	}
-
-	@Override
-	public String getRedditURL() {
-		return urls[urls.length - 1];
 	}
 
 	@Override

@@ -36,11 +36,6 @@ public class MysteriesSiteBuilder implements ISiteBuilder<MysteryData> {
 	}
 
 	@Override
-	public String getRedditURL() {
-		return urls[urls.length - 1];
-	}
-
-	@Override
 	public String getTableHeader() {
 		return header;
 	}

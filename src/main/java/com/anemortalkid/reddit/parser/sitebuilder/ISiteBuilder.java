@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.MessageFormat;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -39,7 +40,11 @@ public interface ISiteBuilder<T> {
 	 */
 	String getTitle();
 
-	String getRedditURL();
+	default String getRedditURL() {
+		return MessageFormat.format(
+				"https://www.reddit.com/r/DnDBehindTheScreen/search?q=flair%3A%2710K+Event%27+%2B+title%3A%27{0}%27&restrict_sr=on&sort=new&t=all",
+				getTitle());
+	}
 
 	String getTableHeader();
 
