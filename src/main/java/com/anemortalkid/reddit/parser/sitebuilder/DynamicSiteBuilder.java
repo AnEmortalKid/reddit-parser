@@ -5,8 +5,12 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.function.Function;
 
 import org.jsoup.Jsoup;
@@ -41,19 +45,33 @@ public class DynamicSiteBuilder {
 			urlsByType.put(dt, new ArrayList<>());
 		}
 
-		Document document = Jsoup.connect(queryURL).userAgent("Mozilla").get();
-		Elements searchResultHeaders = document.getElementsByClass("search-result-header");
+		String urlToVisit = queryURL;
+		do {
+			Document document = Jsoup.connect(urlToVisit).userAgent("Mozilla").get();
+			Elements searchResultHeaders = document.getElementsByClass("search-result-header");
 
-		for (Element element : searchResultHeaders) {
-			Element anchor = element.children().last();
-			String linkTitle = anchor.text();
-			String url = anchor.attr("href");
-			System.out.println(linkTitle);
-			System.out.println("\t" + url);
-			DataTypes dt = DataTypes.getFromTitle(linkTitle);
-			System.out.println("DT: " + dt);
-			urlsByType.get(dt).add(url);
-		}
+			for (Element element : searchResultHeaders) {
+				Element anchor = element.children().last();
+				String linkTitle = anchor.text();
+				String url = anchor.attr("href");
+				System.out.println(linkTitle);
+				System.out.println("\t" + url);
+				DataTypes dt = DataTypes.getFromTitle(linkTitle);
+				System.out.println("DT: " + dt);
+				urlsByType.get(dt).add(url);
+			}
+
+			// check if there's a next element
+			Elements nextElems = document.getElementsByAttributeValueContaining("rel", "next");
+			if (nextElems != null && !nextElems.isEmpty()) {
+				Element nextElem = nextElems.first();
+				String nextURL = nextElem.attr("href");
+				urlToVisit = nextURL;
+			} else {
+				urlToVisit = null;
+			}
+
+		} while (urlToVisit != null);
 
 		EnumMap<DataTypes, Integer> siteCount = new EnumMap<>(DataTypes.class);
 
@@ -76,6 +94,10 @@ public class DynamicSiteBuilder {
 			System.out.println(entry.getKey() + " used " + entry.getValue());
 		}
 
+		writeDnDIndex(siteBuilders);
+	}
+
+	private static void writeDnDIndex(List<ISiteBuilder<?>> siteBuilders) {
 		StringBuilder lastUpdated = new StringBuilder();
 		lastUpdated.append("<p>Last updated: " + new Date() + "</p>\n");
 		siteBuilders.forEach(sb -> {
