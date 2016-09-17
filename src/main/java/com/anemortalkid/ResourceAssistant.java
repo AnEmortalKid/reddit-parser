@@ -78,13 +78,13 @@ public class ResourceAssistant {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
 
-			try (PrintWriter textWritter = new PrintWriter(file);) {
-				textWritter.write(data);
-				textWritter.flush();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		try (PrintWriter textWritter = new PrintWriter(file);) {
+			textWritter.write(data);
+			textWritter.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
