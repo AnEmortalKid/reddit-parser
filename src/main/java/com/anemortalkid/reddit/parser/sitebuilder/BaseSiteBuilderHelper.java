@@ -1,16 +1,16 @@
 package com.anemortalkid.reddit.parser.sitebuilder;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
 import java.text.DecimalFormat;
 import java.text.MessageFormat;
 import java.util.Date;
 import java.util.List;
 
+import com.anemortalkid.ResourceAssistant;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
 /**
@@ -22,16 +22,12 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
  */
 public class BaseSiteBuilderHelper {
 
-	private static final String END_JAVASCRIPT_FUNCTIONS = "src/main/resources/site_resources/javascriptfunctions.txt";
-
 	private static final String DIV_CLASS_ROW = "<div class=\"row\">";
 	private String indexLocation;
 	private List<ScrubbedDataObject> tableData;
 	private String redditUrl;
 	private String headerTag;
 	private String pageTitle;
-
-	private int innerTableCount = 0;
 
 	/**
 	 * 
@@ -82,15 +78,28 @@ public class BaseSiteBuilderHelper {
 	 */
 	public void buildHTML() {
 
+		StringBuilder headBuilder = new StringBuilder();
+		String imports = getDataFromFile(SiteResourcesConstants.JQUERY_IMPORTS);
+		headBuilder.append(imports);
+		headBuilder.append("\n");
+
 		String meta = "<meta name=viewport content=\"width=device-width, initial-scale=1\">";
+		headBuilder.append(meta);
+		headBuilder.append("\n");
 		String title = wrapInTitle("10K " + pageTitle);
-		String bootstrapLinks = "\n<link href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css\" rel=\"stylesheet\">\n"
-				+ "<link href=\"//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/slate/bootstrap.min.css\" rel=\"stylesheet\">";
-		String headElement = wrapInHead(meta + "\n" + title + bootstrapLinks);
+		headBuilder.append(title);
+		headBuilder.append("\n");
+		headBuilder.append(getDataFromFile(SiteResourcesConstants.BOOT_STRAP_IMPORTS));
+		String headElement = wrapInHead(headBuilder.toString());
 
 		String bodyElement = buildBody();
 
 		String html = wrapInHTML(headElement + "\n" + bodyElement);
+
+		File rootDirectory = new File(indexLocation);
+		if (rootDirectory.exists()) {
+			rootDirectory.mkdirs();
+		}
 
 		File indexFile = new File(indexLocation + "index.html");
 		if (!indexFile.exists()) {
@@ -114,14 +123,14 @@ public class BaseSiteBuilderHelper {
 
 	private String buildBody() {
 		StringBuilder bob = new StringBuilder();
-		String bodyStart = "<body>\n";
+		String bodyStart = "<body onload=\"setSorter()\">\n";
 		bob.append(bodyStart);
 
 		String containerData = getContainerData();
 		bob.append(containerData);
 
 		bob.append("</div>\n");
-		bob.append(getDataFromFile(END_JAVASCRIPT_FUNCTIONS));
+		bob.append(getDataFromFile(SiteResourcesConstants.END_JAVASCRIPT_FUNCTIONS));
 		String bodyEnd = "</body>";
 		bob.append(bodyEnd);
 
@@ -189,6 +198,10 @@ public class BaseSiteBuilderHelper {
 			return "villains.jpg";
 		case "Rooms":
 			return "rooms.png";
+		case "Apocalypses":
+			return "rooms.png";
+		case "Books":
+			return "rooms.png";
 		default:
 			throw new UnsupportedOperationException("No file matched with: " + pageTitle);
 		}
@@ -225,16 +238,20 @@ public class BaseSiteBuilderHelper {
 
 	private String getTable() {
 		StringBuilder bob = new StringBuilder();
-		bob.append("<table class=\"table table-striped\" id=\"table\">\n");
+		bob.append("<table class=\"table table-striped tablesorter\" id=\"table\">\n");
 
 		// append header
+		bob.append("<thead>\n");
 		bob.append(headerTag);
 		bob.append("\n");
+		bob.append("</thead>\n");
 
+		bob.append("<tbody>");
 		StringBuilder tableDataBuilder = new StringBuilder();
 		for (ScrubbedDataObject datO : tableData)
 			tableDataBuilder.append(datO.toHTMLTableRow());
 		bob.append(tableDataBuilder.toString());
+		bob.append("</tbody>");
 		bob.append("\n</table>\n");
 		return bob.toString();
 	}
@@ -261,17 +278,11 @@ public class BaseSiteBuilderHelper {
 	private static String getDataFromFile(String fileName) {
 		StringBuilder bob = new StringBuilder();
 
-		File checkboxFile = new File(fileName);
-		try (BufferedReader br = new BufferedReader(new FileReader(checkboxFile))) {
-			String line;
-			while ((line = br.readLine()) != null) {
-				bob.append(line + "\n");
-			}
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		try {
+			List<String> lines = ResourceAssistant.INSTANCE.getLines(fileName);
+			lines.forEach(line -> bob.append(line + "\n"));
+		} catch (IOException | URISyntaxException e1) {
+			e1.printStackTrace();
 		}
 		return bob.toString();
 	}

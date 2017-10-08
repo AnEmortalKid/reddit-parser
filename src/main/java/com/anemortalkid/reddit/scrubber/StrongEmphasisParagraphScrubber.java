@@ -25,7 +25,7 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
  * @author JMonterrubio
  *
  */
-public class StrongEmphasisParagraphScrubber implements IScrubber {
+public class StrongEmphasisParagraphScrubber implements Scrubber {
 
 	private String url;
 	private String[] urls;

@@ -1,9 +1,6 @@
 package com.anemortalkid.reddit.scrubber.dataobject;
 
 import java.util.Arrays;
-import java.util.regex.Pattern;
-
-import com.sun.org.apache.xerces.internal.impl.xs.identity.Selector.Matcher;
 
 /**
  * A {@link ScrubbedDataObject} which takes an array of strings, the first
@@ -55,6 +52,11 @@ public class MultiDataObject implements ScrubbedDataObject {
 	@Override
 	public String toString() {
 		return Arrays.toString(dataArgs);
+	}
+
+	@Override
+	public String[] getDataArguments() {
+		return dataArgs;
 	}
 
 }

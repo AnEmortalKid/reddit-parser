@@ -13,7 +13,7 @@ import org.jsoup.select.Elements;
 import com.anemortalkid.reddit.scrubber.dataobject.MultiDataObject;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
-public class StrongParagraphEntryScrubber implements IScrubber {
+public class StrongParagraphEntryScrubber implements Scrubber {
 
 	private Set<String> ignorePhrases;
 	private String[] urls;

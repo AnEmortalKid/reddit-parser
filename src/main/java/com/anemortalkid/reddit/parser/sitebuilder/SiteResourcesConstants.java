@@ -12,7 +12,7 @@ public interface SiteResourcesConstants {
 	/**
 	 * Root Folder of every site resource file
 	 */
-	static final String PATH = "src/main/resources/site_resources/";
+	static final String PATH = "site_resources/";
 
 	/**
 	 * <pre>
@@ -49,7 +49,22 @@ public interface SiteResourcesConstants {
 	 * Contains code for the caseSensitive, caseInsensitive, checkFilter
 	 * functions as well as the function on keyUp for the search text field.
 	 */
-	static final String END_JAVASCRIPT_FUNCTIONS = PATH
-			+ "javascriptfunctions.txt";
+	static final String END_JAVASCRIPT_FUNCTIONS = PATH + "javascriptfunctions.txt";
+
+	/**
+	 * Contains the link stylesheet declarations for bootstrap
+	 */
+	static final String BOOT_STRAP_IMPORTS = PATH + "bootstrapimports.txt";
+
+	/**
+	 * Contains the script declarations for jquery and jquery.tablesorter
+	 */
+	static final String JQUERY_IMPORTS = PATH + "jqueryimports.txt";
+
+	/**
+	 * A templated index file for the DND 10K Index with the last updated place
+	 * holder.
+	 */
+	static final String DND_INDEX_TEMPLATE = PATH + "dnd-index.html";
 
 }
