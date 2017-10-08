@@ -4,11 +4,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
-import com.anemortalkid.reddit.parser.sitebuilder.ISiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.SiteBuilder;
 import com.anemortalkid.reddit.scrubber.StrongEmphasisParagraphScrubber;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
-public class TreasureSiteBuilder implements ISiteBuilder<TreasureData> {
+public class TreasureSiteBuilder implements SiteBuilder<TreasureData> {
 
 	private static String[] urls = { //
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3f633m/lets_make_10000_treasures/",

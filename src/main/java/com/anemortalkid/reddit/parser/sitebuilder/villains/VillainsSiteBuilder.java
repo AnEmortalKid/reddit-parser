@@ -4,11 +4,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
-import com.anemortalkid.reddit.parser.sitebuilder.ISiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.SiteBuilder;
 import com.anemortalkid.reddit.scrubber.StrongParagraphScrubber;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
-public class VillainsSiteBuilder implements ISiteBuilder<VillainData> {
+public class VillainsSiteBuilder implements SiteBuilder<VillainData> {
 
 	private static String[] urls = { //
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3fmnhb/10000_villains/",

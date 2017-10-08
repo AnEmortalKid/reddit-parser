@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
-import com.anemortalkid.reddit.parser.sitebuilder.ISiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.SiteBuilder;
 import com.anemortalkid.reddit.scrubber.StrongEmphasisParagraphScrubber;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
@@ -13,7 +13,7 @@ import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
  * @author JMonterrubio
  *
  */
-public class LocationsSiteBuilder implements ISiteBuilder<LocationData> {
+public class LocationsSiteBuilder implements SiteBuilder<LocationData> {
 
 	private static String[] urls = { //
 			"http://www.reddit.com/r/DnDBehindTheScreen/comments/3f0lzl/lets_make_10_000_locations/",

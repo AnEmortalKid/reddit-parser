@@ -4,11 +4,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
-import com.anemortalkid.reddit.parser.sitebuilder.ISiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.SiteBuilder;
 import com.anemortalkid.reddit.scrubber.StrongEmphasisParagraphScrubber;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
-public class NPCSiteBuilder implements ISiteBuilder<NPCData> {
+public class NPCSiteBuilder implements SiteBuilder<NPCData> {
 
 	private static String[] urls = {
 			"https://www.reddit.com/r/DnDBehindTheScreen/comments/3er483/lets_make_10000_npcs/",

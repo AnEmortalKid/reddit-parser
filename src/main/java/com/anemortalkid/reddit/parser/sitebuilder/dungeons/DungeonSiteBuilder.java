@@ -4,11 +4,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
-import com.anemortalkid.reddit.parser.sitebuilder.ISiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.SiteBuilder;
 import com.anemortalkid.reddit.scrubber.StrongEmphasisParagraphScrubber;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
-public class DungeonSiteBuilder implements ISiteBuilder<DungeonData> {
+public class DungeonSiteBuilder implements SiteBuilder<DungeonData> {
 
 	private static final String QUERY_URL = "https://www.reddit.com/r/DnDBehindTheScreen/search?q=flair%3A%2710K+Event%27+%2B+title%3A%27Locations%27&restrict_sr=on&sort=new&t=all";
 	

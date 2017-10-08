@@ -198,6 +198,10 @@ public class BaseSiteBuilderHelper {
 			return "villains.jpg";
 		case "Rooms":
 			return "rooms.png";
+		case "Apocalypses":
+			return "rooms.png";
+		case "Books":
+			return "rooms.png";
 		default:
 			throw new UnsupportedOperationException("No file matched with: " + pageTitle);
 		}

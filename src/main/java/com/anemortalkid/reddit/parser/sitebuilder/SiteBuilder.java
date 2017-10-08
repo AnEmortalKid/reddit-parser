@@ -10,16 +10,17 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
+import com.anemortalkid.sitebuilder.utils.JsonUtils;
 import com.google.gson.Gson;
 
 /**
- * An {@link ISiteBuilder} can build an index.html file for a specific reddit
+ * An {@link SiteBuilder} can build an index.html file for a specific reddit
  * url
  * 
  * @author JMonterrubio
  *
  */
-public interface ISiteBuilder<T> {
+public interface SiteBuilder<T> {
 
 	static String OUTPUT_DIR_PROPERTY_NAME = "output.dir";
 	static String OUTPUT_DIR = System.getProperty(OUTPUT_DIR_PROPERTY_NAME);
@@ -31,21 +32,27 @@ public interface ISiteBuilder<T> {
 	void scrubData();
 
 	/**
-	 * @return
+	 * @return the number of items scrubbed
 	 */
 	int scrubbedCount();
 
 	/**
-	 * @return
+	 * @return the title for the type of T that this site builder builds
 	 */
 	String getTitle();
 
+	/**
+	 * @return a query url to find events of this type
+	 */
 	default String getRedditURL() {
 		return MessageFormat.format(
 				"https://www.reddit.com/r/DnDBehindTheScreen/search?q=flair%3A%2710K+Event%27+%2B+title%3A%27{0}%27&restrict_sr=on&sort=new&t=all",
 				getTitle());
 	}
 
+	/**
+	 * @return an html text with the header for the table for the site to generate
+	 */
 	String getTableHeader();
 
 	/**
@@ -92,24 +99,7 @@ public interface ISiteBuilder<T> {
 	}
 
 	default void writeJsonDataToFiles(String fileLocationAndName, List<T> jsonData) {
-		File jsonFile = new File(fileLocationAndName + ".json");
-		if (!jsonFile.exists()) {
-			try {
-				jsonFile.createNewFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
-		try (FileOutputStream fos = new FileOutputStream(jsonFile)) {
-			System.out.println("Writing json file: " + fileLocationAndName + ".json");
-			Gson gson = new Gson();
-			String jsonText = gson.toJson(jsonData);
-			fos.write(jsonText.getBytes());
-			fos.flush();
-		} catch (IOException io) {
-			io.printStackTrace();
-		}
+		JsonUtils.writeJsonDataToFiles(fileLocationAndName, jsonData);
 	}
 
 	default void writeDataToFiles(String directory, List<ScrubbedDataObject> data) {

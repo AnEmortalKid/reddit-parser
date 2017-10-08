@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
 
-import com.anemortalkid.reddit.parser.sitebuilder.ISiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.SiteBuilder;
 import com.anemortalkid.reddit.scrubber.StrongParagraphEntryScrubber;
 import com.anemortalkid.reddit.scrubber.dataobject.ScrubbedDataObject;
 
-public class RoomSiteBuilder implements ISiteBuilder<RoomData> {
+public class RoomSiteBuilder implements SiteBuilder<RoomData> {
 
-	private static final String QUERY_URL = "https://www.reddit.com/r/DnDBehindTheScreen/search?q=flair%3A%2710K+Event%27+%2B+title%3A%27Room%27&restrict_sr=on&sort=new&t=all";
+	private static final String QUERY_URL = "https://www.reddit.com/r/DnDBehindTheScreen/search?q=flair%3A%2710k+Event%27+and+title%3A%27Room%27&restrict_sr=on&sort=new&t=all";
 
 	private static String tableHeaderHTML = "<tr><th align=\"center\">Room Name</th><th align=\"center\">Room Description</th></tr>";
 
@@ -62,11 +62,6 @@ public class RoomSiteBuilder implements ISiteBuilder<RoomData> {
 		return data;
 	}
 
-	public static void main(String[] args) {
-		RoomSiteBuilder builder = new RoomSiteBuilder();
-		builder.buildSite();
-	}
-
 	@Override
 	public void scrubData() {
 		data = scrubber.scrubData();
@@ -82,4 +77,8 @@ public class RoomSiteBuilder implements ISiteBuilder<RoomData> {
 		return data == null ? -1 : data.size();
 	}
 
+	public static void main(String[] args) {
+		RoomSiteBuilder builder = new RoomSiteBuilder();
+		builder.buildSite();
+	}
 }

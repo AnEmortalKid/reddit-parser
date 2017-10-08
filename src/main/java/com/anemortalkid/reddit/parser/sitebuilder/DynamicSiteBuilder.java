@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.function.Function;
 
 import org.jsoup.Jsoup;
@@ -22,13 +23,23 @@ import com.anemortalkid.ResourceAssistant;
 
 public class DynamicSiteBuilder {
 
-	private static final String queryURL = "https://www.reddit.com/r/DnDBehindTheScreen/search?q=flair%3A%2710K+Event%27&restrict_sr=on&sort=new&t=all";
+	private static final int WAIT_BEFORE_NEXT_URL_MS = 3000;
 
-	private static final EnumMap<DataTypes, List<String>> urlsByType = new EnumMap<>(DataTypes.class);
+	/**
+	 * Since we keep changing the flair, we'll have to try to update the query to tag newer posts.
+	 */
+	private static final String[] searchQueryURLS = {
+			"https://www.reddit.com/r/DnDBehindTheScreen/search?q=flair%3A%2710K%27&restrict_sr=on&sort=new&t=all",
+			"https://www.reddit.com/r/DnDBehindTheScreen/search?q=flair%3A%2710K+Event%27&restrict_sr=on&sort=new&t=all",
+			"https://www.reddit.com/r/DnDBehindTheScreen/search?q=flair%3A%27Event%27+and+title%3A%2710k%27&restrict_sr=on&sort=new&t=all"
+
+	};
+	
+	private static final EnumMap<DataTypes, Set<String>> urlsByType = new EnumMap<>(DataTypes.class);
 
 	private static String INFO_TEMPLATE = "<p><b>{0}</b> <a href=\"./{1}/\">{2}</a></p>";
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 
 		if (args != null && args.length > 0) {
 			String outputDir = args[0];
@@ -36,16 +47,46 @@ public class DynamicSiteBuilder {
 				outputDir = outputDir + "/";
 			}
 
-			System.setProperty(ISiteBuilder.OUTPUT_DIR_PROPERTY_NAME, System.getProperty("user.dir") + "/" + outputDir);
-			System.out.println("Property " + ISiteBuilder.OUTPUT_DIR_PROPERTY_NAME + "="
-					+ System.getProperty(ISiteBuilder.OUTPUT_DIR_PROPERTY_NAME));
+			System.setProperty(SiteBuilder.OUTPUT_DIR_PROPERTY_NAME, System.getProperty("user.dir") + "/" + outputDir);
+			System.out.println("Property " + SiteBuilder.OUTPUT_DIR_PROPERTY_NAME + "="
+					+ System.getProperty(SiteBuilder.OUTPUT_DIR_PROPERTY_NAME));
 		}
 
 		for (DataTypes dt : DataTypes.values()) {
-			urlsByType.put(dt, new ArrayList<>());
+			urlsByType.putIfAbsent(dt, new TreeSet<>());
 		}
 
-		String urlToVisit = queryURL;
+		for (String searchQuery : searchQueryURLS) {
+			extractUrlsFromQuery(searchQuery);
+		}
+
+		EnumMap<DataTypes, Integer> siteCount = new EnumMap<>(DataTypes.class);
+
+		List<SiteBuilder<?>> siteBuilders = new ArrayList<>();
+		for (Entry<DataTypes, Set<String>> entry : urlsByType.entrySet()) {
+			DataTypes dataType = entry.getKey();
+			Set<String> siteURLs = entry.getValue();
+			List<String> orderedUrls = new ArrayList<>(siteURLs);
+			Function<List<String>, SiteBuilder<?>> factory = dataType.getSiteFactory();
+			if (factory != null) {
+				SiteBuilder<?> siteBuilder = factory.apply(orderedUrls);
+				siteBuilders.add(siteBuilder);
+				siteBuilder.buildSite();
+				siteCount.put(dataType, orderedUrls.size());
+			} else {
+				System.out.println("Havent done " + dataType);
+			}
+		}
+
+		for (Entry<DataTypes, Integer> entry : siteCount.entrySet()) {
+			System.out.println(entry.getKey() + " used " + entry.getValue());
+		}
+
+		writeDnDIndex(siteBuilders);
+	}
+
+	private static void extractUrlsFromQuery(String searchQuery) throws IOException, InterruptedException {
+		String urlToVisit = searchQuery;
 		do {
 			Document document = Jsoup.connect(urlToVisit).userAgent("Mozilla").get();
 			Elements searchResultHeaders = document.getElementsByClass("search-result-header");
@@ -70,34 +111,14 @@ public class DynamicSiteBuilder {
 			} else {
 				urlToVisit = null;
 			}
+			
+			System.out.println("Sleeping for" + WAIT_BEFORE_NEXT_URL_MS);
+			Thread.sleep(WAIT_BEFORE_NEXT_URL_MS);
 
 		} while (urlToVisit != null);
-
-		EnumMap<DataTypes, Integer> siteCount = new EnumMap<>(DataTypes.class);
-
-		List<ISiteBuilder<?>> siteBuilders = new ArrayList<>();
-		for (Entry<DataTypes, List<String>> entry : urlsByType.entrySet()) {
-			DataTypes dataType = entry.getKey();
-			List<String> siteURLs = entry.getValue();
-			Function<List<String>, ISiteBuilder<?>> factory = dataType.getSiteFactory();
-			if (factory != null) {
-				ISiteBuilder<?> siteBuilder = factory.apply(siteURLs);
-				siteBuilders.add(siteBuilder);
-				siteBuilder.buildSite();
-				siteCount.put(dataType, siteURLs.size());
-			} else {
-				System.out.println("Havent done " + dataType);
-			}
-		}
-
-		for (Entry<DataTypes, Integer> entry : siteCount.entrySet()) {
-			System.out.println(entry.getKey() + " used " + entry.getValue());
-		}
-
-		writeDnDIndex(siteBuilders);
 	}
 
-	private static void writeDnDIndex(List<ISiteBuilder<?>> siteBuilders) {
+	private static void writeDnDIndex(List<SiteBuilder<?>> siteBuilders) {
 		StringBuilder lastUpdated = new StringBuilder();
 		lastUpdated.append("<p>Last updated: " + new Date() + "</p>\n");
 		siteBuilders.forEach(sb -> {
@@ -110,7 +131,7 @@ public class DynamicSiteBuilder {
 		String dndIndexContent = MessageFormat.format(dndIndexTemplate, lastUpdated.toString());
 		System.out.println("DND Index Content:" + dndIndexContent);
 
-		String indexLocation = ISiteBuilder.BASE_RESOURCES + "dnd-index.html";
+		String indexLocation = SiteBuilder.BASE_RESOURCES + "dnd-index.html";
 		ResourceAssistant.INSTANCE.writeToFile(indexLocation, dndIndexContent);
 	}
 
