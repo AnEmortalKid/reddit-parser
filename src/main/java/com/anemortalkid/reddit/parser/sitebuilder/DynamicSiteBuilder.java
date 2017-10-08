@@ -21,12 +21,21 @@ import org.jsoup.select.Elements;
 
 import com.anemortalkid.ResourceAssistant;
 
+/**
+ * Tries to find the posts related to each subtype from {@link DataTypes} using
+ * reddit search queries. Once each related site has been found, the specific
+ * site builder for the type should be invoked.
+ * 
+ * @author JMonterrubio
+ *
+ */
 public class DynamicSiteBuilder {
 
 	private static final int WAIT_BEFORE_NEXT_URL_MS = 3000;
 
 	/**
-	 * Since we keep changing the flair, we'll have to try to update the query to tag newer posts.
+	 * Since we keep changing the flair, we'll have to try to update the query
+	 * to tag newer posts.
 	 */
 	private static final String[] searchQueryURLS = {
 			"https://www.reddit.com/r/DnDBehindTheScreen/search?q=flair%3A%2710K%27&restrict_sr=on&sort=new&t=all",
@@ -34,7 +43,7 @@ public class DynamicSiteBuilder {
 			"https://www.reddit.com/r/DnDBehindTheScreen/search?q=flair%3A%27Event%27+and+title%3A%2710k%27&restrict_sr=on&sort=new&t=all"
 
 	};
-	
+
 	private static final EnumMap<DataTypes, Set<String>> urlsByType = new EnumMap<>(DataTypes.class);
 
 	private static String INFO_TEMPLATE = "<p><b>{0}</b> <a href=\"./{1}/\">{2}</a></p>";
@@ -111,7 +120,7 @@ public class DynamicSiteBuilder {
 			} else {
 				urlToVisit = null;
 			}
-			
+
 			System.out.println("Sleeping for" + WAIT_BEFORE_NEXT_URL_MS);
 			Thread.sleep(WAIT_BEFORE_NEXT_URL_MS);
 
