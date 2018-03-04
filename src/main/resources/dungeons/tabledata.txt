@@ -864,16 +864,6 @@
 <td> Skal'Tor Resh was once among the most powerful individual on the face of the world. His tactical capabilities were unequalled, yet they paled in comparison with his mastery of the arcane arts. His desire for power led him into making one of the most deeply loathed deals ever known - he sold the souls of the whole of his nation in exchange for untold power as the champion of Hell. In such a fashion were the tieflings created, and in their anger they overthrew him. He was interred in this almighty cavernous crypt, designed as much to keep people out as to keep him in.</td>
 </tr>
 <tr>
-<td>Sacred Cenote</td>
-<td>A Cenote that used to be a place of worship</td>
-<td> As you descend the cool, wet stone steps into the cenote you can feel an unnatural presence surrounding you. You make it to the bottom and see an altar on the other side of a murky pool of water. A series of stone platforms seems to provide safe passage across the pool. Suddenly the water erupts violently and lashes out at you. What do you do?</td>
-</tr>
-<tr>
-<td>The Crypt</td>
-<td>A crypt underneath a graveyard.</td>
-<td> The entrance to the bottom level of the crypt is accessed through a secret tunnel underneath the only tombs sarcophagus. Upon descending the stairs you find yourself is a sort of waiting room with a portion of the west wall collapsed. Going through the collapsed wall you enter a natural cavern with a pool of water that leads to the natural cavern to the north. Heading north from the entrance to the bottom level is a hallway with sarcophagi lining the walls in alcoves. Continuing north you encounter a chapel to the dark gods and another collapsed wall leading to natural caverns. Heading down the staircase to the east you are faced with two options. South leads to a room lined with cells. North leads to what appears to be a room for performing dark rituals. There is also a staircase that leads to a hidden exit on the surface.</td>
-</tr>
-<tr>
 <td>Ancient Blood God Temple</td>
 <td>Abandoned Temple</td>
 <td> A long since forgotten religion devoted to blood left this temple and it was reclaimed by nature, the inside is relatively untouched. A simple layout, there are locked doors controlled by puzzles involving blood or similar fluid.</td>

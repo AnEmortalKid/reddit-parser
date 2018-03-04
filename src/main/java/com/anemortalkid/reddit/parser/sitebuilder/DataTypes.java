@@ -9,6 +9,7 @@ import com.anemortalkid.reddit.parser.sitebuilder.dungeons.DungeonSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.locations.LocationsSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.mysteries.MysteriesSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.npcs.NPCSiteBuilder;
+import com.anemortalkid.reddit.parser.sitebuilder.partyfoods.PartyFoodSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.plothooks.PlothooksSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.rooms.RoomSiteBuilder;
 import com.anemortalkid.reddit.parser.sitebuilder.treasures.TreasureSiteBuilder;
@@ -24,8 +25,10 @@ public enum DataTypes {
 	LOCATIONS(LocationsSiteBuilder::new, "Locations"), //
 	NPCS(NPCSiteBuilder::new, "NPCs", "Assassination Instructors"), //
 	ROOMS(RoomSiteBuilder::new, "Rooms"), //
-	APOCALYPSES(ApocalypseSiteBuilder::new, "Apocalypses"),
-	BOOKS(BookSiteBuilder::new, "Books", "Book Titles");
+	APOCALYPSES(ApocalypseSiteBuilder::new, "Apocalypses"), //
+	BOOKS(BookSiteBuilder::new, "Books", "Book Titles"), //
+	PARTY_FOODS(PartyFoodSiteBuilder::new, "Party Foods"),//
+	;
 
 	private String[] keyWords;
 	private Function<List<String>, SiteBuilder<?>> factory;

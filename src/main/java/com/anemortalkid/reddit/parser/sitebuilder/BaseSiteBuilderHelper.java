@@ -202,6 +202,9 @@ public class BaseSiteBuilderHelper {
 			return "rooms.png";
 		case "Books":
 			return "rooms.png";
+		case "Party Foods":
+				return "rooms.png";
+			//TODO add party foods
 		default:
 			throw new UnsupportedOperationException("No file matched with: " + pageTitle);
 		}
